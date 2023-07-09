@@ -1,0 +1,59 @@
+dataset: torch/cifar10
+num_classes: 10
+img_size: 32
+mean:
+    - 0.4914
+    - 0.4822
+    - 0.4465
+std:
+    - 0.2470
+    - 0.2435
+    - 0.2616
+crop_pct: 1.0
+scale:
+    - 0.8
+    - 1.0
+interpolation: bicubic
+train_interpolation: random
+aa: rand-m9-mstd0.5-inc1
+mixup: 0.8
+mixup_off_epoch: 175
+mixup_prob: 1.0
+mixup_mode: batch
+mixup_switch_prob: 0.5
+cutmix: 1.0
+reprob: 0.25
+remode: pixel
+amp: True
+batch_size: 128
+lr: 55e-5
+min_lr: 1e-5
+sched: cosine
+weight_decay: 6e-2
+epochs: 300
+cooldown_epochs: 10
+warmup_epochs: 10
+warmup_lr: 0.00001
+opt: adamw
+smoothing: 0.1
+workers: 8
+as_enable: False
+as_mode: "PerChlMPLn"
+as_patterns: "4:1"
+qmodules:
+  - "stages.0.blocks.0.mlp.fc1"
+  - "stages.0.blocks.0.mlp.fc2"
+  - "stages.0.blocks.1.mlp.fc1"
+  - "stages.0.blocks.1.mlp.fc2"
+  - "stages.1.blocks.0.mlp.fc1"
+  - "stages.1.blocks.0.mlp.fc2"
+  - "stages.1.blocks.1.mlp.fc1"
+  - "stages.1.blocks.1.mlp.fc2"
+  - "stages.2.blocks.0.mlp.fc1"
+  - "stages.2.blocks.0.mlp.fc2"
+  - "stages.2.blocks.1.mlp.fc1"
+  - "stages.2.blocks.1.mlp.fc2"
+  - "stages.3.blocks.0.mlp.fc1"
+  - "stages.3.blocks.0.mlp.fc2"
+  - "stages.3.blocks.1.mlp.fc1"
+  - "stages.3.blocks.1.mlp.fc2"
