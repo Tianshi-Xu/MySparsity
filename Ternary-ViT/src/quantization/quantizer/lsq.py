@@ -37,7 +37,7 @@ class LsqQuantizer(Quantizer):
         symmetric=False,
         per_channel=True,
         normalize_first=False,
-        p2_round_scale=True,
+        p2_round_scale=False,
         **kwargs,
     ):
         super().__init__(
@@ -61,16 +61,12 @@ class LsqQuantizer(Quantizer):
             s_grad_scale = 1.0 / ((self.thd_pos * x.numel()) ** 0.5)
         else:
             s_grad_scale = 1.0 / ((self.thd_pos * x.numel()) ** 0.5)
+        s_scale = grad_scale(clip(self.s, torch.tensor(self.eps).float().to(self.s.device)), s_grad_scale)
+        # s_scale = grad_scale(self.s, s_grad_scale)
 
-        s = clip(self.s, torch.tensor(self.eps).float().to(self.s.device))
-
-        # 这里为了模拟硬件，把scale限制为2次幂
+        # round to power-of-2
         if self.p2_round_scale:
-            s = round_p2(self.s)
-
-        # s_scale = grad_scale(clip(s, torch.tensor(self.eps).float().to(self.s.device)), s_grad_scale)
-        s_scale = grad_scale(s, s_grad_scale*0.1)
-        #s_scale = grad_scale(s, s_grad_scale)
+            s_scale = round_p2(s_scale)
 
         x = x / s_scale
         if self.bit == 1 and not self.all_positive:
@@ -89,5 +85,4 @@ class LsqQuantizer(Quantizer):
             f"all_positive={self.all_positive}, "
             f"symmetric={self.symmetric}, "
             f"per_channel={self.per_channel}"
-            f"p2_round_scale={self.p2_round_scale}"
         )

@@ -40,6 +40,7 @@ def set_module_by_name(model, module_name, module):
 def replace_module_by_qmodule(model, qconfigs):
     for name, cfg in qconfigs.items():
         module = get_module_by_name(model, name)
+        print(cfg)
         if "down" in name or "xts" in name:
              qmodule = QMODULE_MAPPINGS[type(module)](
             module,
@@ -70,6 +71,7 @@ def register_act_quant_hook(model, qconfigs):
     for name, cfg in qconfigs.items():
         if cfg is not None:
             module = get_module_by_name(model, name)
+            print(cfg.get("act_q", cfg))
             quan_a_fn = build_quantizer(cfg.get("act_q", cfg))
             module.quan_a_fn = quan_a_fn
             module.register_forward_hook(quant_act_hook)

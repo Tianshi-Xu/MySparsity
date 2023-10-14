@@ -124,7 +124,7 @@ def cifar100_mobilenetv2(pretrained=False, **kwargs):
 
 @register_model
 def tinyimagenet_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_tiny(200,64,1.4)
+    model=mobilenet_tiny(200,64,1)
     return model
 
 

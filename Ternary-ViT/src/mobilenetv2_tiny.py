@@ -66,7 +66,7 @@ class MobileNetV2(nn.Module):
         interverted_residual_setting = [
             # t, c, n, s
             [1, 16, 1, 1],
-            [6, 24, 2, 2],
+            [6, 24, 2, 1],
             [6, 32, 3, 2],
             [6, 64, 4, 2],
             [6, 96, 3, 1],
@@ -125,3 +125,15 @@ class MobileNetV2(nn.Module):
 def mobilenet_tiny(n_class, input_size, width_mult) -> MobileNetV2:
     model = MobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult)
     return model
+
+if __name__ == '__main__':
+    model = mobilenet_tiny(200,64,1)
+    for name, module in model.named_modules():
+        if isinstance(module, nn.Conv2d):
+            # print(name)
+            pass
+        elif isinstance(module, nn.ReLU6):
+            # print(name)
+            pass
+        elif isinstance(module, nn.BatchNorm2d):
+            print(name)

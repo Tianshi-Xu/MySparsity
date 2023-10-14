@@ -415,7 +415,6 @@ def get_qat_model(model, args):
         name = args[0]
         ret = {"wq": {}, "aq": {}}
         for arg in args[1:]:
-            # print(arg)
             val = arg.split(":")
             assert val[1] not in ret[val[0]]
             ret[val[0]][val[1]] = eval(val[2])
@@ -426,7 +425,6 @@ def get_qat_model(model, args):
     qconfigs = {}
     for m in args.qmodules:
         mod, wq, aq = _decode_args(m)
-        # print(wq)
         wqcfg = {
             "enable": args.wq_enable,
             "mode": args.wq_mode if args.wq_enable else "Identity",
@@ -439,7 +437,6 @@ def get_qat_model(model, args):
             "normalize_first": False,
         }
         wqcfg.update(wq)
-        # print(wqcfg)
         aqcfg = {
             "enable": args.aq_enable,
             "mode": args.aq_mode if args.aq_enable else "Identity",
@@ -463,7 +460,6 @@ def get_qat_model(model, args):
             "patterns": args.as_patterns,
         }
         qconfigs[mod] = {"weight_q": wqcfg, "act_q": aqcfg, "weight_s": wscfg, "act_s": ascfg}
-    # exit(0)
     qat_model = replace_module_by_qmodule(model, qconfigs)
 
     qconfigs = {}
@@ -752,38 +748,6 @@ def main(args):
         dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
 
     # create data loaders w/ augmentation pipeiine
-    train_interpolation = args.train_interpolation
-    if args.no_aug or not train_interpolation:
-        train_interpolation = data_config['interpolation']
-    loader_train = create_loader(
-        dataset_train,
-        input_size=data_config['input_size'],
-        batch_size=args.batch_size,
-        is_training=True,
-        use_prefetcher=args.prefetcher,
-        no_aug=args.no_aug,
-        re_prob=args.reprob,
-        re_mode=args.remode,
-        re_count=args.recount,
-        re_split=args.resplit,
-        scale=args.scale,
-        ratio=args.ratio,
-        hflip=args.hflip,
-        vflip=args.vflip,
-        color_jitter=args.color_jitter,
-        auto_augment=args.aa,
-        num_aug_splits=num_aug_splits,
-        interpolation=train_interpolation,
-        mean=data_config['mean'],
-        std=data_config['std'],
-        num_workers=args.workers,
-        distributed=args.distributed,
-        collate_fn=collate_fn,
-        pin_memory=args.pin_mem,
-        use_multi_epochs_loader=args.use_multi_epochs_loader
-    )
-    _logger.info(f"Trainer transform: {loader_train.dataset.transform}")
-
     loader_eval = create_loader(
         dataset_eval,
         input_size=data_config['input_size'],
@@ -800,23 +764,6 @@ def main(args):
     )
     _logger.info(f"Validate transform: {loader_eval.dataset.transform}")
 
-    # setup loss function
-    if args.jsd:
-        assert num_aug_splits > 1  # JSD only valid with aug splits set
-        train_loss_fn = JsdCrossEntropy(num_splits=num_aug_splits, smoothing=args.smoothing).cuda()
-    elif args.use_token_kd:
-        train_loss_fn = KLTokenMSELoss(alpha=args.kd_alpha, kd_type=args.kd_type)
-    elif args.use_kd:
-        train_loss_fn = KLLossSoft()
-    elif mixup_active:
-        # smoothing is handled with mixup target transform
-        train_loss_fn = SoftTargetCrossEntropy().cuda()
-    elif args.smoothing:
-        train_loss_fn = LabelSmoothingCrossEntropy(smoothing=args.smoothing).cuda()
-    else:
-        train_loss_fn = nn.CrossEntropyLoss().cuda()
-    _logger.info(f"Train loss {train_loss_fn}")
-
     # if args.use_kd:
     #     train_loss_fn = KLLossSoft(train_loss_fn, alpha=args.kd_alpha)
 
@@ -831,72 +778,9 @@ def main(args):
         validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
 
     # setup checkpoint saver and eval metric tracking
-    eval_metric = args.eval_metric
     best_metric = None
     best_epoch = None
-    saver = None
-    output_dir = None
-    if args.rank == 0:
-        if args.experiment:
-            exp_name = args.experiment
-        else:
-            exp_name = '-'.join([
-                datetime.now().strftime("%Y%m%d-%H%M%S"),
-                safe_model_name(args.model),
-                str(data_config['input_size'][-1])
-            ])
-        output_dir = get_outdir(args.output if args.output else './output/train', exp_name)
-        decreasing = True if eval_metric == 'loss' else False
-        saver = CheckpointSaver(
-            model=model, optimizer=optimizer, args=args, model_ema=model_ema, amp_scaler=loss_scaler,
-            checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing, max_history=args.checkpoint_hist)
-        with open(os.path.join(output_dir, 'args.yaml'), 'w') as f:
-            f.write(args_text)
-        with open(os.path.join(output_dir, 'model.txt'), 'w') as f:
-            f.write(str(model))
-
-    try:
-        for epoch in range(start_epoch, num_epochs):
-            if args.distributed and hasattr(loader_train.sampler, 'set_epoch'):
-                loader_train.sampler.set_epoch(epoch)
-
-            train_metrics = train_one_epoch(
-                epoch, model, loader_train, optimizer, train_loss_fn, args,
-                lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
-                amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema,
-                mixup_fn=mixup_fn, teacher=teacher)
-
-            if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
-                if args.local_rank == 0:
-                    _logger.info("Distributing BatchNorm running means and vars")
-                distribute_bn(model, args.world_size, args.dist_bn == 'reduce')
-
-            eval_metrics = validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
-
-            if model_ema is not None and not args.model_ema_force_cpu:
-                if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
-                    distribute_bn(model_ema, args.world_size, args.dist_bn == 'reduce')
-                ema_eval_metrics = validate(
-                    model_ema.module, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast,
-                    log_suffix=' (EMA)')
-                eval_metrics = ema_eval_metrics
-
-            if lr_scheduler is not None:
-                # step LR for next epoch
-                lr_scheduler.step(epoch + 1, eval_metrics[eval_metric])
-
-            if output_dir is not None:
-                update_summary(
-                    epoch, train_metrics, eval_metrics, os.path.join(output_dir, 'summary.csv'),
-                    write_header=best_metric is None, log_wandb=args.log_wandb and has_wandb)
-
-            if saver is not None:
-                # save proper checkpoint with eval metric
-                save_metric = eval_metrics[eval_metric]
-                best_metric, best_epoch = saver.save_checkpoint(epoch, metric=save_metric)
-
-    except KeyboardInterrupt:
-        pass
+            
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
@@ -1014,13 +898,20 @@ def train_one_epoch(
 
     return OrderedDict([('lr', lr), ('loss', losses_m.avg)])
 
+def check_range(model,inp,out):
+    print(out.flatten()[0:20])
+
+def hook(model,fn):
+    for name, module in model.named_modules():
+        if isinstance(module, QConv2d):
+            module.register_forward_hook(fn)
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
     batch_time_m = AverageMeter()
     losses_m = AverageMeter()
     top1_m = AverageMeter()
     top5_m = AverageMeter()
-
+    hook(model,check_range)
     model.eval()
 
     end = time.time()

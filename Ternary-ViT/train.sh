@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=1 python train.py -c configs/quantized/mbv2/tiny_w3a3.yml /home/xts/code/dataset/tiny/tiny-imagenet-200 --model tinyimagenet_mobilenetv2                                          
