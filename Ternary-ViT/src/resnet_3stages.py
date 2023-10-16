@@ -36,7 +36,7 @@ from torch.autograd import Variable
 
 try:
     import sys
-    sys.path.append("/home/mengli/third-party/pytorch-image-models")
+    sys.path.append("/home/xts/code/MySparsity/pytorch-image-models")
 
     from timm.models.registry import register_model
 except ImportError:

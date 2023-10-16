@@ -4,15 +4,14 @@ import torch.nn as nn
 
 try:
     import sys
-    sys.path.append("/home/mengli/third-party/pytorch-image-models")
+    sys.path.append("/home/xts/code/MySparsity/pytorch-image-models")
 
     from timm.models.registry import register_model
 except ImportError:
     from .registry import register_model
-
-
+# from resnet_3stages import resnet32
 __all__ = ["cifar10_resnet18", "cifar10_resnet34"]
-
+from .resnet_3stages import *
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
     """3x3 convolution with padding"""
@@ -349,3 +348,7 @@ def cifar10_resnet34(pretrained=False, progress=True, device="cpu", **kwargs):
     return _resnet(
         "resnet34", BasicBlock, [3, 4, 6, 3], pretrained, progress, device, **kwargs
     )
+
+# @register_model
+# def resnet32_cifar100(num_classes=100, **kwargs):
+#     return resnet32(num_classes=num_classes, **kwargs)

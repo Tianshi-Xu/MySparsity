@@ -130,10 +130,13 @@ if __name__ == '__main__':
     model = mobilenet_tiny(200,64,1)
     for name, module in model.named_modules():
         if isinstance(module, nn.Conv2d):
+            if module.groups !=1:
+                print(name)
             # print(name)
             pass
         elif isinstance(module, nn.ReLU6):
             # print(name)
             pass
         elif isinstance(module, nn.BatchNorm2d):
-            print(name)
+            # print(name)
+            pass

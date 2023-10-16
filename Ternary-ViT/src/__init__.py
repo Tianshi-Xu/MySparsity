@@ -9,3 +9,4 @@ from .crypto_resnet import *
 from .convnext import *
 from .mobilenetv2 import *
 from .reactnet import *
+from .resnet_3stages import *
