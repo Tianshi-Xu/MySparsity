@@ -45,7 +45,6 @@ class LsqQuantizer(Quantizer):
         )
         self.s = torch.nn.Parameter(torch.ones(1))
         self.p2_round_scale = p2_round_scale
-        self.alpha = 0.0
         # self.eps = self.register_buffer("eps", torch.tensor(1e-5).float())
 
     def init_from(self, x, *args, **kwargs):
@@ -76,7 +75,6 @@ class LsqQuantizer(Quantizer):
             x = torch.clamp(x, self.thd_neg, self.thd_pos)
             x = round_pass(x)
         x = x * s_scale
-        self.alpha = s_scale
         return x
 
     def extra_repr(self):

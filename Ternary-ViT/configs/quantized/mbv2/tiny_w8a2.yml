@@ -15,7 +15,7 @@ crop_pct: 1.0
 scale:
     - 0.8
     - 1.0
-initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/20231015-165356-tinyimagenet_mobilenetv2-64/model_best.pth.tar
+initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/20231016-120947-tinyimagenet_mobilenetv2-64/model_best.pth.tar
 interpolation: bicubic
 train_interpolation: random
 aa: rand-m9-mstd0.5-inc1
@@ -29,11 +29,11 @@ reprob: 0.25
 remode: pixel
 amp: True
 batch_size: 256
-lr: 55e-5
+lr: 35e-5
 min_lr: 1e-5
 sched: cosine
 weight_decay: 6e-2
-epochs: 200
+epochs: 400
 cooldown_epochs: 10
 warmup_epochs: 25
 warmup_lr: 0.00001

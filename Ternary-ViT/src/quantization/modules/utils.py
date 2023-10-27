@@ -40,7 +40,7 @@ def set_module_by_name(model, module_name, module):
 def replace_module_by_qmodule(model, qconfigs):
     for name, cfg in qconfigs.items():
         module = get_module_by_name(model, name)
-        print(cfg)
+        # print(cfg)
         if "down" in name or "xts" in name:
              qmodule = QMODULE_MAPPINGS[type(module)](
             module,
