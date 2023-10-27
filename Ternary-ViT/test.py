@@ -24,7 +24,7 @@ import logging
 from collections import OrderedDict
 from contextlib import suppress
 from datetime import datetime
-
+import torch.multiprocessing as mp
 import torch
 import torch.nn as nn
 import torchvision.utils
@@ -595,7 +595,7 @@ def main(args):
         model = replace_relu_by_prelu(model)
     model = get_qat_model(model, args)
     if args.initial_checkpoint != "":
-        print("OK")
+        # print("OK")
         incompatible_keys = load_checkpoint(model, args.initial_checkpoint, strict=False)
 
     if args.num_classes is None:
@@ -898,15 +898,118 @@ def train_one_epoch(
 
     return OrderedDict([('lr', lr), ('loss', losses_m.avg)])
 
-def check_range(model,inp,out):
-    print(out.flatten()[0:20])
+def worker(idx, batch_size, x_q, w_q, padded_x_q, results):
+    part_sum = torch.zeros_like(padded_x_q[0, :, :, :])
+    max_max_num, max_min_num, max_mean_num = 0, 0, 0
+    max_bit, min_bit, mean_bit = 0, 0, 0
+    # print("w_q_unique:",w_q.unique())
+    # padded_x_q_cpu = padded_x_q.cpu()
+    # w_q_cpu = w_q.cpu()
+    # print(x_q.unique())
+    for n in range(idx * batch_size, min((idx + 1) * batch_size, x_q.shape[0])): 
+        # print("n:",n)
+        for k in range(w_q.shape[0]):
+            for w in range(x_q.shape[2]):
+                for h in range(x_q.shape[3]):
+                    if w_q.shape[1] == 1:
+                        part_sum = torch.mul(padded_x_q[n, k, w:w+w_q.shape[2], h:h+w_q.shape[3]], w_q[k, 0, :, :])
+                    else:
+                        part_sum = torch.mul(padded_x_q[n, :, w:w+w_q.shape[2], h:h+w_q.shape[3]], w_q[k, :, :, :])
+                    # print("part_sum: ",part_sum)
+                    tmp_max_mean_num = torch.abs(part_sum.flatten().cumsum(0)).max()
+                    tmp_mean_bit = torch.log2(tmp_max_mean_num).ceil()
+                    mean_bit = max(mean_bit, tmp_mean_bit)
+                    max_mean_num = max(max_mean_num, tmp_max_mean_num)
+                    # print("mean_bit: ",mean_bit)
+                    negative_part_sum = part_sum[part_sum < 0]
+                    positive_part_sum = part_sum[part_sum > 0]
 
+                    tmp_max_max_num = torch.sum(torch.abs(negative_part_sum))
+                    tmp_max_max_num = max(tmp_max_max_num, torch.sum(positive_part_sum))
+                    tmp_max_bit = torch.log2(tmp_max_max_num).ceil()
+                    max_bit = max(max_bit, tmp_max_bit)
+                    max_max_num = max(max_max_num, tmp_max_max_num)
+
+                    tmp_max_min_num = torch.max(torch.abs(part_sum))
+                    tmp_max_min_num = max(tmp_max_min_num, part_sum.sum())
+                    tmp_min_bit = torch.log2(tmp_max_min_num).ceil()
+                    min_bit = max(min_bit, tmp_min_bit)
+                    max_min_num = max(max_min_num, tmp_max_min_num)
+                    
+    print("done:", idx)
+    
+    results = max(results, [max_max_num, max_min_num, max_mean_num, max_bit, min_bit, mean_bit])
+    print(results)
+    sys.stdout.flush()
+
+def check_range(model, inp, out):
+    if model.stride[0]==2:
+        return
+    try:
+        mp.set_start_method('spawn', force=True)
+        print("spawned")
+    except RuntimeError:
+        pass
+    print("In layer: ",model)
+    sys.stdout.flush()
+    new_inp = inp[0].clone().detach()
+    x_q = model.quan_a_fn(new_inp)
+    x_q_alpha = model.quan_a_fn.alpha
+    w_q = model.quan_w_fn(model.weight)
+    w_q_alpha = model.quan_w_fn.alpha
+    x_q = x_q / x_q_alpha
+    w_q = w_q / w_q_alpha
+    
+    padded_x_q = F.pad(x_q, (1, 1, 1, 1))
+    num_processes = mp.cpu_count()*3//4  # 获取可用的CPU核心数
+    batch_size = (x_q.shape[0] + num_processes - 1) // num_processes  # 每个进程处理的样本数
+    print("batch:",batch_size)
+    # 创建进程池和共享内存数组
+    pool = mp.Pool(processes=num_processes)
+    results = [0, 0, 0, 0, 0, 0]
+    
+    # 调用worker函数进行并行计算
+    jobs = []
+    for i in range(num_processes):
+        job = pool.apply_async(worker, (i, batch_size, x_q, w_q, padded_x_q, results))
+        jobs.append(job)
+    
+    # 等待所有任务完成
+    for job in jobs:
+        job.get()
+    
+    # 汇总计算结果
+    print("max num: ",results[0])
+    print("min num: ",results[1])
+    print("mean num: ",results[2])
+    print("max_bit: ",results[3])
+    print("min_bit: ",results[4])
+    print("mean_bit: ",results[5])
+
+
+def check_w_l1norm(model, inp, out):
+    if model.stride[0]==2:
+        return
+    print("In layer: ",model)
+    sys.stdout.flush()
+    new_inp = inp[0].clone().detach()
+    x_q = torch.ones_like(new_inp)
+    w_q = model.quan_w_fn(model.weight)
+    w_q_alpha = model.quan_w_fn.alpha
+    w_q = w_q / w_q_alpha
+    # print(w_q)
+    y_q = F.conv2d(x_q, torch.abs(w_q), stride=model.stride, padding=model.padding, dilation=model.dilation, groups=model.groups)
+    print("max l1 norm: ",torch.max(torch.abs(y_q)))
+    print("max l1 norm bit:",torch.log2(torch.max(torch.abs(y_q))).ceil())
+    sys.stdout.flush()
+    
 def hook(model,fn):
     for name, module in model.named_modules():
         if isinstance(module, QConv2d):
             module.register_forward_hook(fn)
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
+    # hook(model, check_w_l1norm)
     batch_time_m = AverageMeter()
     losses_m = AverageMeter()
     top1_m = AverageMeter()
@@ -964,7 +1067,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                     'Acc@5: {top5.val:>7.4f} ({top5.avg:>7.4f})'.format(
                         log_name, batch_idx, last_idx, batch_time=batch_time_m,
                         loss=losses_m, top1=top1_m, top5=top5_m))
-
+            exit(0)
     metrics = OrderedDict([('loss', losses_m.avg), ('top1', top1_m.avg), ('top5', top5_m.avg)])
 
     return metrics

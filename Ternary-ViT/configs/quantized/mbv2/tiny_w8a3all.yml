@@ -15,7 +15,8 @@ crop_pct: 1.0
 scale:
     - 0.8
     - 1.0
-initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/20231016-120947-tinyimagenet_mobilenetv2-64/model_best.pth.tar
+# initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/20231015-165356-tinyimagenet_mobilenetv2-64/model_best.pth.tar
+initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/fp32-tinyimagenet_mobilenetv2-64/model_best.pth.tar
 interpolation: bicubic
 train_interpolation: random
 aa: rand-m9-mstd0.5-inc1
@@ -28,12 +29,12 @@ cutmix: 1.0
 reprob: 0.25
 remode: pixel
 amp: True
-batch_size: 256
-lr: 35e-5
+batch_size: 200
+lr: 55e-5
 min_lr: 1e-5
 sched: cosine
 weight_decay: 6e-2
-epochs: 400
+epochs: 300
 cooldown_epochs: 10
 warmup_epochs: 25
 warmup_lr: 0.00001
@@ -42,19 +43,19 @@ smoothing: 0.1
 workers: 64
 wq_enable: True
 wq_mode: "LSQ"
-wq_bitw: 2
+wq_bitw: 8
 wq_per_channel: True
 wq_asym: False
 aq_enable: True
 aq_mode: "LSQ"
-aq_bitw: 2
+aq_bitw: 3
 aq_asym: True
 resq_enable: True
 resq_mode: "LSQ"
-resq_bitw: 8
+resq_bitw: 3
 resq_asym: True
 qmodules: 
-  - features.0.0;wq:bit:8;aq:bit:8
+  # - features.0.0;wq:bit:8;aq:bit:8
   - features.1.conv.0;wq:bit:8
   - features.1.conv.3
   - features.2.conv.0
@@ -105,7 +106,7 @@ qmodules:
   - features.17.conv.0
   - features.17.conv.3;wq:bit:8
   - features.17.conv.6
-  - classifier.1;wq:bit:8;aq:bit:8
+  # - classifier.1;wq:bit:8;aq:bit:8
   # - features.0.1
   # - features.1.conv.1
   # - features.1.conv.4
@@ -160,7 +161,7 @@ qmodules:
 # features.18.1
 
 resq_modules:
-  - "features.0.2"
+  # - "features.0.2"
   - "features.1.conv.2"
   - "features.2.conv.2"
   - "features.2.conv.5"
@@ -194,5 +195,5 @@ resq_modules:
   - features.16.conv.5
   - features.17.conv.2
   - features.17.conv.5
-  - features.18.2
+  # - features.18.2
 
