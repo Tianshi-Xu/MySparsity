@@ -1,0 +1,85 @@
+dataset: torch/cifar100
+num_classes: 100
+img_size: 32
+mean:
+    - 0.5071
+    - 0.4867
+    - 0.4408
+std:
+    - 0.2675
+    - 0.2565
+    - 0.2761
+crop_pct: 1.0
+scale:
+    - 0.8
+    - 1.0
+initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/w3a3-cifar100_resnet18-32/model_best.pth.tar
+interpolation: bicubic
+train_interpolation: random
+aa: rand-m9-mstd0.5-inc1
+mixup: 0.8
+mixup_off_epoch: 0
+mixup_prob: 1.0
+mixup_mode: batch
+mixup_switch_prob: 0.5
+cutmix: 1.0
+reprob: 0.25
+remode: pixel
+amp: True
+batch_size: 16
+lr: 6e-4
+min_lr: 1e-5
+sched: cosine
+weight_decay: 6e-2
+epochs: 500
+cooldown_epochs: 10
+warmup_epochs: 10
+warmup_lr: 0.000001
+opt: adamw
+smoothing: 0.1
+workers: 8
+wq_enable: True
+wq_mode: "LSQ"
+wq_bitw: 3
+wq_per_channel: True
+wq_asym: False
+aq_enable: True
+aq_mode: "LSQ"
+aq_bitw: 3
+aq_asym: True
+resq_enable: True
+resq_mode: "LSQ"
+resq_bitw: 8
+resq_asym: True
+qmodules: 
+  - conv1;wq:bit:8;aq:bit:8
+  - layer1.0.conv1
+  - layer1.0.conv2
+  - layer1.1.conv1
+  - layer1.1.conv2
+  - layer2.0.conv1
+  - layer2.0.conv2
+  - layer2.0.downsample.0
+  - layer2.1.conv1
+  - layer2.1.conv2
+  - layer3.0.conv1
+  - layer3.0.conv2
+  - layer3.0.downsample.0
+  - layer3.1.conv1
+  - layer3.1.conv2
+  - layer4.0.conv1
+  - layer4.0.conv2
+  - layer4.0.downsample.0
+  - layer4.1.conv1
+  - layer4.1.conv2
+  - fc;wq:bit:8;aq:bit:8
+resq_modules:
+    - layer1.0.relu2
+    - layer1.1.relu2
+    - layer2.0.relu2
+    - layer2.1.relu2
+    - layer3.0.relu2
+    - layer3.1.relu2
+    - layer4.0.relu2
+    - layer4.1.relu2
+

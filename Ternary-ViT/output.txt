@@ -1,0 +1,17 @@
+relu
+layer1.0.relu1
+layer1.0.relu2
+layer1.1.relu1
+layer1.1.relu2
+layer2.0.relu1
+layer2.0.relu2
+layer2.1.relu1
+layer2.1.relu2
+layer3.0.relu1
+layer3.0.relu2
+layer3.1.relu1
+layer3.1.relu2
+layer4.0.relu1
+layer4.0.relu2
+layer4.1.relu1
+layer4.1.relu2

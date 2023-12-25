@@ -1,0 +1,113 @@
+Warning: module Identity is treated as a zero-op.
+Warning: module BasicBlock is treated as a zero-op.
+Warning: module ResNet is treated as a zero-op.
+ResNet(
+  11.22 M, 100.000% Params, 557.26 MMac, 99.899% MACs, 
+  (conv1): Conv2d(1.73 k, 0.015% Params, 1.77 MMac, 0.317% MACs, 3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (maxpool): Identity(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+  (bn1): BatchNorm2d(128, 0.001% Params, 131.07 KMac, 0.023% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(0, 0.000% Params, 65.54 KMac, 0.012% MACs, inplace=True)
+  (layer1): Sequential(
+    147.97 k, 1.319% Params, 151.78 MMac, 27.209% MACs, 
+    (0): BasicBlock(
+      73.98 k, 0.659% Params, 75.89 MMac, 13.605% MACs, 
+      (conv1): Conv2d(36.86 k, 0.329% Params, 37.75 MMac, 6.767% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, 0.001% Params, 131.07 KMac, 0.023% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 65.54 KMac, 0.012% MACs, inplace=True)
+      (conv2): Conv2d(36.86 k, 0.329% Params, 37.75 MMac, 6.767% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, 0.001% Params, 131.07 KMac, 0.023% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 65.54 KMac, 0.012% MACs, inplace=True)
+    )
+    (1): BasicBlock(
+      73.98 k, 0.659% Params, 75.89 MMac, 13.605% MACs, 
+      (conv1): Conv2d(36.86 k, 0.329% Params, 37.75 MMac, 6.767% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, 0.001% Params, 131.07 KMac, 0.023% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 65.54 KMac, 0.012% MACs, inplace=True)
+      (conv2): Conv2d(36.86 k, 0.329% Params, 37.75 MMac, 6.767% MACs, 64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, 0.001% Params, 131.07 KMac, 0.023% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 65.54 KMac, 0.012% MACs, inplace=True)
+    )
+  )
+  (layer2): Sequential(
+    525.57 k, 4.684% Params, 134.68 MMac, 24.143% MACs, 
+    (0): BasicBlock(
+      230.14 k, 2.051% Params, 58.98 MMac, 10.574% MACs, 
+      (conv1): Conv2d(73.73 k, 0.657% Params, 18.87 MMac, 3.384% MACs, 64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, 0.002% Params, 65.54 KMac, 0.012% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 32.77 KMac, 0.006% MACs, inplace=True)
+      (conv2): Conv2d(147.46 k, 1.314% Params, 37.75 MMac, 6.767% MACs, 128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, 0.002% Params, 65.54 KMac, 0.012% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 32.77 KMac, 0.006% MACs, inplace=True)
+      (downsample): Sequential(
+        8.45 k, 0.075% Params, 2.16 MMac, 0.388% MACs, 
+        (0): Conv2d(8.19 k, 0.073% Params, 2.1 MMac, 0.376% MACs, 64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, 0.002% Params, 65.54 KMac, 0.012% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      295.42 k, 2.633% Params, 75.69 MMac, 13.569% MACs, 
+      (conv1): Conv2d(147.46 k, 1.314% Params, 37.75 MMac, 6.767% MACs, 128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, 0.002% Params, 65.54 KMac, 0.012% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 32.77 KMac, 0.006% MACs, inplace=True)
+      (conv2): Conv2d(147.46 k, 1.314% Params, 37.75 MMac, 6.767% MACs, 128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, 0.002% Params, 65.54 KMac, 0.012% MACs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 32.77 KMac, 0.006% MACs, inplace=True)
+    )
+  )
+  (layer3): Sequential(
+    2.1 M, 18.714% Params, 134.45 MMac, 24.102% MACs, 
+    (0): BasicBlock(
+      919.04 k, 8.191% Params, 58.85 MMac, 10.550% MACs, 
+      (conv1): Conv2d(294.91 k, 2.628% Params, 18.87 MMac, 3.384% MACs, 128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, 0.005% Params, 32.77 KMac, 0.006% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 16.38 KMac, 0.003% MACs, inplace=True)
+      (conv2): Conv2d(589.82 k, 5.257% Params, 37.75 MMac, 6.767% MACs, 256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, 0.005% Params, 32.77 KMac, 0.006% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 16.38 KMac, 0.003% MACs, inplace=True)
+      (downsample): Sequential(
+        33.28 k, 0.297% Params, 2.13 MMac, 0.382% MACs, 
+        (0): Conv2d(32.77 k, 0.292% Params, 2.1 MMac, 0.376% MACs, 128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, 0.005% Params, 32.77 KMac, 0.006% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      1.18 M, 10.523% Params, 75.6 MMac, 13.552% MACs, 
+      (conv1): Conv2d(589.82 k, 5.257% Params, 37.75 MMac, 6.767% MACs, 256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, 0.005% Params, 32.77 KMac, 0.006% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 16.38 KMac, 0.003% MACs, inplace=True)
+      (conv2): Conv2d(589.82 k, 5.257% Params, 37.75 MMac, 6.767% MACs, 256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, 0.005% Params, 32.77 KMac, 0.006% MACs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 16.38 KMac, 0.003% MACs, inplace=True)
+    )
+  )
+  (layer4): Sequential(
+    8.39 M, 74.810% Params, 134.33 MMac, 24.081% MACs, 
+    (0): BasicBlock(
+      3.67 M, 32.737% Params, 58.79 MMac, 10.538% MACs, 
+      (conv1): Conv2d(1.18 M, 10.514% Params, 18.87 MMac, 3.384% MACs, 256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(1.02 k, 0.009% Params, 16.38 KMac, 0.003% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 8.19 KMac, 0.001% MACs, inplace=True)
+      (conv2): Conv2d(2.36 M, 21.027% Params, 37.75 MMac, 6.767% MACs, 512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1.02 k, 0.009% Params, 16.38 KMac, 0.003% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 8.19 KMac, 0.001% MACs, inplace=True)
+      (downsample): Sequential(
+        132.1 k, 1.177% Params, 2.11 MMac, 0.379% MACs, 
+        (0): Conv2d(131.07 k, 1.168% Params, 2.1 MMac, 0.376% MACs, 256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(1.02 k, 0.009% Params, 16.38 KMac, 0.003% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      4.72 M, 42.073% Params, 75.55 MMac, 13.543% MACs, 
+      (conv1): Conv2d(2.36 M, 21.027% Params, 37.75 MMac, 6.767% MACs, 512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(1.02 k, 0.009% Params, 16.38 KMac, 0.003% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): ReLU(0, 0.000% Params, 8.19 KMac, 0.001% MACs, inplace=True)
+      (conv2): Conv2d(2.36 M, 21.027% Params, 37.75 MMac, 6.767% MACs, 512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1.02 k, 0.009% Params, 16.38 KMac, 0.003% MACs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): ReLU(0, 0.000% Params, 8.19 KMac, 0.001% MACs, inplace=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 8.19 KMac, 0.001% MACs, output_size=(1, 1))
+  (fc): Linear(51.3 k, 0.457% Params, 51.3 KMac, 0.009% MACs, in_features=512, out_features=100, bias=True)
+)
+Computational complexity:       557.83 MMac
+Number of parameters:           11.22 M 

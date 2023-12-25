@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+import os
 
 try:
     import sys
@@ -11,7 +11,7 @@ except ImportError:
     from .registry import register_model
 # from resnet_3stages import resnet32
 __all__ = ["cifar10_resnet18", "cifar10_resnet34"]
-from .resnet_3stages import *
+# from .resnet_3stages import *
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
     """3x3 convolution with padding"""
@@ -158,12 +158,17 @@ class ResNet(nn.Module):
         self.post_res_bn = post_res_bn
         use_relu=True
         # CIFAR10: kernel_size 7 -> 3, stride 2 -> 1, padding 3->1
-        if num_classes == 10 or num_classes == 100:
+        if num_classes == 10 or num_classes == 100 :
             self.conv1 = nn.Conv2d(
                 3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False
             )
             self.maxpool = nn.Identity()
             # self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        elif num_classes == 200:
+            self.conv1 = nn.Conv2d(
+                3, self.inplanes, kernel_size=3, stride=2, padding=1, bias=False
+            )
+            self.maxpool = nn.Identity()
         else:
             self.conv1 = nn.Conv2d(
                 3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False
@@ -336,7 +341,16 @@ def cifar10_resnet18(pretrained=False, progress=True, device="cpu", **kwargs):
     return _resnet(
         "resnet18", BasicBlock, [2, 2, 2, 2], pretrained, progress, device, **kwargs
     )
-
+@register_model
+def tiny_resnet18(pretrained=False, progress=True, device="cpu", **kwargs):
+    """Constructs a ResNet-18 model.
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    return _resnet(
+        "resnet18", BasicBlock, [2, 2, 2, 2], pretrained, progress, device, **kwargs
+    )
 
 @register_model
 def cifar10_resnet34(pretrained=False, progress=True, device="cpu", **kwargs):
@@ -352,3 +366,9 @@ def cifar10_resnet34(pretrained=False, progress=True, device="cpu", **kwargs):
 # @register_model
 # def resnet32_cifar100(num_classes=100, **kwargs):
 #     return resnet32(num_classes=num_classes, **kwargs)
+# if __name__ == "__main__":
+#     model = cifar10_resnet18(num_classes=100)
+#     for name,module in model.named_modules():
+#         if isinstance(module, nn.ReLU):
+#             print(name)
+        

@@ -914,6 +914,8 @@ def worker(idx, batch_size, x_q, w_q, padded_x_q, results):
                     if w_q.shape[1] == 1:
                         part_sum = torch.mul(padded_x_q[n, k, w:w+w_q.shape[2], h:h+w_q.shape[3]], w_q[k, 0, :, :])
                     else:
+                        # print("kernel size:",w_q.shape[2],w_q.shape[3])
+                        # sys.stdout.flush()
                         part_sum = torch.mul(padded_x_q[n, :, w:w+w_q.shape[2], h:h+w_q.shape[3]], w_q[k, :, :, :])
                     # print("part_sum: ",part_sum)
                     tmp_max_mean_num = torch.abs(part_sum.flatten().cumsum(0)).max()
@@ -945,6 +947,8 @@ def worker(idx, batch_size, x_q, w_q, padded_x_q, results):
 def check_range(model, inp, out):
     if model.stride[0]==2:
         return
+    # if model.groups != 1:
+    #     return
     try:
         mp.set_start_method('spawn', force=True)
         print("spawned")
@@ -988,8 +992,8 @@ def check_range(model, inp, out):
 
 
 def check_w_l1norm(model, inp, out):
-    if model.stride[0]==2:
-        return
+    # if model.stride[0]==2:
+    #     return
     print("In layer: ",model)
     sys.stdout.flush()
     new_inp = inp[0].clone().detach()
@@ -1067,6 +1071,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                     'Acc@5: {top5.val:>7.4f} ({top5.avg:>7.4f})'.format(
                         log_name, batch_idx, last_idx, batch_time=batch_time_m,
                         loss=losses_m, top1=top1_m, top5=top5_m))
+            print("total ok")
             exit(0)
     metrics = OrderedDict([('loss', losses_m.avg), ('top1', top1_m.avg), ('top5', top5_m.avg)])
 

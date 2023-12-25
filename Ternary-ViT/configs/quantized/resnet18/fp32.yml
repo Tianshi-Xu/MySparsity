@@ -13,7 +13,6 @@ crop_pct: 1.0
 scale:
     - 0.8
     - 1.0
-initial_checkpoint: /home/xts/code/MySparsity/Ternary-ViT/output/train/20231019-002509-resnet32-32/model_best.pth.tar
 interpolation: bicubic
 train_interpolation: random
 aa: rand-m9-mstd0.5-inc1
@@ -31,26 +30,10 @@ lr: 6e-4
 min_lr: 1e-5
 sched: cosine
 weight_decay: 6e-2
-epochs: 400
+epochs: 1000
 cooldown_epochs: 10
 warmup_epochs: 10
 warmup_lr: 0.000001
 opt: adamw
 smoothing: 0.1
-workers: 64
-ws_mode: "PerChlMPLn"
-wq_enable: False
-wq_mode: "LSQ"
-wq_bitw: 1
-# wq_pos: 1
-# wq_neg: -1
-aq_enable: False
-aq_mode: "LSQ"
-aq_bitw: 1
-# aq_pos: 1
-# aq_neg: -1
-resq_enable: False
-resq_mode: "LSQ"
-resq_bitw: 1
-# resq_pos: 1
-# resq_neg: -1%
+workers: 8
