@@ -11,6 +11,8 @@ from src.mobilenetv2_tiny import mobilenet_tiny
 from src.mobilenetv2_cifar import mobilenet_cifar
 from src.efficientnet_lite import build_efficientnet_lite
 from src.efficientnet_lite_cifar import build_efficientnet_lite_cifar
+from src.myModel.MobilenetV1 import MobileNet
+from src.myModel.cir_resnet import get_cir_resnet18_cifar
 from timm.models.layers import create_conv2d
 from timm.models.registry import register_model
 from timm.models.efficientnet import _create_effnet
@@ -145,3 +147,17 @@ def cifar100_efficient_lite(pretrained=False, **kwargs):
     model_name = 'efficientnet_lite0'
     model = build_efficientnet_lite_cifar(model_name, 100, 1.4)
     return model
+
+@register_model
+def cifar_cir_mobilenetv1(pretrained=False, **kwargs):
+    model=MobileNet(10)
+    return model
+
+@register_model
+def cifar10_cir_resnet18(pretrained=False, progress=True, device="gpu", **kwargs):
+    """Constructs a ResNet-18 model.
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    return get_cir_resnet18_cifar(pretrained, progress, device, **kwargs)

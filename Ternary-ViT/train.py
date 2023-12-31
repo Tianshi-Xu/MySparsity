@@ -937,6 +937,7 @@ def train_one_epoch(
             if args.use_kd:
                 target = teacher(input)
                 loss = loss_fn(output, target)
+                # print("------------------kd------------------")
             else:
                 output = output[0] if isinstance(output, tuple) else output
                 teacher = teacher[0] if isinstance(output, tuple) else output
