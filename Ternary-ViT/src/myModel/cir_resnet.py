@@ -50,6 +50,7 @@ class BasicBlock(nn.Module):
         skip_last_relu=False,
         use_dual_skip=False,
         post_res_bn=False,
+        block_size=4,
     ):
         super(BasicBlock, self).__init__()
         if norm_layer is None:
@@ -58,7 +59,7 @@ class BasicBlock(nn.Module):
             raise ValueError("BasicBlock only supports groups=1 and base_width=64")
         if dilation > 1:
             raise NotImplementedError("Dilation > 1 not supported in BasicBlock")
-        self.block_size = 4
+        self.block_size = block_size
         # Both self.conv1 and self.downsample layers downsample the input when stride != 1
         # self.conv1 = conv3x3(inplanes, planes, stride)
         self.conv1 = BlockCirculantConv(inplanes, planes, 3, stride, block_size=self.block_size)
@@ -144,7 +145,7 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         self._norm_layer = norm_layer
-
+        self.block_size = [4,4,4,4]
         self.inplanes = 64
         self.dilation = 1
         if replace_stride_with_dilation is None:
@@ -190,6 +191,7 @@ class ResNet(nn.Module):
             down_block_type=down_block_type,
             use_dual_skip=use_dual_skip,
             post_res_bn=post_res_bn,
+            block_size=self.block_size[0],
         )
         self.layer2 = self._make_layer(
             block, 128, layers[1],
@@ -201,6 +203,7 @@ class ResNet(nn.Module):
             down_block_type=down_block_type,
             use_dual_skip=use_dual_skip,
             post_res_bn=post_res_bn,
+            block_size=self.block_size[1],
         )
         self.layer3 = self._make_layer(
             block, 256, layers[2],
@@ -212,6 +215,7 @@ class ResNet(nn.Module):
             down_block_type=down_block_type,
             use_dual_skip=use_dual_skip,
             post_res_bn=post_res_bn,
+            block_size=self.block_size[2],
         )
         self.layer4 = self._make_layer(
             block, 512, layers[3],
@@ -223,6 +227,7 @@ class ResNet(nn.Module):
             down_block_type=down_block_type,
             use_dual_skip=use_dual_skip,
             post_res_bn=post_res_bn,
+            block_size=self.block_size[3],
         )
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         self.fc = nn.Linear(512 * block.expansion, num_classes)
@@ -246,7 +251,7 @@ class ResNet(nn.Module):
 
     def _make_layer(self, block, planes, blocks, stride=1, dilate=False,
             use_bn=True, use_relu=True, skip_last_relu=False, down_block_type="default",
-            use_dual_skip=False, post_res_bn=False):
+            use_dual_skip=False, post_res_bn=False, block_size=4):
         norm_layer = self._norm_layer
         downsample = None
         previous_dilation = self.dilation
@@ -284,6 +289,7 @@ class ResNet(nn.Module):
                 skip_last_relu=skip_last_relu,
                 use_dual_skip=use_dual_skip,
                 post_res_bn=post_res_bn,
+                block_size=block_size,
             )
         )
         self.inplanes = planes * block.expansion
@@ -300,6 +306,7 @@ class ResNet(nn.Module):
                     use_relu=use_relu,
                     skip_last_relu=skip_last_relu,
                     post_res_bn=post_res_bn,
+                    block_size=block_size,
                 )
             )
 
@@ -321,7 +328,9 @@ class ResNet(nn.Module):
         x = self.fc(x)
 
         return x
-
+    def __str__(self):
+        additional_info = "block_size: " + str(self.block_size)
+        return super(ResNet, self).__str__() + "\n" + additional_info
 
 def _resnet(arch, block, layers, pretrained, progress, device, **kwargs):
     model = ResNet(block, layers, **kwargs)

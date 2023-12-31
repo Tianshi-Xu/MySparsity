@@ -33,7 +33,7 @@ weight_decay: 6e-2
 epochs: 300
 cooldown_epochs: 10
 warmup_epochs: 10
-warmup_lr: 0.00001`
+warmup_lr: 0.00001
 opt: adamw
 smoothing: 0.1
 workers: 8
