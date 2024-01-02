@@ -145,7 +145,7 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         self._norm_layer = norm_layer
-        self.block_size = [8,8,8,8]
+        self.block_size = [2,2,2,2]
         self.inplanes = 64
         self.dilation = 1
         if replace_stride_with_dilation is None:

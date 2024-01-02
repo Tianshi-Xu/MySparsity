@@ -30,7 +30,7 @@ import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 # sys.path.append("/data/home/menglifrl/pytorch-image-models")
-sys.path.append("/home/xts/code/njean/MySparsity/pytorch-image-models")
+sys.path.append("/home/xts/code/njeans/MySparsity/pytorch-image-models")
 
 from timm.data import (
     create_dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset

@@ -89,10 +89,10 @@ class BlockCirculantConv(nn.Module):
             self.p += 1
 
         # 初始化权重参数
-        self.weight = nn.Parameter(torch.Tensor(self.p, self.q, self.block_size,2))
+        self.weight = nn.Parameter(torch.Tensor(self.p, self.q, self.block_size))
         init.xavier_uniform_(self.weight)
         # 初始化偏置参数
-        self.bias = nn.Parameter(torch.Tensor(out_features))
+        # self.bias = nn.Parameter(torch.Tensor(out_features))
 
     def forward(self, x):
         # 实现前向传播
@@ -100,7 +100,7 @@ class BlockCirculantConv(nn.Module):
         # print("x1:",x.shape)
         H = x.shape[2]
         x = F.unfold(x, self.kernel_size, stride=self.stride,padding=self.kernel_size//2)
-        # print("x2:",x.shape)
+        # print("unfold x2:",x.shape)
         padd_x_size = self.q * self.block_size - self.in_features
         # import pdb;pdb.set_trace()
         # print("padd_x_size:",padd_x_size)
@@ -108,22 +108,31 @@ class BlockCirculantConv(nn.Module):
         # print("after pad:",x.shape)
         x = x.reshape(-1,self.q,self.block_size)
         # print("x1:",x.shape)
-        x = torch.complex(x, torch.zeros_like(x))
-        w = torch.complex(self.weight[...,0], self.weight[...,1])
-        x = torch.fft.fft(x)
-        w = w
+        
+        x = torch.fft.rfft(x)
+        w = torch.fft.rfft(self.weight)
         x = torch.unsqueeze(x,1)
-        x = torch.tile(x,[1,self.p,1,1])
-        # print("x_freq:",x_freq.shape)
-        # print("w_freq:",w_freq.shape)
+        # print("before tile x:",x.shape)
+        # x = torch.tile(x,[1,self.p,1,1])
+        # print("x2:",x.shape)
+        # print("w:",w.shape)
         h = torch.sum(x * w,axis=2)
-
-        h = torch.fft.ifft(h)
-        
-        h = torch.real(h)
+        h = torch.fft.irfft(h)
         h = torch.reshape(h,(-1,self.p * self.block_size))
+        # x = torch.complex(x, torch.zeros_like(x))
+        # w = torch.complex(self.weight[...,0], self.weight[...,1])
+        # x = torch.fft.fft(x)
+        # w = w
+        # x = torch.unsqueeze(x,1)
+        # x = torch.tile(x,[1,self.p,1,1])
+        # print("x2:",x.shape)
+        # h = torch.sum(x * w,axis=2)
 
+        # h = torch.fft.ifft(h)
         
+        # h = torch.real(h)
+        # h = torch.reshape(h,(-1,self.p * self.block_size))
+
         if self.p * self.block_size > self.out_features:
             h = h[:, :self.out_features]
 

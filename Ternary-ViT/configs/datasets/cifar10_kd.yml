@@ -25,7 +25,7 @@ cutmix: 1.0
 reprob: 0.25
 remode: pixel
 amp: True
-batch_size: 64
+batch_size: 32
 lr: 55e-5
 min_lr: 1e-5
 sched: cosine
@@ -39,4 +39,5 @@ smoothing: 0.1
 workers: 32
 use_kd: True
 teacher: cifar10_resnet18
-teacher_checkpoint: /home/xts/code/njean/MySparsity/Ternary-ViT/output/train/20231230-232058-cifar10_cir_resnet18-32/model_best.pth.tar
+teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20231230-232058-cifar10_cir_resnet18-32/model_best.pth.tar
+
