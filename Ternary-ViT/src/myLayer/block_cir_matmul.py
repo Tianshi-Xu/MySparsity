@@ -23,7 +23,7 @@ class BlockCirculantLayer(nn.Module):
         
 
         # 初始化权重参数
-        self.weight = nn.Parameter(torch.Tensor(self.p, self.q, self.block_size,2))
+        self.weight = nn.Parameter(torch.Tensor(self.p, self.q, self.block_size))
         init.xavier_uniform_(self.weight)
         # 初始化偏置参数
         self.bias = nn.Parameter(torch.Tensor(out_features))
@@ -36,20 +36,28 @@ class BlockCirculantLayer(nn.Module):
         print(x.shape)
         x = x.reshape(-1,self.p,self.block_size)
         
-        x_complex = torch.complex(x, torch.zeros_like(x))
-        w_complex = torch.complex(self.weight[...,0], torch.zeros_like(self.weight[...,0]))
-        x_freq = torch.fft.fft(x_complex)
-        w_freq = w_complex
+        x_freq = torch.fft.rfft(x)
+        w_freq = torch.fft.rfft(self.weight)
         x_freq = torch.unsqueeze(x_freq,1)
         x_freq = torch.tile(x_freq,[1,self.q,1,1])
         h_freq = x_freq * w_freq
-        
-        h_freq = torch.sum(h_freq,axis=2)
-
-        h = torch.fft.ifft(h_freq)
-        
-        h = torch.real(h)
+        h = torch.fft.irfft(h_freq)
+        h = torch.sum(h,axis=2)
         h = torch.reshape(h,(-1,self.q * self.block_size))
+        # x_complex = torch.complex(x, torch.zeros_like(x))
+        # w_complex = torch.complex(self.weight[...,0], torch.zeros_like(self.weight[...,0]))
+        # x_freq = torch.fft.fft(x_complex)
+        # w_freq = w_complex
+        # x_freq = torch.unsqueeze(x_freq,1)
+        # x_freq = torch.tile(x_freq,[1,self.q,1,1])
+        # h_freq = x_freq * w_freq
+        
+        # h_freq = torch.sum(h_freq,axis=2)
+
+        # h = torch.fft.ifft(h_freq)
+        
+        # h = torch.real(h)
+        # h = torch.reshape(h,(-1,self.q * self.block_size))
 
         
         if self.q * self.block_size > self.out_features:
@@ -134,7 +142,7 @@ class BlockCirculantConv(nn.Module):
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
-    block_circulant_layer = BlockCirculantConv(64,256,3,2,32)
+    block_circulant_layer = BlockCirculantConv(64,256,3,2,2)
     input_data = torch.zeros(10,64,16,16)  # 3个样本，每个样本有10个特征
     output_data1 = block_circulant_layer(input_data)
     # linear = nn.Linear(11, 11)

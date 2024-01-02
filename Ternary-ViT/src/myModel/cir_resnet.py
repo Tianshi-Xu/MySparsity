@@ -145,7 +145,7 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         self._norm_layer = norm_layer
-        self.block_size = [4,4,4,4]
+        self.block_size = [8,8,8,8]
         self.inplanes = 64
         self.dilation = 1
         if replace_stride_with_dilation is None:
@@ -163,6 +163,7 @@ class ResNet(nn.Module):
         use_relu=True
         # CIFAR10: kernel_size 7 -> 3, stride 2 -> 1, padding 3->1
         if num_classes == 10 or num_classes == 100 :
+            # print("inplanes",self.inplanes)
             self.conv1 = nn.Conv2d(
                 3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False
             )
