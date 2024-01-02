@@ -100,19 +100,17 @@ class BlockCirculantConv(nn.Module):
         # print("after pad:",x.shape)
         x = x.reshape(-1,self.q,self.block_size)
         # print("x1:",x.shape)
-        x_complex = torch.complex(x, torch.zeros_like(x))
-        w_complex = torch.complex(self.weight[...,0], self.weight[...,1])
-        x_freq = torch.fft.fft(x_complex)
-        w_freq = w_complex
-        x_freq = torch.unsqueeze(x_freq,1)
-        x_freq = torch.tile(x_freq,[1,self.p,1,1])
+        x = torch.complex(x, torch.zeros_like(x))
+        w = torch.complex(self.weight[...,0], self.weight[...,1])
+        x = torch.fft.fft(x)
+        w = w
+        x = torch.unsqueeze(x,1)
+        x = torch.tile(x,[1,self.p,1,1])
         # print("x_freq:",x_freq.shape)
         # print("w_freq:",w_freq.shape)
-        h_freq = x_freq * w_freq
-        
-        h_freq = torch.sum(h_freq,axis=2)
+        h = torch.sum(x * w,axis=2)
 
-        h = torch.fft.ifft(h_freq)
+        h = torch.fft.ifft(h)
         
         h = torch.real(h)
         h = torch.reshape(h,(-1,self.p * self.block_size))
