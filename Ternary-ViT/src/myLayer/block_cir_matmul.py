@@ -148,11 +148,57 @@ class BlockCirculantConv(nn.Module):
     def __str__(self):
         additional_info = "block_size: " + str(self.block_size)
         return super(BlockCirculantConv, self).__str__() + "\n" + additional_info
+    
+class NewBlockCirculantConv(nn.Module):
+    def __init__(self, in_features, out_features, kernel_size, stride, block_size):
+        super(NewBlockCirculantConv, self).__init__()
+
+        self.in_features = in_features
+        self.out_features = out_features
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.block_size = block_size
+        self.padding = kernel_size//2
+        self.p = self.in_features//block_size
+        self.q = self.out_features//block_size
+        
+        if(self.in_features % block_size > 0):
+            print("self.in_features % block_size:",self.in_features % block_size)
+            self.p += 1
+        
+        if(self.out_features % block_size > 0):
+            print("self.out_features % block_size:",self.out_features % block_size)
+            self.q += 1
+
+        # 初始化权重参数
+        self.weight = nn.Parameter(torch.zeros(self.q, self.p, self.block_size,self.kernel_size,self.kernel_size))
+        
+        init.kaiming_uniform_(self.weight)
+        # 初始化偏置参数
+        # self.bias = nn.Parameter(torch.Tensor(out_features))
+
+    def forward(self, x):
+        # 实现前向传播
+        w = torch.zeros(self.q,self.p,self.block_size,self.block_size,self.kernel_size,self.kernel_size).cuda()
+        # print(self.weight[0,0,:,0,0])
+        for i in range(self.block_size):
+            w[:,:,:,i,:,:] = self.weight.roll(shifts=i, dims=2)
+        # print(w[0,0,:,:,0,0])
+        # print(w.shape)
+        w = w.permute(0,2,1,3,4,5)
+        # print(w.shape)
+        w = w.reshape(self.q*self.block_size,self.p*self.block_size,self.kernel_size,self.kernel_size)
+        
+        return F.conv2d(x,w,None,self.stride,self.padding)
+    
+    def __str__(self):
+        additional_info = "block_size: " + str(self.block_size)
+        return super(BlockCirculantConv, self).__str__() + "\n" + additional_info
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
-    block_circulant_layer = BlockCirculantConv(64,256,3,2,2)
-    input_data = torch.zeros(10,64,16,16)  # 3个样本，每个样本有10个特征
+    block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
+    input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
     output_data1 = block_circulant_layer(input_data)
     # linear = nn.Linear(11, 11)
     # output_data2=linear(input_data)

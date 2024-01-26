@@ -29,6 +29,7 @@ import torch
 import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
+import torch.distributed as dist
 # sys.path.append("/data/home/menglifrl/pytorch-image-models")
 sys.path.append("/home/xts/code/njeans/MySparsity/pytorch-image-models")
 
@@ -368,6 +369,8 @@ parser.add_argument('--down-block-type', default='default', type=str,
                     help='Downsample block type: default, avgpool, conv3x3')
 parser.add_argument('--distributed', action='store_true', default=False,
                     help='whether to use distributed training')
+parser.add_argument('--local-rank', type=int, default=0,
+                    help='local rank')
 
 # sparsity
 parser.add_argument('--ws-enable', action='store_true', default=False,
@@ -539,13 +542,16 @@ def main(args):
     # args.distributed = False
     # if 'WORLD_SIZE' in os.environ:
     #     args.distributed = int(os.environ['WORLD_SIZE']) > 1
-    args.device = 'cuda:0'
-    args.world_size = 1
-    args.rank = 0  # global rank
+    # dist.init_process_group(backend='nccl', init_method='env://', rank = 0, world_size = 1)
+    args.rank=0
+    args.world_size=1
     if args.distributed:
+        local_rank = int(os.environ["LOCAL_RANK"])
+        print("--------------local rank,",local_rank)
+        args.local_rank = local_rank
         args.device = 'cuda:%d' % args.local_rank
         torch.cuda.set_device(args.local_rank)
-        torch.distributed.init_process_group(backend='nccl', init_method='env://')
+        torch.distributed.init_process_group(backend='nccl')
         args.world_size = torch.distributed.get_world_size()
         args.rank = torch.distributed.get_rank()
         update_lr_multi_gpu(args)
@@ -553,7 +559,7 @@ def main(args):
     else:
         _logger.info('Training with a single process on 1 GPUs.')
     assert args.rank >= 0
-
+    # dist.init_process_group(backend='nccl', init_method='tcp://localhost:23456', rank=0, world_size=4)
     # resolve AMP arguments based on PyTorch / Apex availability
     use_amp = None
     if args.amp:
@@ -599,9 +605,8 @@ def main(args):
         model = replace_relu_by_prelu(model)
     model = get_qat_model(model, args)
     if args.initial_checkpoint != "":
-        print("OK")
         incompatible_keys = load_checkpoint(model, args.initial_checkpoint, strict=False)
-
+    
     if args.num_classes is None:
         assert hasattr(model, 'num_classes'), 'Model must have `num_classes` attr if not set on cmd line/config.'
         args.num_classes = model.num_classes  # FIXME handle model default vs config num_classes more elegantly
@@ -639,6 +644,8 @@ def main(args):
     # cal(model)
     # exit(0)
     # setup synchronized BatchNorm for distributed training
+    print("-------------------sync bn:",args.sync_bn)
+    # args.sync_bn=True
     if args.distributed and args.sync_bn:
         assert not args.split_bn
         if has_apex and use_amp != 'native':

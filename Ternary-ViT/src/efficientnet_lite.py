@@ -89,7 +89,7 @@ class MBConvBlock(nn.Module):
         :param drop_connect_rate: drop connect rate (float, between 0 and 1)
         :return: output of block
         """
-        print(x.shape)
+        # print(x.shape)
         # Expansion and Depthwise Convolution
         identity = x
         if self.expand_ratio != 1:
@@ -115,7 +115,7 @@ class MBConvBlock(nn.Module):
 class EfficientNetLite(nn.Module):
     def __init__(self, widthi_multiplier, depth_multiplier, num_classes, drop_connect_rate, dropout_rate):
         super(EfficientNetLite, self).__init__()
-
+        self.depth_multiplier = depth_multiplier
         # Batch norm parameters
         momentum = 0.1
         epsilon = 1e-5
@@ -124,7 +124,7 @@ class EfficientNetLite(nn.Module):
         mb_block_settings = [
             #repeat|kernal_size|stride|expand|input|output|se_ratio
                 [1, 3, 1, 1, 32,  16,  0.25],
-                [2, 3, 2, 6, 16,  24,  0.25],
+                [2, 3, 1, 6, 16,  24,  0.25],
                 [2, 5, 2, 6, 24,  40,  0.25],
                 [3, 3, 2, 6, 40,  80,  0.25],
                 [3, 5, 1, 6, 80,  112, 0.25],
@@ -218,7 +218,10 @@ class EfficientNetLite(nn.Module):
         state_dict = torch.load(path)
         self.load_state_dict(state_dict, strict=True)
         
-
+    def __str__(self):
+        additional_info = "depth_multiplier: " + str(self.depth_multiplier)
+        return super(EfficientNetLite, self).__str__() + "\n" + additional_info
+    
 def build_efficientnet_lite(name, num_classes,width_coefficient):
     _, depth_coefficient, _, dropout_rate = efficientnet_lite_params[name]
     model = EfficientNetLite(width_coefficient, depth_coefficient, num_classes, 0.2, dropout_rate)

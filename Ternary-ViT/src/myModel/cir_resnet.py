@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import os
-from ..myLayer.block_cir_matmul import BlockCirculantConv
+from ..myLayer.block_cir_matmul import BlockCirculantConv,NewBlockCirculantConv
 try:
     import sys
     sys.path.append("/home/xts/code/MySparsity/pytorch-image-models")
@@ -62,13 +62,13 @@ class BasicBlock(nn.Module):
         self.block_size = block_size
         # Both self.conv1 and self.downsample layers downsample the input when stride != 1
         # self.conv1 = conv3x3(inplanes, planes, stride)
-        self.conv1 = BlockCirculantConv(inplanes, planes, 3, stride, block_size=self.block_size)
+        self.conv1 = NewBlockCirculantConv(inplanes, planes, 3, stride, block_size=self.block_size)
         self.bn1 = norm_layer(planes) if use_bn else nn.Identity()
         self.relu1 = (
             nn.ReLU(inplace=True) if use_relu else nn.PReLU(planes)
         )
         # self.conv2 = conv3x3(planes, planes)
-        self.conv2 = BlockCirculantConv(planes, planes, 3, 1, block_size=self.block_size)
+        self.conv2 = NewBlockCirculantConv(planes, planes, 3, 1, block_size=self.block_size)
         self.bn2 = norm_layer(planes) if use_bn else nn.Identity()
         if skip_last_relu:
             self.relu2 = nn.Identity()
@@ -145,7 +145,7 @@ class ResNet(nn.Module):
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         self._norm_layer = norm_layer
-        self.block_size = [2,2,2,2]
+        self.block_size = [32,32,32,32]
         self.inplanes = 64
         self.dilation = 1
         if replace_stride_with_dilation is None:
@@ -329,6 +329,7 @@ class ResNet(nn.Module):
         x = self.fc(x)
 
         return x
+    
     def __str__(self):
         additional_info = "block_size: " + str(self.block_size)
         return super(ResNet, self).__str__() + "\n" + additional_info

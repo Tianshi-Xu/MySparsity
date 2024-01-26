@@ -121,7 +121,7 @@ std:
 - 0.225
 sync_bn: false
 teacher: imagenet_mobilenetv2
-teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2_1.0_fp32.pth
+teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
 torchscript: false
 train_interpolation: random
 train_split: train
@@ -129,7 +129,7 @@ tta: 0
 use_bn: true
 use_distill_head: false
 use_dual_skip: false
-use_kd: false
+use_kd: true
 use_layer_scale: false
 use_multi_epochs_loader: false
 use_relu: false
@@ -141,4 +141,5 @@ vflip: 0.0
 warmup_epochs: 5
 warmup_lr: 1.0e-06
 weight_decay: 0.0001
-workers: 8
+workers: 32
+resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"

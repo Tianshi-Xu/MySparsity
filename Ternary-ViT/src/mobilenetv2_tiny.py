@@ -60,6 +60,7 @@ class InvertedResidual(nn.Module):
 class MobileNetV2(nn.Module):
     def __init__(self, n_class=1000, input_size=224, width_mult=1.0):
         super(MobileNetV2, self).__init__()
+        self.depth_multiplier = width_mult  
         block = InvertedResidual
         input_channel = 32
         last_channel = 1280
@@ -122,6 +123,10 @@ class MobileNetV2(nn.Module):
                 m.weight.data.normal_(0, 0.01)
                 m.bias.data.zero_()
 
+    def __str__(self):
+        additional_info = "depth_multiplier: " + str(self.depth_multiplier)
+        return super(MobileNetV2, self).__str__() + "\n" + additional_info
+    
 def mobilenet_tiny(n_class, input_size, width_mult) -> MobileNetV2:
     model = MobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult)
     return model
@@ -140,3 +145,4 @@ if __name__ == '__main__':
         elif isinstance(module, nn.BatchNorm2d):
             # print(name)
             pass
+        

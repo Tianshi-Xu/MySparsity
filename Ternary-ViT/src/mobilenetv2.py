@@ -9,9 +9,12 @@ sys.path.append("/home/xts/code/pytorch-image-models")
 from functools import partial
 from src.mobilenetv2_tiny import mobilenet_tiny
 from src.mobilenetv2_cifar import mobilenet_cifar
+from src.mobilenetv2_imagenet import get_mbv2_imagenet
 from src.efficientnet_lite import build_efficientnet_lite
 from src.efficientnet_lite_cifar import build_efficientnet_lite_cifar
-from src.myModel.MobilenetV1 import MobileNet
+from src.myModel.MobilenetV1 import MobileNet,CirMobileNet
+from src.cir_mobilenetv2_cifar import cir_mobilenet_cifar
+from src.cir_mobilenetv2_imagenet import get_cir_mbv2_imagenet
 from src.myModel.cir_resnet import get_cir_resnet18_cifar
 from timm.models.layers import create_conv2d
 from timm.models.registry import register_model
@@ -116,17 +119,17 @@ def cifar10_mobilenetv2_100(pretrained=False, **kwargs):
 
 @register_model
 def cifar10_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_cifar(10,32,0.7)
+    model=mobilenet_cifar(10,32,0.6)
     return model
 
 @register_model
 def cifar100_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_cifar(100,32,1.4)
+    model=mobilenet_cifar(100,32,1.0)
     return model
 
 @register_model
 def tinyimagenet_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_tiny(200,64,1)
+    model=mobilenet_tiny(200,64,1.0)
     return model
 
 
@@ -139,17 +142,22 @@ def tinyimagenet_efficient_lite(pretrained=False, **kwargs):
 @register_model
 def cifar10_efficient_lite(pretrained=False, **kwargs):
     model_name = 'efficientnet_lite0'
-    model = build_efficientnet_lite_cifar(model_name, 10, 1.4)
+    model = build_efficientnet_lite_cifar(model_name, 10, 1.0)
     return model
 
 @register_model
 def cifar100_efficient_lite(pretrained=False, **kwargs):
     model_name = 'efficientnet_lite0'
-    model = build_efficientnet_lite_cifar(model_name, 100, 1.4)
+    model = build_efficientnet_lite_cifar(model_name, 100, 1.0)
     return model
 
 @register_model
 def cifar_cir_mobilenetv1(pretrained=False, **kwargs):
+    model=CirMobileNet(10)
+    return model
+
+@register_model
+def cifar_mobilenetv1(pretrained=False, **kwargs):
     model=MobileNet(10)
     return model
 
@@ -161,3 +169,23 @@ def cifar10_cir_resnet18(pretrained=False, progress=True, device="gpu", **kwargs
         progress (bool): If True, displays a progress bar of the download to stderr
     """
     return get_cir_resnet18_cifar(pretrained, progress, device, **kwargs)
+
+@register_model
+def cifar_cir_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_mobilenet_cifar(100,32,1)
+    return model
+
+@register_model
+def tiny_cir_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_mobilenet_cifar(200,64,1)
+    return model
+
+@register_model
+def imagenet_cir_mobilenetv2(pretrained=False, **kwargs):
+    model=get_cir_mbv2_imagenet(1000,1.0)
+    return model
+
+@register_model
+def imagenet_mobilenetv2(pretrained=False, **kwargs):
+    model=get_mbv2_imagenet(1000,1.0)
+    return model

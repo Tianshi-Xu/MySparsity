@@ -3,6 +3,7 @@ import sys
 import torch
 from torch import nn
 import torch.functional as F
+from .myLayer.block_cir_matmul import NewBlockCirculantConv
 sys.path.append("/home/xts/code/pytorch-image-models")
 from timm.models.registry import register_model
 
@@ -48,9 +49,10 @@ def drop_connect(x, drop_connect_rate, training):
 
 
 class MBConvBlock(nn.Module):
-    def __init__(self, inp, final_oup, k, s, expand_ratio, se_ratio, has_se=False):
+    def __init__(self, inp, final_oup, k, s, expand_ratio, se_ratio, has_se=False,block_size=1):
         super(MBConvBlock, self).__init__()
-
+        
+        self.block_size = block_size
         self._momentum = 0.1
         self._epsilon = 1e-5
         self.input_filters = inp
@@ -79,7 +81,8 @@ class MBConvBlock(nn.Module):
             self._se_expand = nn.Conv2d(in_channels=num_squeezed_channels, out_channels=oup, kernel_size=1)
 
         # Output phase
-        self._project_conv = nn.Conv2d(in_channels=oup, out_channels=final_oup, kernel_size=1, bias=False)
+        # self._project_conv = nn.Conv2d(in_channels=oup, out_channels=final_oup, kernel_size=1, bias=False)
+        self._project_conv = NewBlockCirculantConv(oup, final_oup, 1, 1, self.block_size)
         self._bn2 = nn.BatchNorm2d(num_features=final_oup, momentum=self._momentum, eps=self._epsilon)
         self._relu = nn.ReLU6(inplace=True)
 
@@ -89,7 +92,7 @@ class MBConvBlock(nn.Module):
         :param drop_connect_rate: drop connect rate (float, between 0 and 1)
         :return: output of block
         """
-
+        # print(x.shape)
         # Expansion and Depthwise Convolution
         identity = x
         if self.expand_ratio != 1:
@@ -112,15 +115,15 @@ class MBConvBlock(nn.Module):
         return x
 
 
-class EfficientNetLite(nn.Module):
+class CirEfficientNetLite(nn.Module):
     def __init__(self, widthi_multiplier, depth_multiplier, num_classes, drop_connect_rate, dropout_rate):
         super(EfficientNetLite, self).__init__()
-        self.depth_multiplier=depth_multiplier
+        self.depth_multiplier = depth_multiplier
         # Batch norm parameters
         momentum = 0.1
         epsilon = 1e-5
         self.drop_connect_rate = drop_connect_rate
-
+        self.block_size = [1,2,2,2,2,2,2]
         mb_block_settings = [
             #repeat|kernal_size|stride|expand|input|output|se_ratio
                 [1, 3, 1, 1, 32,  16,  0.25],
@@ -134,14 +137,22 @@ class EfficientNetLite(nn.Module):
 
         # Stem
         out_channels = 32
-        self.stem = nn.Sequential(
-            nn.Conv2d(3, out_channels, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.BatchNorm2d(num_features=out_channels, momentum=momentum, eps=epsilon),
-            nn.ReLU6(inplace=True),
-        )
+        if num_classes == 200:
+            self.stem = nn.Sequential(
+                nn.Conv2d(3, out_channels, kernel_size=3, stride=2, padding=1, bias=False),
+                nn.BatchNorm2d(num_features=out_channels, momentum=momentum, eps=epsilon),
+                nn.ReLU6(inplace=True),
+            )
+        else:
+            self.stem = nn.Sequential(
+                nn.Conv2d(3, out_channels, kernel_size=3, stride=1, padding=1, bias=False),
+                nn.BatchNorm2d(num_features=out_channels, momentum=momentum, eps=epsilon),
+                nn.ReLU6(inplace=True),
+            )
 
         # Build blocks
         self.blocks = nn.ModuleList([])
+        idx=0
         for i, stage_setting in enumerate(mb_block_settings):
             stage = nn.ModuleList([])
             num_repeat, kernal_size, stride, expand_ratio, input_filters, output_filters, se_ratio = stage_setting
@@ -152,14 +163,15 @@ class EfficientNetLite(nn.Module):
             
 
             # The first block needs to take care of stride and filter size increase.
-            stage.append(MBConvBlock(input_filters, output_filters, kernal_size, stride, expand_ratio, se_ratio, has_se=False))
+            stage.append(MBConvBlock(input_filters, output_filters, kernal_size, stride, expand_ratio, se_ratio, has_se=False,block_size=self.block_size[idx]))
             if num_repeat > 1:
                 input_filters = output_filters
                 stride = 1
             for _ in range(num_repeat - 1):
-                stage.append(MBConvBlock(input_filters, output_filters, kernal_size, stride, expand_ratio, se_ratio, has_se=False))
+                stage.append(MBConvBlock(input_filters, output_filters, kernal_size, stride, expand_ratio, se_ratio, has_se=False,block_size=self.block_size[idx]))
             
             self.blocks.append(stage)
+            idx+=1
 
         # Head
         in_channels = round_filters(mb_block_settings[-1][5], widthi_multiplier)
@@ -219,18 +231,18 @@ class EfficientNetLite(nn.Module):
         self.load_state_dict(state_dict, strict=True)
         
     def __str__(self):
-        additional_info = "depth_multiplier: " + str(self.depth_multiplier)
-        return super(EfficientNetLite, self).__str__() + "\n" + additional_info
-        
-
-def build_efficientnet_lite_cifar(name, num_classes,width_coefficient):
+        additional_info = "depth_multiplier: " + str(self.depth_multiplier)+"\n"+"block_size: " + str(self.block_size)
+        return super(CirEfficientNetLite, self).__str__() + "\n" + additional_info
+    
+def build_efficientnet_lite(name, num_classes,width_coefficient):
     _, depth_coefficient, _, dropout_rate = efficientnet_lite_params[name]
-    model = EfficientNetLite(width_coefficient, depth_coefficient, num_classes, 0.2, dropout_rate)
+    model = CirEfficientNetLite(width_coefficient, depth_coefficient, num_classes, 0.2, dropout_rate)
     return model
 
 
 
-# if __name__ == '__main__':
-#     model_name = 'efficientnet_lite0'
-#     model = build_efficientnet_lite(model_name, 200)
-#     print(model)
+if __name__ == '__main__':
+    model_name = 'efficientnet_lite0'
+    model = build_efficientnet_lite(model_name, 200,1.0)
+    x = torch.rand(1,3,64,64)
+    y=model(x)

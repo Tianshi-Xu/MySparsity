@@ -1,5 +1,7 @@
 import torch.nn as nn
 import math
+from .myLayer.block_cir_matmul import NewBlockCirculantConv
+
 def conv_bn(inp, oup, stride):
     return nn.Sequential(
         nn.Conv2d(inp, oup, 3, stride, 1, bias=False),
@@ -16,10 +18,11 @@ def conv_1x1_bn(inp, oup):
     )
 
 
-class InvertedResidual(nn.Module):
-    def __init__(self, inp, oup, stride, expand_ratio):
-        super(InvertedResidual, self).__init__()
+class CirInvertedResidual(nn.Module):
+    def __init__(self, inp, oup, stride, expand_ratio, block_size):
+        super(CirInvertedResidual, self).__init__()
         self.stride = stride
+        self.block_size = block_size
         assert stride in [1, 2]
 
         hidden_dim = round(inp * expand_ratio)
@@ -36,19 +39,38 @@ class InvertedResidual(nn.Module):
                 nn.BatchNorm2d(oup),
             )
         else:
-            self.conv = nn.Sequential(
-                # pw
-                nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
-                nn.BatchNorm2d(hidden_dim),
-                nn.ReLU6(inplace=True),
-                # dw
-                nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
-                nn.BatchNorm2d(hidden_dim),
-                nn.ReLU6(inplace=True),
-                # pw-linear
-                nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
-                nn.BatchNorm2d(oup),
-            )
+            if self.block_size==1:
+                self.conv = nn.Sequential(
+                    # pw
+                    nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
+                    # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
+                    nn.BatchNorm2d(hidden_dim),
+                    nn.ReLU6(inplace=True),
+                    # dw
+                    nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
+                    nn.BatchNorm2d(hidden_dim),
+                    nn.ReLU6(inplace=True),
+                    # pw-linear
+                    nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                    # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
+                    nn.BatchNorm2d(oup),
+                )
+            else:
+                self.conv = nn.Sequential(
+                    # pw
+                    # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
+                    NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
+                    nn.BatchNorm2d(hidden_dim),
+                    nn.ReLU6(inplace=True),
+                    # dw
+                    nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
+                    nn.BatchNorm2d(hidden_dim),
+                    nn.ReLU6(inplace=True),
+                    # pw-linear
+                    # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                    NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
+                    nn.BatchNorm2d(oup),
+                )
 
     def forward(self, x):
         if self.use_res_connect:
@@ -57,13 +79,13 @@ class InvertedResidual(nn.Module):
             return self.conv(x)
 
 
-class MobileNetV2(nn.Module):
+class CirMobileNetV2(nn.Module):
     def __init__(self, n_class=1000, input_size=224, width_mult=1.0):
-        super(MobileNetV2, self).__init__()
-        block = InvertedResidual
-        self.depth_multiplier=width_mult
+        super(CirMobileNetV2, self).__init__()
+        block = CirInvertedResidual
         input_channel = 32
         last_channel = 1280
+        self.block_size = [1,4,4,4,4,4,1]
         interverted_residual_setting = [
             # t, c, n, s
             [1, 16, 1, 1],
@@ -79,16 +101,21 @@ class MobileNetV2(nn.Module):
         assert input_size % 32 == 0
         input_channel = int(input_channel * width_mult)
         self.last_channel = int(last_channel * width_mult) if width_mult > 1.0 else last_channel
-        self.features = [conv_bn(3, input_channel, 1)]
+        if n_class == 200:
+            self.features = [conv_bn(3, input_channel, 2)]
+        else:
+            self.features = [conv_bn(3, input_channel, 1)]
         # building inverted residual blocks
+        idx=0
         for t, c, n, s in interverted_residual_setting:
             output_channel = int(c * width_mult)
             for i in range(n):
                 if i == 0:
-                    self.features.append(block(input_channel, output_channel, s, expand_ratio=t))
+                    self.features.append(block(input_channel, output_channel, s, expand_ratio=t, block_size=self.block_size[idx]))
                 else:
-                    self.features.append(block(input_channel, output_channel, 1, expand_ratio=t))
+                    self.features.append(block(input_channel, output_channel, 1, expand_ratio=t, block_size=self.block_size[idx]))
                 input_channel = output_channel
+            idx+=1
         # building last several layers
         self.features.append(conv_1x1_bn(input_channel, self.last_channel))
         # make it nn.Sequential
@@ -124,9 +151,9 @@ class MobileNetV2(nn.Module):
                 m.bias.data.zero_()
 
     def __str__(self):
-        additional_info = "depth_multiplier: " + str(self.depth_multiplier)
-        return super(MobileNetV2, self).__str__() + "\n" + additional_info
+        additional_info = "block_size: " + str(self.block_size)
+        return super(CirMobileNetV2, self).__str__() + "\n" + additional_info
     
-def mobilenet_cifar(n_class, input_size, width_mult) -> MobileNetV2:
-    model = MobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult)
+def cir_mobilenet_cifar(n_class, input_size, width_mult) -> CirMobileNetV2:
+    model = CirMobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult)
     return model

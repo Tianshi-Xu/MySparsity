@@ -72,6 +72,7 @@ def load_checkpoint(model, checkpoint_path, use_ema=True, strict=True):
             raise NotImplementedError('Model cannot load numpy checkpoint')
         return
     state_dict = load_state_dict(checkpoint_path, use_ema)
+    # state_dict = {k: v for k, v in state_dict.items() if "conv.6" not in k}
     incompatible_keys = model.load_state_dict(state_dict, strict=strict)
     return incompatible_keys
 

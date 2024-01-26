@@ -1,6 +1,7 @@
 dataset: torch/image_folder
 num_classes: 200
-val_split: test
+train_split: train
+val_split: valid
 img_size: 64
 mean:
     - 0.485
