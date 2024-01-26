@@ -67,7 +67,7 @@ class BlockCirculantLayer(nn.Module):
         # h += self.bias
         
         return h
-# 暂时只支持1x1卷积
+
 class BlockCirculantConv(nn.Module):
     def __init__(self, in_features, out_features, kernel_size, stride, block_size):
         super(BlockCirculantConv, self).__init__()
