@@ -194,20 +194,129 @@ class NewBlockCirculantConv(nn.Module):
     def __str__(self):
         additional_info = "block_size: " + str(self.block_size)
         return super(BlockCirculantConv, self).__str__() + "\n" + additional_info
+
+class LearnableCir(nn.Module):
+    
+    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False):
+        super(LearnableCir, self).__init__()
+        self.in_features = in_features
+        self.out_features = out_features
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.feature_size = feature_size
+        self.pretrain = pretrain
+        self.finetune = finetune
+        self.padding = kernel_size//2
+        self.tau = 0.9
+        if finetune:
+            self.alphas = nn.Parameter(torch.ones(4), requires_grad=False)
+        else:
+            self.alphas = nn.Parameter(torch.ones(4), requires_grad=True)
+        self.weight = nn.Parameter(torch.zeros(out_features,in_features, kernel_size,kernel_size))
+        self.alphas_after = None
+        init.kaiming_uniform_(self.weight)
+    
+    def trans_to_cir(self):
+        search_space = [2,4,8]
+        alphas_after = gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
+        # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
+        weight=alphas_after[0]*self.weight
+        for idx,block_size in enumerate(search_space):
+            if torch.abs(alphas_after[idx+1]) <1e-6:
+                continue
+            # print("block_size:",block_size)
+            q=self.out_features//block_size
+            p=self.in_features//block_size
+            tmp = self.weight.reshape(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
+            tmp = tmp.permute(0,2,1,3,4,5)
+            # if block_size == 8:
+            #     print("---------")
+            #     print(tmp[0,0,:,:,0,0])
+            #     print("---------")
+            # tmp = torch.mean(tmp, dim=3, keepdim=False)
+            w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).cuda()
+            # print(tmp[0,0,:,0,0])
+            tmp_compress = torch.zeros(q,p,block_size,self.kernel_size,self.kernel_size).cuda()
+            for i in range(block_size):
+                # print("tmp:",tmp.shape)
+                diagonal = torch.diagonal(tmp, offset=i, dim1=2, dim2=3)
+                if i>0:
+                    diagonal2 = torch.diagonal(tmp, offset=-block_size+i, dim1=2, dim2=3)
+                    diagonal = torch.cat((diagonal,diagonal2),dim=4)
+                    # print("diagonal:",diagonal.shape)
+                # print("diagonal:",diagonal.shape)
+                assert diagonal.shape[4] == block_size
+                mean_of_diagonals = torch.mean(diagonal, dim=4, keepdim=True)
+                mean_of_diagonals = mean_of_diagonals.permute(0,1,4,2,3)
+                tmp_compress[:,:,i,:,:] = mean_of_diagonals[:,:,0,:,:]
+            for i in range(block_size):
+                w[:,:,:,i,:,:] = tmp_compress.roll(shifts=i, dims=2)
+            # print(w[0,0,:,:,0,0])
+            w = w.permute(0,2,1,3,4,5)
+            # print(w.shape)
+            w = w.reshape(q*block_size,p*block_size,self.kernel_size,self.kernel_size)
+            weight=weight+alphas_after[idx+1]*w
+        return weight
+
+    def get_alphas_after(self):
+        return gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
+    
+    def set_tau(self,tau):
+        self.tau = tau
+    
+    def forward(self, x):
+        if not self.pretrain:
+            weight=self.trans_to_cir()
+        else:
+            weight = self.weight
+        return F.conv2d(x,weight,None,self.stride,self.padding)
+
+def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim: int = -1,finetune=False) -> torch.Tensor:
+    # _gumbels = (-torch.empty_like(
+    #     logits,
+    #     memory_format=torch.legacy_contiguous_format).exponential_().log()
+    #             )  # ~Gumbel(0,1)
+    # more stable https://github.com/pytorch/pytorch/issues/41663
+    if finetune:
+        # idx = torch.argmax(logits)
+        # logits = torch.zeros_like(logits)
+        # logits[idx] = 1
+        return F.softmax(logits/tau, dim=dim)
+    return F.softmax(logits, dim=dim)
+    gumbel_dist = torch.distributions.gumbel.Gumbel(
+        torch.tensor(0., device=logits.device, dtype=logits.dtype),
+        torch.tensor(1., device=logits.device, dtype=logits.dtype))
+    gumbels = gumbel_dist.sample(logits.shape)
+
+    gumbels = (logits + gumbels) / tau  # ~Gumbel(logits,tau)
+    y_soft = gumbels.softmax(dim)
+
+    if hard:
+        # Straight through.
+        index = y_soft.max(dim, keepdim=True)[1]
+        y_hard = torch.zeros_like(logits, memory_format=torch.legacy_contiguous_format).scatter_(dim, index, 1.0)
+        ret = y_hard - y_soft.detach() + y_soft
+    else:
+        # Reparametrization trick.
+        ret = y_soft
+    return ret
+    
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
-    block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
-    input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
-    output_data1 = block_circulant_layer(input_data)
+    layer = LearnableCir(32,64,1,1,8,False).cuda()
+    layer.trans_to_cir()
+    # block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
+    # input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
+    # output_data1 = block_circulant_layer(input_data)
     # linear = nn.Linear(11, 11)
     # output_data2=linear(input_data)
-    print(output_data1.shape)
-    print(output_data1.flatten()[0:10])
+    # print(output_data1.shape)
+    # print(output_data1.flatten()[0:10])
     # print(output_data2)
     # x = torch.tensor([[-5,-4,-3,-2,-1,0,1,2,3,1,2,3],])
     # w = torch.tensor([[0,1,2,-1,-2,-3,1,2,3,0,-1,-2],[0,-1,-2,0,1,2,-1,-2,-3,1,2,3],
     #                 [1,2,3,0,-1,-2,0,1,2,-1,-2,-3],[-1,-2,-3,1,2,3,0,-1,-2,0,1,2]])
     # y = torch.matmul(w,x.T)
     # print(y)
-
+    
