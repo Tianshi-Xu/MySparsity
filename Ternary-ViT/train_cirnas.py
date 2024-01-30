@@ -20,7 +20,10 @@ import sys
 import time
 import yaml
 import os
+import math
 import logging
+from logging.handlers import RotatingFileHandler
+
 from collections import OrderedDict
 from contextlib import suppress
 from datetime import datetime
@@ -45,7 +48,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-
+from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir
 from src import *
 
 try:
@@ -73,7 +76,8 @@ except ImportError:
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
-
+# fh = logging.FileHandler('example.log')
+# _logger.addHandler(fh)
 # The first arg parser parses out only the --config argument, this argument is used to
 # load a yaml file containing key-values that override the defaults for the main parser below
 config_parser = parser = argparse.ArgumentParser(description='Training Config', add_help=False)
@@ -386,8 +390,13 @@ parser.add_argument('--as-mode', default='Identity', type=str,
 parser.add_argument('--as-patterns', default='1:1', type=str,
                     help='act sparsification pattern')
 
+# nas
 parser.add_argument('--lasso-alpha', default=1e-5, type=float,
                     help='alpha for lasso loss')
+parser.add_argument('--pretrain', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
+parser.add_argument('--finetune', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
 
 def parse_args():
     # Do we have a config file to parse?
@@ -524,9 +533,27 @@ def update_lr_multi_gpu(args):
 
 
 def main(args):
-    setup_default_logging(log_path='')
 
+    # 设置logger的级别为INFO
+    _logger.setLevel(logging.INFO)
     args, args_text = args
+    # 创建一个handler，用于写入日志文件
+    # maxBytes设置文件的最大长度，backupCount设置最多保留的文件数量
+    if args.pretrain:
+        handler = RotatingFileHandler('pretrain.log', maxBytes=10*1024*1024, backupCount=5)
+    elif args.finetune:
+        handler = RotatingFileHandler('finetune.log', maxBytes=10*1024*1024, backupCount=5)
+    else:
+        handler = RotatingFileHandler('normal train.log', maxBytes=10*1024*1024, backupCount=5)
+    console_handler = logging.StreamHandler()
+    # 定义handler的输出格式
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+
+    # 给logger添加handler
+    _logger.addHandler(handler)
+    _logger.addHandler(console_handler)
+    
     _logger.info(args_text)
 
     # import pdb; pdb.set_trace()
@@ -810,13 +837,15 @@ def main(args):
     _logger.info(f"Validate transform: {loader_eval.dataset.transform}")
 
     # setup loss function
+    train_loss_fn_kd = None
     if args.jsd:
         assert num_aug_splits > 1  # JSD only valid with aug splits set
         train_loss_fn = JsdCrossEntropy(num_splits=num_aug_splits, smoothing=args.smoothing).cuda()
     elif args.use_token_kd:
         train_loss_fn = KLTokenMSELoss(alpha=args.kd_alpha, kd_type=args.kd_type)
     elif args.use_kd:
-        train_loss_fn = KLLossSoft()
+        train_loss_fn_kd = KLLossSoft()
+        train_loss_fn = nn.CrossEntropyLoss().cuda()
     elif mixup_active:
         # smoothing is handled with mixup target transform
         train_loss_fn = SoftTargetCrossEntropy().cuda()
@@ -827,7 +856,7 @@ def main(args):
     _logger.info(f"Train loss {train_loss_fn}")
 
     # if args.use_kd:
-    #     train_loss_fn = KLLossSoft(train_loss_fn, alpha=args.kd_alpha)
+    #     train_loss_fn_kd = KLLossSoft(train_loss_fn_kd, T=args.kd_alpha)
 
     validate_loss_fn = nn.CrossEntropyLoss().cuda()
 
@@ -863,7 +892,7 @@ def main(args):
             f.write(args_text)
         with open(os.path.join(output_dir, 'model.txt'), 'w') as f:
             f.write(str(model))
-
+    # setup_default_logging(log_path=os.path.join(output_dir, 'log.log'))
     try:
         for epoch in range(start_epoch, num_epochs):
             if args.distributed and hasattr(loader_train.sampler, 'set_epoch'):
@@ -873,7 +902,7 @@ def main(args):
                 epoch, model, loader_train, optimizer, train_loss_fn, args,
                 lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
                 amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema,
-                mixup_fn=mixup_fn, teacher=teacher)
+                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd,pretrain=args.pretrain,finetune=args.finetune)
 
             if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
                 if args.local_rank == 0:
@@ -913,7 +942,7 @@ def main(args):
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
         lr_scheduler=None, saver=None, output_dir=None, amp_autocast=suppress,
-        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None):
+        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False):
     if args.mixup_off_epoch and epoch >= args.mixup_off_epoch:
         if args.prefetcher and loader.mixup_enabled:
             loader.mixup_enabled = False
@@ -924,7 +953,7 @@ def train_one_epoch(
     batch_time_m = AverageMeter()
     data_time_m = AverageMeter()
     losses_m = AverageMeter()
-
+    print("lasso:",args.lasso_alpha)
     model.train()
 
     end = time.time()
@@ -944,14 +973,30 @@ def train_one_epoch(
             output = model(input)
 
             if args.use_kd:
-                target = teacher(input)
-                loss = loss_fn(output, target)
+                target_t = teacher(input)
+                loss = loss_fn_kd(output, target_t)+loss_fn(output, target)*0
                 # print("------------------kd------------------")
             else:
                 output = output[0] if isinstance(output, tuple) else output
                 teacher = teacher[0] if isinstance(output, tuple) else output
                 loss = loss_fn(output, target)
-
+            reg_loss = 0
+            def comm(H,W,C,K,b):
+                # print("H,W,C,K,b:",H,W,C,K,b)
+                N=8192
+                tmp_a = torch.tensor(math.floor(N/(H*W*b)))
+                tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
+                return torch.tensor((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b)
+            if not pretrain:
+                for layer in model.modules():
+                    if isinstance(layer, LearnableCir):
+                        alphas = layer.get_alphas_after()
+                        for i,alpha in enumerate(alphas):
+                            reg_loss += alpha*comm(layer.feature_size,layer.feature_size,layer.in_features,layer.out_features,2**i)
+                    # reg_loss += comm(layer.feature_size,layer.feature_size,layer.in_features,layer.b)
+            # print("reg_loss,loss:",args.lasso_alpha*reg_loss,loss)
+                loss += args.lasso_alpha*reg_loss
+            
         if not args.distributed:
             losses_m.update(loss.item(), input.size(0))
 
@@ -1018,7 +1063,27 @@ def train_one_epoch(
 
         end = time.time()
         # end for
-
+    total_blocks = 0
+    total_layers = 0
+    if not pretrain:
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                total_layers+=1
+                alphas=layer.get_alphas_after()
+                idx = torch.argmax(alphas)
+                total_blocks += 2 **(idx)
+                _logger.info("alphas:"+str(alphas))
+                # print("alphas:",alphas)
+                # print("tau:",layer.tau)
+                
+                if epoch%10==0 and epoch>=5 and layer.tau > 0.01:
+                    layer.set_tau(layer.tau*0.9)
+                # layer.tau = layer.tau*torch.exp(torch.tensor(-0.0025*epoch))
+        if total_blocks//total_layers < 2 and epoch > 5:
+            args.lasso_alpha*=1.1
+    _logger.info("lasso_alpha:"+str(args.lasso_alpha))
+        
+    
     if hasattr(optimizer, 'sync_lookahead'):
         optimizer.sync_lookahead()
 

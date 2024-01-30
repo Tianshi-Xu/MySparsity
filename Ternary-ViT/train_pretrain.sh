@@ -5,7 +5,7 @@
 
 # CUDA_VISIBLE_DEVICES=3 python train.py -c ./configs/quantized/resnet32/fp32.yml /home/xts/code/dataset/cifar100 --model resnet32
 
-CUDA_VISIBLE_DEVICES=0 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_finetune.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
+CUDA_VISIBLE_DEVICES=1 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_pretrain.yml /home/xts/code/dataset/cifar10 --model pretrain_cifar_cir_nas_mobilenetv2
 
 # python -m torch.distributed.launch --nproc_per_node=8 train.py -c ./configs/datasets/imagenet_kd.yml /opt/dataset/imagenet --model imagenet_cir_mobilenetv2
 
