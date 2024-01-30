@@ -30,7 +30,7 @@ lr: 55e-5
 min_lr: 1e-5
 sched: cosine
 weight_decay: 6e-2
-epochs: 300
+epochs: 400
 cooldown_epochs: 10
 warmup_epochs: 0
 warmup_lr: 0.00001
@@ -41,7 +41,10 @@ checkpoint_hist: 5
 log_wandb: False
 use_kd: True
 kd_alpha: 4
-lasso_alpha: 0
+seed: 3407
+pretrain: False
+finetune: True
+lasso_alpha: 1e-5
 teacher: pretrain_cifar_cir_nas_mobilenetv2
-teacher_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240127-211638-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
-initial_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240128-214318-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
+teacher_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240130-151816-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
+initial_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240130-151816-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
