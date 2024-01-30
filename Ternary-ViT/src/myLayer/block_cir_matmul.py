@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
+import math
 import torch.nn.init as init
 
 class BlockCirculantLayer(nn.Module):
@@ -209,15 +210,15 @@ class LearnableCir(nn.Module):
         self.padding = kernel_size//2
         self.tau = 0.9
         if finetune:
-            self.alphas = nn.Parameter(torch.ones(4), requires_grad=False)
+            self.alphas = nn.Parameter(torch.ones(5), requires_grad=False)
         else:
-            self.alphas = nn.Parameter(torch.ones(4), requires_grad=True)
+            self.alphas = nn.Parameter(torch.ones(5), requires_grad=True)
         self.weight = nn.Parameter(torch.zeros(out_features,in_features, kernel_size,kernel_size))
         self.alphas_after = None
         init.kaiming_uniform_(self.weight)
     
     def trans_to_cir(self):
-        search_space = [2,4,8]
+        search_space = [2,4,8,16]
         alphas_after = gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
         # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
@@ -300,12 +301,19 @@ def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim
         # Reparametrization trick.
         ret = y_soft
     return ret
-    
+
+def comm(H,W,C,K,b):
+    # print("H,W,C,b:",H,W,C,b)
+    N=8192
+    tmp_a = torch.tensor(math.floor(N/(H*W*b)))
+    tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
+    return torch.tensor(math.ceil((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b))  
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
-    layer = LearnableCir(32,64,1,1,8,False).cuda()
-    layer.trans_to_cir()
+    # layer = LearnableCir(32,64,1,1,8,False).cuda()
+    # layer.trans_to_cir()
+    print(comm(16,16,32,32*6,16))
     # block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
     # input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
     # output_data1 = block_circulant_layer(input_data)

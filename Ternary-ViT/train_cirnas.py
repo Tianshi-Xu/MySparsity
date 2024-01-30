@@ -20,6 +20,7 @@ import sys
 import time
 import yaml
 import os
+import math
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -392,6 +393,10 @@ parser.add_argument('--as-patterns', default='1:1', type=str,
 # nas
 parser.add_argument('--lasso-alpha', default=1e-5, type=float,
                     help='alpha for lasso loss')
+parser.add_argument('--pretrain', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
+parser.add_argument('--finetune', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
 
 def parse_args():
     # Do we have a config file to parse?
@@ -531,10 +536,15 @@ def main(args):
 
     # 设置logger的级别为INFO
     _logger.setLevel(logging.INFO)
-
+    args, args_text = args
     # 创建一个handler，用于写入日志文件
     # maxBytes设置文件的最大长度，backupCount设置最多保留的文件数量
-    handler = RotatingFileHandler('example2.log', maxBytes=10*1024*1024, backupCount=5)
+    if args.pretrain:
+        handler = RotatingFileHandler('pretrain.log', maxBytes=10*1024*1024, backupCount=5)
+    elif args.finetune:
+        handler = RotatingFileHandler('finetune.log', maxBytes=10*1024*1024, backupCount=5)
+    else:
+        handler = RotatingFileHandler('normal train.log', maxBytes=10*1024*1024, backupCount=5)
     console_handler = logging.StreamHandler()
     # 定义handler的输出格式
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -543,7 +553,7 @@ def main(args):
     # 给logger添加handler
     _logger.addHandler(handler)
     _logger.addHandler(console_handler)
-    args, args_text = args
+    
     _logger.info(args_text)
 
     # import pdb; pdb.set_trace()
@@ -892,7 +902,7 @@ def main(args):
                 epoch, model, loader_train, optimizer, train_loss_fn, args,
                 lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
                 amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema,
-                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd)
+                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd,pretrain=args.pretrain,finetune=args.finetune)
 
             if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
                 if args.local_rank == 0:
@@ -932,7 +942,7 @@ def main(args):
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
         lr_scheduler=None, saver=None, output_dir=None, amp_autocast=suppress,
-        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None):
+        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False):
     if args.mixup_off_epoch and epoch >= args.mixup_off_epoch:
         if args.prefetcher and loader.mixup_enabled:
             loader.mixup_enabled = False
@@ -972,19 +982,20 @@ def train_one_epoch(
                 loss = loss_fn(output, target)
             reg_loss = 0
             def comm(H,W,C,K,b):
-                # print("H,W,C,b:",H,W,C,b)
-                N=4096
-                tmp_a = torch.tensor(4096/(H*W*b))
-                tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))
-                return torch.tensor((2*H*W*C/N)*(tmp_b-1))+0.0238*(H*W*C*K)/(N*b)
-            for layer in model.modules():
-                if isinstance(layer, LearnableCir):
-                    alphas = layer.get_alphas_after()
-                    for i,alpha in enumerate(alphas):
-                        reg_loss += alpha*comm(layer.feature_size,layer.feature_size,layer.in_features,layer.out_features,2**i)
+                # print("H,W,C,K,b:",H,W,C,K,b)
+                N=8192
+                tmp_a = torch.tensor(math.floor(N/(H*W*b)))
+                tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
+                return torch.tensor((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b)
+            if not pretrain:
+                for layer in model.modules():
+                    if isinstance(layer, LearnableCir):
+                        alphas = layer.get_alphas_after()
+                        for i,alpha in enumerate(alphas):
+                            reg_loss += alpha*comm(layer.feature_size,layer.feature_size,layer.in_features,layer.out_features,2**i)
                     # reg_loss += comm(layer.feature_size,layer.feature_size,layer.in_features,layer.b)
             # print("reg_loss,loss:",args.lasso_alpha*reg_loss,loss)
-            loss += args.lasso_alpha*reg_loss
+                loss += args.lasso_alpha*reg_loss
             
         if not args.distributed:
             losses_m.update(loss.item(), input.size(0))
@@ -1054,21 +1065,22 @@ def train_one_epoch(
         # end for
     total_blocks = 0
     total_layers = 0
-    for layer in model.modules():
-        if isinstance(layer, LearnableCir):
-            total_layers+=1
-            alphas=layer.get_alphas_after()
-            idx = torch.argmax(alphas)
-            total_blocks += idx+1
-            _logger.info("alphas:"+str(alphas))
-            # print("alphas:",alphas)
-            # print("tau:",layer.tau)
-            
-            if epoch%5==0 and epoch>=5 and layer.tau > 0.01:
-                layer.set_tau(layer.tau*0.9)
-            # layer.tau = layer.tau*torch.exp(torch.tensor(-0.0025*epoch))
-    if total_blocks//total_layers < 2 and epoch > 5:
-        args.lasso_alpha*=1.1
+    if not pretrain:
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                total_layers+=1
+                alphas=layer.get_alphas_after()
+                idx = torch.argmax(alphas)
+                total_blocks += 2 **(idx)
+                _logger.info("alphas:"+str(alphas))
+                # print("alphas:",alphas)
+                # print("tau:",layer.tau)
+                
+                if epoch%10==0 and epoch>=5 and layer.tau > 0.01:
+                    layer.set_tau(layer.tau*0.9)
+                # layer.tau = layer.tau*torch.exp(torch.tensor(-0.0025*epoch))
+        if total_blocks//total_layers < 2 and epoch > 5:
+            args.lasso_alpha*=1.1
     _logger.info("lasso_alpha:"+str(args.lasso_alpha))
         
     
