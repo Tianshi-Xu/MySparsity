@@ -542,7 +542,7 @@ def main(args):
     if args.pretrain:
         handler = RotatingFileHandler('pretrain.log', maxBytes=10*1024*1024, backupCount=5)
     elif args.finetune:
-        handler = RotatingFileHandler('finetune.log', maxBytes=10*1024*1024, backupCount=5)
+        handler = RotatingFileHandler('finetune2.log', maxBytes=10*1024*1024, backupCount=5)
     else:
         handler = RotatingFileHandler('normal train.log', maxBytes=10*1024*1024, backupCount=5)
     console_handler = logging.StreamHandler()
@@ -672,7 +672,7 @@ def main(args):
         model = model.to(memory_format=torch.channels_last)
     # cal(model)
     # exit(0)
-    # setup synchronized BatchNorm for distributed training
+    # setup synchronized BatchNorm for distributed_logger.info training
     print("-------------------sync bn:",args.sync_bn)
     # args.sync_bn=True
     if args.distributed and args.sync_bn:
@@ -994,7 +994,7 @@ def train_one_epoch(
                         for i,alpha in enumerate(alphas):
                             reg_loss += alpha*comm(layer.feature_size,layer.feature_size,layer.in_features,layer.out_features,2**i)
                     # reg_loss += comm(layer.feature_size,layer.feature_size,layer.in_features,layer.b)
-            # print("reg_loss,loss:",args.lasso_alpha*reg_loss,loss)
+                # print("reg_loss,loss:",args.lasso_alpha*reg_loss,loss)
                 loss += args.lasso_alpha*reg_loss
             
         if not args.distributed:
@@ -1076,10 +1076,10 @@ def train_one_epoch(
                 # print("alphas:",alphas)
                 # print("tau:",layer.tau)
                 
-                if epoch%10==0 and epoch>=5 and layer.tau > 0.01:
+                if epoch%10==0 and epoch>=20 and layer.tau > 0.01:
                     layer.set_tau(layer.tau*0.9)
                 # layer.tau = layer.tau*torch.exp(torch.tensor(-0.0025*epoch))
-        if total_blocks//total_layers < 2 and epoch > 5:
+        if epoch%10==0 and total_blocks//total_layers < 4 and epoch > 20:
             args.lasso_alpha*=1.1
     _logger.info("lasso_alpha:"+str(args.lasso_alpha))
         

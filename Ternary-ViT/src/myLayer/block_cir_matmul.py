@@ -208,17 +208,23 @@ class LearnableCir(nn.Module):
         self.pretrain = pretrain
         self.finetune = finetune
         self.padding = kernel_size//2
-        self.tau = 0.9
-        if finetune:
-            self.alphas = nn.Parameter(torch.ones(5), requires_grad=False)
+        self.tau = 1.0
+        self.search_space = []
+        search=2
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
+            self.search_space.append(search)
+            search *= 2
+        if pretrain:
+            self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=False)
         else:
-            self.alphas = nn.Parameter(torch.ones(5), requires_grad=True)
+            self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=True)
         self.weight = nn.Parameter(torch.zeros(out_features,in_features, kernel_size,kernel_size))
         self.alphas_after = None
         init.kaiming_uniform_(self.weight)
+        print("in_features,out_features,kernel_size,feature_size,search_space:",in_features,out_features,kernel_size,feature_size,self.search_space)
     
     def trans_to_cir(self):
-        search_space = [2,4,8,16]
+        search_space = self.search_space
         alphas_after = gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
         # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
@@ -228,6 +234,7 @@ class LearnableCir(nn.Module):
             # print("block_size:",block_size)
             q=self.out_features//block_size
             p=self.in_features//block_size
+            # print(self.weight.shape)
             tmp = self.weight.reshape(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
             tmp = tmp.permute(0,2,1,3,4,5)
             # if block_size == 8:
@@ -272,6 +279,10 @@ class LearnableCir(nn.Module):
             weight = self.weight
         return F.conv2d(x,weight,None,self.stride,self.padding)
 
+    def __str__(self):
+        additional_info = "search_space: " + str(self.search_space)
+        return super(LearnableCir, self).__str__() + "\n" + additional_info
+    
 def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim: int = -1,finetune=False) -> torch.Tensor:
     # _gumbels = (-torch.empty_like(
     #     logits,
