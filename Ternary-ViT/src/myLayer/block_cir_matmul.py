@@ -304,16 +304,19 @@ def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim
 
 def comm(H,W,C,K,b):
     # print("H,W,C,b:",H,W,C,b)
-    N=8192
+    N=4096
     tmp_a = torch.tensor(math.floor(N/(H*W*b)))
+    print("tmp_a:",tmp_a)
     tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
+    print("tmp_b:",tmp_b)
+    print("rotate:",math.ceil((C/b/tmp_a)*2*tmp_b))
     return torch.tensor(math.ceil((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b))  
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
     # layer = LearnableCir(32,64,1,1,8,False).cuda()
     # layer.trans_to_cir()
-    print(comm(16,16,32,32*6,16))
+    print(comm(32,32,32,32*6,4))
     # block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
     # input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
     # output_data1 = block_circulant_layer(input_data)
