@@ -6,3 +6,4 @@ output
 pretrained
 log*
 dataset
+*.log
