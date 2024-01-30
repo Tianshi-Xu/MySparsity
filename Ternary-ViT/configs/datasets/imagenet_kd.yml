@@ -78,7 +78,7 @@ no_bn: false
 no_prefetcher: false
 no_resume_opt: false
 num_classes: 1000
-opt: sgd
+opt: adamw
 opt_betas: null
 opt_eps: null
 output: ''

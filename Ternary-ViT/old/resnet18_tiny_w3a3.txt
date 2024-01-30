@@ -1,0 +1,1211 @@
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 3, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+spawned
+In layer:  QConv2d(
+  64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 2
+[tensor(844., device='cuda:0'), tensor(621., device='cuda:0'), tensor(627., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 0
+[tensor(948., device='cuda:0'), tensor(694., device='cuda:0'), tensor(716., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 3
+[tensor(674., device='cuda:0'), tensor(330., device='cuda:0'), tensor(411., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(709., device='cuda:0'), tensor(360., device='cuda:0'), tensor(384., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(750., device='cuda:0'), tensor(448., device='cuda:0'), tensor(469., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(626., device='cuda:0'), tensor(374., device='cuda:0'), tensor(375., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(678., device='cuda:0'), tensor(374., device='cuda:0'), tensor(379., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(738., device='cuda:0'), tensor(439., device='cuda:0'), tensor(465., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(647., device='cuda:0'), tensor(312., device='cuda:0'), tensor(351., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(742., device='cuda:0'), tensor(451., device='cuda:0'), tensor(464., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(672., device='cuda:0'), tensor(416., device='cuda:0'), tensor(432., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(624., device='cuda:0'), tensor(349., device='cuda:0'), tensor(426., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(684., device='cuda:0'), tensor(419., device='cuda:0'), tensor(419., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(677., device='cuda:0'), tensor(415., device='cuda:0'), tensor(426., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(699., device='cuda:0'), tensor(328., device='cuda:0'), tensor(393., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(757., device='cuda:0'), tensor(464., device='cuda:0'), tensor(464., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(610., device='cuda:0'), tensor(354., device='cuda:0'), tensor(366., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(616., device='cuda:0'), tensor(349., device='cuda:0'), tensor(413., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(617., device='cuda:0'), tensor(332., device='cuda:0'), tensor(375., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(598., device='cuda:0'), tensor(373., device='cuda:0'), tensor(384., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(591., device='cuda:0'), tensor(283., device='cuda:0'), tensor(342., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(613., device='cuda:0'), tensor(373., device='cuda:0'), tensor(375., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(682., device='cuda:0'), tensor(360., device='cuda:0'), tensor(408., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(632., device='cuda:0'), tensor(385., device='cuda:0'), tensor(412., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(621., device='cuda:0'), tensor(353., device='cuda:0'), tensor(365., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(597., device='cuda:0'), tensor(335., device='cuda:0'), tensor(353., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(668., device='cuda:0'), tensor(343., device='cuda:0'), tensor(383., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(589., device='cuda:0'), tensor(326., device='cuda:0'), tensor(337., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(640., device='cuda:0'), tensor(311., device='cuda:0'), tensor(340., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(591., device='cuda:0'), tensor(392., device='cuda:0'), tensor(407., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(639., device='cuda:0'), tensor(332., device='cuda:0'), tensor(381., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(651., device='cuda:0'), tensor(307., device='cuda:0'), tensor(382., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(625., device='cuda:0'), tensor(343., device='cuda:0'), tensor(477., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(534., device='cuda:0'), tensor(295., device='cuda:0'), tensor(340., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(514., device='cuda:0'), tensor(253., device='cuda:0'), tensor(382., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(557., device='cuda:0'), tensor(341., device='cuda:0'), tensor(381., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(577., device='cuda:0'), tensor(315., device='cuda:0'), tensor(361., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(638., device='cuda:0'), tensor(380., device='cuda:0'), tensor(406., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(539., device='cuda:0'), tensor(270., device='cuda:0'), tensor(330., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(656., device='cuda:0'), tensor(307., device='cuda:0'), tensor(462., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(557., device='cuda:0'), tensor(370., device='cuda:0'), tensor(370., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(633., device='cuda:0'), tensor(300., device='cuda:0'), tensor(421., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(584., device='cuda:0'), tensor(336., device='cuda:0'), tensor(400., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(553., device='cuda:0'), tensor(286., device='cuda:0'), tensor(329., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(535., device='cuda:0'), tensor(277., device='cuda:0'), tensor(342., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(545., device='cuda:0'), tensor(303., device='cuda:0'), tensor(328., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(488., device='cuda:0'), tensor(242., device='cuda:0'), tensor(330., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(560., device='cuda:0'), tensor(292., device='cuda:0'), tensor(350., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(330., device='cuda:0'), tensor(238., device='cuda:0'), tensor(297., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(288., device='cuda:0'), tensor(181., device='cuda:0'), tensor(211., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 2
+[tensor(343., device='cuda:0'), tensor(211., device='cuda:0'), tensor(243., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 5
+[tensor(293., device='cuda:0'), tensor(202., device='cuda:0'), tensor(211., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 3
+[tensor(286., device='cuda:0'), tensor(185., device='cuda:0'), tensor(222., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 4
+[tensor(333., device='cuda:0'), tensor(196., device='cuda:0'), tensor(236., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 6
+[tensor(306., device='cuda:0'), tensor(183., device='cuda:0'), tensor(242., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 8
+[tensor(327., device='cuda:0'), tensor(192., device='cuda:0'), tensor(232., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 10
+[tensor(296., device='cuda:0'), tensor(166., device='cuda:0'), tensor(222., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 9
+[tensor(312., device='cuda:0'), tensor(209., device='cuda:0'), tensor(233., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 14
+[tensor(320., device='cuda:0'), tensor(211., device='cuda:0'), tensor(249., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 11
+[tensor(306., device='cuda:0'), tensor(180., device='cuda:0'), tensor(238., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 13
+[tensor(308., device='cuda:0'), tensor(170., device='cuda:0'), tensor(251., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 15
+[tensor(308., device='cuda:0'), tensor(200., device='cuda:0'), tensor(249., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 7
+[tensor(281., device='cuda:0'), tensor(196., device='cuda:0'), tensor(230., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 12
+[tensor(315., device='cuda:0'), tensor(190., device='cuda:0'), tensor(265., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(618., device='cuda:0'), tensor(404., device='cuda:0'), tensor(471., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(599., device='cuda:0'), tensor(353., device='cuda:0'), tensor(370., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(556., device='cuda:0'), tensor(332., device='cuda:0'), tensor(359., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(591., device='cuda:0'), tensor(316., device='cuda:0'), tensor(390., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(661., device='cuda:0'), tensor(419., device='cuda:0'), tensor(443., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(610., device='cuda:0'), tensor(407., device='cuda:0'), tensor(430., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(618., device='cuda:0'), tensor(369., device='cuda:0'), tensor(443., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(565., device='cuda:0'), tensor(331., device='cuda:0'), tensor(418., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(697., device='cuda:0'), tensor(406., device='cuda:0'), tensor(504., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(579., device='cuda:0'), tensor(305., device='cuda:0'), tensor(362., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(549., device='cuda:0'), tensor(365., device='cuda:0'), tensor(373., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(656., device='cuda:0'), tensor(342., device='cuda:0'), tensor(480., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(530., device='cuda:0'), tensor(347., device='cuda:0'), tensor(371., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(588., device='cuda:0'), tensor(403., device='cuda:0'), tensor(411., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(569., device='cuda:0'), tensor(297., device='cuda:0'), tensor(349., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(586., device='cuda:0'), tensor(334., device='cuda:0'), tensor(438., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(636., device='cuda:0'), tensor(287., device='cuda:0'), tensor(391., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(641., device='cuda:0'), tensor(281., device='cuda:0'), tensor(390., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(618., device='cuda:0'), tensor(298., device='cuda:0'), tensor(434., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(617., device='cuda:0'), tensor(312., device='cuda:0'), tensor(433., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(640., device='cuda:0'), tensor(347., device='cuda:0'), tensor(481., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(644., device='cuda:0'), tensor(285., device='cuda:0'), tensor(407., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(632., device='cuda:0'), tensor(297., device='cuda:0'), tensor(399., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(623., device='cuda:0'), tensor(305., device='cuda:0'), tensor(405., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(620., device='cuda:0'), tensor(289., device='cuda:0'), tensor(422., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(582., device='cuda:0'), tensor(323., device='cuda:0'), tensor(441., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(607., device='cuda:0'), tensor(299., device='cuda:0'), tensor(438., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(628., device='cuda:0'), tensor(284., device='cuda:0'), tensor(453., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(663., device='cuda:0'), tensor(349., device='cuda:0'), tensor(470., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(620., device='cuda:0'), tensor(363., device='cuda:0'), tensor(417., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(619., device='cuda:0'), tensor(286., device='cuda:0'), tensor(481., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(619., device='cuda:0'), tensor(292., device='cuda:0'), tensor(454., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(424., device='cuda:0'), tensor(248., device='cuda:0'), tensor(297., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(369., device='cuda:0'), tensor(210., device='cuda:0'), tensor(255., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 4
+[tensor(360., device='cuda:0'), tensor(200., device='cuda:0'), tensor(247., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 13
+[tensor(373., device='cuda:0'), tensor(233., device='cuda:0'), tensor(289., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(431., device='cuda:0'), tensor(257., device='cuda:0'), tensor(326., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(385., device='cuda:0'), tensor(273., device='cuda:0'), tensor(322., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(427., device='cuda:0'), tensor(213., device='cuda:0'), tensor(348., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(351., device='cuda:0'), tensor(213., device='cuda:0'), tensor(251., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 9
+[tensor(370., device='cuda:0'), tensor(216., device='cuda:0'), tensor(263., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(370., device='cuda:0'), tensor(180., device='cuda:0'), tensor(275., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(430., device='cuda:0'), tensor(244., device='cuda:0'), tensor(301., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(328., device='cuda:0'), tensor(214., device='cuda:0'), tensor(233., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(8., device='cuda:0')]
+done: 2
+[tensor(396., device='cuda:0'), tensor(228., device='cuda:0'), tensor(321., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(441., device='cuda:0'), tensor(222., device='cuda:0'), tensor(360., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(401., device='cuda:0'), tensor(246., device='cuda:0'), tensor(297., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(411., device='cuda:0'), tensor(233., device='cuda:0'), tensor(335., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(858., device='cuda:0'), tensor(378., device='cuda:0'), tensor(457., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(928., device='cuda:0'), tensor(390., device='cuda:0'), tensor(550., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 4
+[tensor(907., device='cuda:0'), tensor(452., device='cuda:0'), tensor(496., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(867., device='cuda:0'), tensor(312., device='cuda:0'), tensor(533., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 5
+[tensor(874., device='cuda:0'), tensor(343., device='cuda:0'), tensor(489., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(919., device='cuda:0'), tensor(369., device='cuda:0'), tensor(529., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 6
+[tensor(843., device='cuda:0'), tensor(373., device='cuda:0'), tensor(539., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 7
+[tensor(818., device='cuda:0'), tensor(337., device='cuda:0'), tensor(488., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(934., device='cuda:0'), tensor(423., device='cuda:0'), tensor(533., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 13
+[tensor(875., device='cuda:0'), tensor(424., device='cuda:0'), tensor(491., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(927., device='cuda:0'), tensor(373., device='cuda:0'), tensor(506., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(854., device='cuda:0'), tensor(340., device='cuda:0'), tensor(492., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(804., device='cuda:0'), tensor(308., device='cuda:0'), tensor(488., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(816., device='cuda:0'), tensor(391., device='cuda:0'), tensor(447., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(871., device='cuda:0'), tensor(348., device='cuda:0'), tensor(487., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(914., device='cuda:0'), tensor(417., device='cuda:0'), tensor(491., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(957., device='cuda:0'), tensor(439., device='cuda:0'), tensor(566., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 2
+[tensor(982., device='cuda:0'), tensor(531., device='cuda:0'), tensor(564., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 7
+[tensor(955., device='cuda:0'), tensor(447., device='cuda:0'), tensor(532., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 3
+[tensor(989., device='cuda:0'), tensor(561., device='cuda:0'), tensor(593., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 5
+[tensor(944., device='cuda:0'), tensor(456., device='cuda:0'), tensor(507., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(923., device='cuda:0'), tensor(450., device='cuda:0'), tensor(576., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 8
+[tensor(929., device='cuda:0'), tensor(469., device='cuda:0'), tensor(512., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(865., device='cuda:0'), tensor(387., device='cuda:0'), tensor(546., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 4
+[tensor(954., device='cuda:0'), tensor(499., device='cuda:0'), tensor(530., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 1
+[tensor(1020., device='cuda:0'), tensor(586., device='cuda:0'), tensor(668., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 11
+[tensor(936., device='cuda:0'), tensor(488., device='cuda:0'), tensor(538., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 13
+[tensor(987., device='cuda:0'), tensor(522., device='cuda:0'), tensor(573., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 15
+[tensor(884., device='cuda:0'), tensor(375., device='cuda:0'), tensor(505., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(1015., device='cuda:0'), tensor(528., device='cuda:0'), tensor(538., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 12
+[tensor(971., device='cuda:0'), tensor(454., device='cuda:0'), tensor(616., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 9
+[tensor(904., device='cuda:0'), tensor(506., device='cuda:0'), tensor(600., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(552., device='cuda:0'), tensor(252., device='cuda:0'), tensor(352., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(621., device='cuda:0'), tensor(305., device='cuda:0'), tensor(415., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(648., device='cuda:0'), tensor(275., device='cuda:0'), tensor(441., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(589., device='cuda:0'), tensor(275., device='cuda:0'), tensor(397., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(527., device='cuda:0'), tensor(290., device='cuda:0'), tensor(381., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(537., device='cuda:0'), tensor(265., device='cuda:0'), tensor(349., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(592., device='cuda:0'), tensor(251., device='cuda:0'), tensor(379., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(613., device='cuda:0'), tensor(334., device='cuda:0'), tensor(352., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(575., device='cuda:0'), tensor(248., device='cuda:0'), tensor(361., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(515., device='cuda:0'), tensor(243., device='cuda:0'), tensor(296., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(633., device='cuda:0'), tensor(284., device='cuda:0'), tensor(423., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(591., device='cuda:0'), tensor(248., device='cuda:0'), tensor(398., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(573., device='cuda:0'), tensor(273., device='cuda:0'), tensor(347., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(490., device='cuda:0'), tensor(250., device='cuda:0'), tensor(307., device='cuda:0'), tensor(9., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(534., device='cuda:0'), tensor(300., device='cuda:0'), tensor(334., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(558., device='cuda:0'), tensor(258., device='cuda:0'), tensor(287., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 1
+[tensor(1075., device='cuda:0'), tensor(406., device='cuda:0'), tensor(506., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 0
+[tensor(1113., device='cuda:0'), tensor(361., device='cuda:0'), tensor(462., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(1114., device='cuda:0'), tensor(323., device='cuda:0'), tensor(472., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(1033., device='cuda:0'), tensor(369., device='cuda:0'), tensor(503., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(891., device='cuda:0'), tensor(308., device='cuda:0'), tensor(393., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(1209., device='cuda:0'), tensor(339., device='cuda:0'), tensor(490., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(1059., device='cuda:0'), tensor(340., device='cuda:0'), tensor(422., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(1047., device='cuda:0'), tensor(364., device='cuda:0'), tensor(499., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(918., device='cuda:0'), tensor(288., device='cuda:0'), tensor(453., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(884., device='cuda:0'), tensor(316., device='cuda:0'), tensor(426., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(1036., device='cuda:0'), tensor(307., device='cuda:0'), tensor(456., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(1087., device='cuda:0'), tensor(310., device='cuda:0'), tensor(505., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(1095., device='cuda:0'), tensor(395., device='cuda:0'), tensor(520., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 14
+[tensor(1083., device='cuda:0'), tensor(325., device='cuda:0'), tensor(472., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(914., device='cuda:0'), tensor(271., device='cuda:0'), tensor(460., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(989., device='cuda:0'), tensor(283., device='cuda:0'), tensor(389., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(1247., device='cuda:0'), tensor(617., device='cuda:0'), tensor(705., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 2
+[tensor(1063., device='cuda:0'), tensor(512., device='cuda:0'), tensor(541., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 3
+[tensor(1106., device='cuda:0'), tensor(515., device='cuda:0'), tensor(664., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 4
+[tensor(1071., device='cuda:0'), tensor(488., device='cuda:0'), tensor(565., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 1
+[tensor(1230., device='cuda:0'), tensor(630., device='cuda:0'), tensor(701., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 6
+[tensor(1029., device='cuda:0'), tensor(469., device='cuda:0'), tensor(641., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 13
+[tensor(1247., device='cuda:0'), tensor(528., device='cuda:0'), tensor(613., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 12
+[tensor(1059., device='cuda:0'), tensor(576., device='cuda:0'), tensor(580., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 9
+[tensor(1210., device='cuda:0'), tensor(532., device='cuda:0'), tensor(661., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 5
+[tensor(1227., device='cuda:0'), tensor(612., device='cuda:0'), tensor(665., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 14
+[tensor(1111., device='cuda:0'), tensor(537., device='cuda:0'), tensor(634., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 7
+[tensor(1199., device='cuda:0'), tensor(573., device='cuda:0'), tensor(641., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 10
+[tensor(1125., device='cuda:0'), tensor(489., device='cuda:0'), tensor(619., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 11
+[tensor(1071., device='cuda:0'), tensor(480., device='cuda:0'), tensor(612., device='cuda:0'), tensor(11., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 8
+[tensor(1093., device='cuda:0'), tensor(514., device='cuda:0'), tensor(572., device='cuda:0'), tensor(11., device='cuda:0'), tensor(10., device='cuda:0'), tensor(10., device='cuda:0')]
+done: 15
+[tensor(1022., device='cuda:0'), tensor(488., device='cuda:0'), tensor(551., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(10., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+  (quan_w_fn): LsqQuantizer(bit=3, pos=3, neg=-3, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=3, pos=3, neg=-4, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 16
+[0, 0, 0, 0, 0, 0]
+done: 17
+[0, 0, 0, 0, 0, 0]
+done: 18
+[0, 0, 0, 0, 0, 0]
+done: 21
+[0, 0, 0, 0, 0, 0]
+done: 19
+[0, 0, 0, 0, 0, 0]
+done: 23
+[0, 0, 0, 0, 0, 0]
+done: 26
+[0, 0, 0, 0, 0, 0]
+done: 24
+[0, 0, 0, 0, 0, 0]
+done: 20
+[0, 0, 0, 0, 0, 0]
+done: 22
+[0, 0, 0, 0, 0, 0]
+done: 27
+[0, 0, 0, 0, 0, 0]
+done: 29
+[0, 0, 0, 0, 0, 0]
+done: 25
+[0, 0, 0, 0, 0, 0]
+done: 28
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 30
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 31
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(713., device='cuda:0'), tensor(228., device='cuda:0'), tensor(464., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 1
+[tensor(676., device='cuda:0'), tensor(143., device='cuda:0'), tensor(395., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 2
+[tensor(679., device='cuda:0'), tensor(188., device='cuda:0'), tensor(333., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 6
+[tensor(541., device='cuda:0'), tensor(165., device='cuda:0'), tensor(287., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 5
+[tensor(706., device='cuda:0'), tensor(150., device='cuda:0'), tensor(346., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 3
+[tensor(561., device='cuda:0'), tensor(180., device='cuda:0'), tensor(370., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 8
+[tensor(716., device='cuda:0'), tensor(196., device='cuda:0'), tensor(283., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 7
+[tensor(806., device='cuda:0'), tensor(216., device='cuda:0'), tensor(507., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 11
+[tensor(643., device='cuda:0'), tensor(230., device='cuda:0'), tensor(381., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 12
+[tensor(708., device='cuda:0'), tensor(188., device='cuda:0'), tensor(320., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 4
+[tensor(736., device='cuda:0'), tensor(279., device='cuda:0'), tensor(435., device='cuda:0'), tensor(10., device='cuda:0'), tensor(9., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 14
+[tensor(872., device='cuda:0'), tensor(177., device='cuda:0'), tensor(365., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 13
+[tensor(788., device='cuda:0'), tensor(178., device='cuda:0'), tensor(391., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 9
+[tensor(767., device='cuda:0'), tensor(225., device='cuda:0'), tensor(485., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 10
+[tensor(743., device='cuda:0'), tensor(223., device='cuda:0'), tensor(437., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+done: 15
+[tensor(623., device='cuda:0'), tensor(253., device='cuda:0'), tensor(390., device='cuda:0'), tensor(10., device='cuda:0'), tensor(8., device='cuda:0'), tensor(9., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+total ok

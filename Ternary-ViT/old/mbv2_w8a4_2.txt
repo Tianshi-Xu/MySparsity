@@ -1,0 +1,1445 @@
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 4, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': True, 'per_channel': True, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+{'enable': True, 'mode': 'LSQ', 'bit': 8, 'thd_pos': None, 'thd_neg': None, 'all_positive': False, 'symmetric': False, 'per_channel': False, 'normalize_first': False}
+spawned
+In layer:  QConv2d(
+  32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 1
+[tensor(6223., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 0
+[tensor(6223., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4953., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(5842., device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(5207., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(6223., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(5461., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(5842., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(6096., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(5969., device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(6223., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(6096., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(6223., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(6223., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(6223., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(6223., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(6223., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(5842., device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(6223., device='cuda:0'), tensor(4953., device='cuda:0'), tensor(4953., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(6096., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(6604., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(5969., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(6223., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(6223., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(6223., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(6223., device='cuda:0'), tensor(4953., device='cuda:0'), tensor(5080., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(5969., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(6223., device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(5969., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=96, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(7620.0010, device='cuda:0'), tensor(7620.0010, device='cuda:0'), tensor(7620.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(6731.0010, device='cuda:0'), tensor(6731.0010, device='cuda:0'), tensor(6731.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(6223.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(7112.0010, device='cuda:0'), tensor(7112.0010, device='cuda:0'), tensor(7112.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(7112.0010, device='cuda:0'), tensor(7112.0010, device='cuda:0'), tensor(7112.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(6731.0005, device='cuda:0'), tensor(6731.0005, device='cuda:0'), tensor(6731.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(7112.0010, device='cuda:0'), tensor(7112.0010, device='cuda:0'), tensor(7112.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(8001.0010, device='cuda:0'), tensor(8001.0010, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(7239.0010, device='cuda:0'), tensor(7239.0010, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(6858.0005, device='cuda:0'), tensor(6858.0005, device='cuda:0'), tensor(6858.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(7239.0010, device='cuda:0'), tensor(7239.0010, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(7239.0010, device='cuda:0'), tensor(7239.0010, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(6604.0010, device='cuda:0'), tensor(6604.0010, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(7747.0010, device='cuda:0'), tensor(7747.0010, device='cuda:0'), tensor(7747.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(7493.0010, device='cuda:0'), tensor(7493.0010, device='cuda:0'), tensor(7493.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(7747.0010, device='cuda:0'), tensor(7747.0010, device='cuda:0'), tensor(7747.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(6858.0010, device='cuda:0'), tensor(6858.0010, device='cuda:0'), tensor(6858.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(8001.0010, device='cuda:0'), tensor(8001.0010, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(7620.0010, device='cuda:0'), tensor(7620.0010, device='cuda:0'), tensor(7620.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(7493.0010, device='cuda:0'), tensor(7493.0010, device='cuda:0'), tensor(7493.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(6604.0005, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(6604.0010, device='cuda:0'), tensor(6604.0010, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(7620.0010, device='cuda:0'), tensor(7620.0010, device='cuda:0'), tensor(7620.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(7747.0010, device='cuda:0'), tensor(7747.0010, device='cuda:0'), tensor(7747.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(8001.0010, device='cuda:0'), tensor(8001.0010, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(7239.0010, device='cuda:0'), tensor(7239.0010, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(6223.0010, device='cuda:0'), tensor(6223.0010, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(6858.0010, device='cuda:0'), tensor(6858.0010, device='cuda:0'), tensor(6858.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(6350.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(7112.0010, device='cuda:0'), tensor(7112.0010, device='cuda:0'), tensor(7112.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(6985.0010, device='cuda:0'), tensor(6985.0010, device='cuda:0'), tensor(6985.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(8001.0010, device='cuda:0'), tensor(8001.0010, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 9
+[tensor(5207.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(5334.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(5334.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(5334.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5334.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 0
+[tensor(5334.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(5080.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(5334.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(4826.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(5207.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(5334.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5207.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(5207.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(5080.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(5207.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(5334.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(5207.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(4826.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(4826.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(5080.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(5207.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(5334.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(4699.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(5334.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(4572.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(4953.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(4826.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(5334.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(5207.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(4953.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(5207.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 1
+[tensor(7112., device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(6604., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(6985., device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(7112., device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(7112., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6604., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 0
+[tensor(6604., device='cuda:0'), tensor(3810., device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(6350., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(6350., device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(5588., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(6604., device='cuda:0'), tensor(2667.0002, device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(6096., device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(5334., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(7112., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(6858., device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(6350., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(6985., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(6604., device='cuda:0'), tensor(2667.0002, device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(6223., device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(5334., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(7112., device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(7112., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6350., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(7112., device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(6350., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(6858., device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(6223., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(6985., device='cuda:0'), tensor(4064., device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(6985., device='cuda:0'), tensor(5842., device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(6858., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(6858., device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(6223., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(5334., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(6985., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(6350., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(7112., device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(6604., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(6858., device='cuda:0'), tensor(3048., device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(7112., device='cuda:0'), tensor(3683., device='cuda:0'), tensor(6477., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(7112., device='cuda:0'), tensor(6223., device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(7112., device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(6477., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(6604., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(5588., device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(5080., device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5588.0010, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4826., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(6477., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(6477.0010, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(6604., device='cuda:0'), tensor(4445.0010, device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(6477., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(5588., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(6731.0010, device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(5969.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(6223.0010, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(6858., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(7112.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5969.0010, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(5715.0010, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(5842.0010, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(6731., device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(7112.0010, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(5842.0010, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(6350., device='cuda:0'), tensor(3048.0005, device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(5969.0010, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(6223., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(5588., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(5842.0010, device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(6350., device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(5588.0010, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(6350., device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(7112.0005, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(5969.0010, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(6731., device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(5207.0010, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(7112.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(6858., device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(6604.0010, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(5969.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(6604.0010, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(5207.0005, device='cuda:0'), tensor(3302.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(5461.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(7747.0010, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(7747.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5461., device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(5334.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(7239.0010, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(7239.0010, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(6731., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(7239.0010, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(7239.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(5461.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(6858.0010, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(6858.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(7112.0010, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(7112.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(7874.0010, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(7874.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(6223.0010, device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(5334.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(5334.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(8001.0010, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5842.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5842.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(6350.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(6477.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(5588.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(5715.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(8001.0010, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(8001.0010, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(8001.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(4572.0005, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 27
+[tensor(7874.0010, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(7874.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(4572.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(6985.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(5334.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(5461.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(5207.0005, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(7493.0010, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(7493.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 1
+[tensor(5334.0005, device='cuda:0'), tensor(2921.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(6604.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(5842.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(7112., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(7112., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 0
+[tensor(4699., device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(7112., device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(7112., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(7112.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(6731.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(5461., device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(7112.0005, device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(7112.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(6858.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(6096.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(7747., device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(6985.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(6604., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(7747., device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(6985.0005, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(6858., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5588.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5588., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(6604.0005, device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(6731., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(6731., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(7112.0005, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(7747., device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(7493., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(7493., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(7747., device='cuda:0'), tensor(6604.0010, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(6985., device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(6985., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(6477., device='cuda:0'), tensor(3302.0005, device='cuda:0'), tensor(6477., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(7874., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(7874., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(6350.0005, device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(7747., device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(7112.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(6985., device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(6985., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(7747., device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(7747., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(7493., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(7493., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(6096., device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(7112.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 3
+[tensor(5842.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(5588.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(5080.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(4445.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(3937.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 10
+[tensor(5842.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(5588.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(4191.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 28
+[tensor(4826.0005, device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(3937.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 18
+[tensor(4445.0005, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 22
+[tensor(5207.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(5334.0005, device='cuda:0'), tensor(3683., device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(5715.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(3429.0005, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 0
+[tensor(5207.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(5588.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(4445.0005, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(5969.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(6223.0005, device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(5969.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(6096.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(4953.0005, device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 24
+[tensor(5461.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(6096.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5334.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(5842.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5207.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(4699.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(5715.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(4445.0005, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 27
+[tensor(5588.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(5080.0005, device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(4445.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(5207.0005, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(5588.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(4953.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(4953.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(4572.0005, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 7
+[tensor(5715.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(5080.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(4953.0005, device='cuda:0'), tensor(3048.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 5
+[tensor(5715.0005, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(5461.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(5207.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 20
+[tensor(4826.0005, device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 15
+[tensor(4318.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(3937.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 2
+[tensor(4953.0005, device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 1
+[tensor(4445.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(4699.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 8
+[tensor(5080.0005, device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4064.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 4
+[tensor(4826.0005, device='cuda:0'), tensor(3937.0002, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(4953.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 12
+[tensor(4318.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 16
+[tensor(4953.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(5207.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(4572.0005, device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(4572.0005, device='cuda:0'), tensor(3175.0002, device='cuda:0'), tensor(3937.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 19
+[tensor(4826.0005, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(4953.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(5842.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(4953.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(4826.0005, device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(4826.0005, device='cuda:0'), tensor(2602., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(4699.0005, device='cuda:0'), tensor(3683.0002, device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(4953.0005, device='cuda:0'), tensor(3048.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(5207.0005, device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(4572.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  576, 576, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=576, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 20
+[tensor(5207., device='cuda:0'), tensor(3683.0005, device='cuda:0'), tensor(5080., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(6223., device='cuda:0'), tensor(4191., device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(6731., device='cuda:0'), tensor(3810., device='cuda:0'), tensor(6223., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(6223.0005, device='cuda:0'), tensor(3556., device='cuda:0'), tensor(5842.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5080., device='cuda:0'), tensor(3048., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(4572., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(4953., device='cuda:0'), tensor(3810.0005, device='cuda:0'), tensor(4953., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(4699., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 17
+[tensor(5842., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(7112.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(6350.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(5334., device='cuda:0'), tensor(3556., device='cuda:0'), tensor(4445.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(5588., device='cuda:0'), tensor(5080., device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 0
+[tensor(5969., device='cuda:0'), tensor(3937., device='cuda:0'), tensor(5080.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 2
+[tensor(6858., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(6223.0005, device='cuda:0'), tensor(3556., device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(6858.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(5969.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(6858.0005, device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(5969.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(6985., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(6858.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(6604.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 26
+[tensor(6223., device='cuda:0'), tensor(4826., device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(5969., device='cuda:0'), tensor(4064.0005, device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(6985., device='cuda:0'), tensor(4191.0005, device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(6858., device='cuda:0'), tensor(4191., device='cuda:0'), tensor(6096.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(7112.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(6985., device='cuda:0'), tensor(3683., device='cuda:0'), tensor(6223.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(5461., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(5207., device='cuda:0'), tensor(3556., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(6096., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 30
+[tensor(4953.0005, device='cuda:0'), tensor(4064., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(6096., device='cuda:0'), tensor(4064., device='cuda:0'), tensor(6096., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(5969., device='cuda:0'), tensor(3556., device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(5715., device='cuda:0'), tensor(4064., device='cuda:0'), tensor(5207., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  576, 576, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=576, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(3230., device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(3230., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 12
+[tensor(3302.0002, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 5
+[tensor(4064.0005, device='cuda:0'), tensor(2143., device='cuda:0'), tensor(3622., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 6
+[tensor(5334.0005, device='cuda:0'), tensor(2097., device='cuda:0'), tensor(4699.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(3469., device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(3223., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 1
+[tensor(3368., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(3368., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 10
+[tensor(4318.0005, device='cuda:0'), tensor(2442., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 19
+[tensor(3430., device='cuda:0'), tensor(2781.9998, device='cuda:0'), tensor(3430., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 3
+[tensor(3810.0005, device='cuda:0'), tensor(1651.0002, device='cuda:0'), tensor(3177., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 2
+[tensor(3535., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(3535., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 17
+[tensor(3091., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(3091., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 4
+[tensor(2968., device='cuda:0'), tensor(2046.9998, device='cuda:0'), tensor(2968., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 20
+[tensor(2796., device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(2796., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 15
+[tensor(3175.0002, device='cuda:0'), tensor(2031.9999, device='cuda:0'), tensor(2898., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 9
+[tensor(3810.0005, device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(2781., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 25
+[tensor(3302.0005, device='cuda:0'), tensor(3302.0005, device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 13
+[tensor(3302.0002, device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(3092., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 29
+[tensor(3620., device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(3620., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 21
+[tensor(4257., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(4257., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(3008., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(3008., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 8
+[tensor(3689., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(3689., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 14
+[tensor(4191.0005, device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(3865., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 23
+[tensor(3175.0002, device='cuda:0'), tensor(2667.0002, device='cuda:0'), tensor(2860., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 7
+[tensor(3189., device='cuda:0'), tensor(2305., device='cuda:0'), tensor(3189., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 27
+[tensor(3305., device='cuda:0'), tensor(2413.0002, device='cuda:0'), tensor(3305., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 11
+[tensor(3937.0005, device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(3048.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 31
+[tensor(3012., device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(3012., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 26
+[tensor(3575., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(3454., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 30
+[tensor(3683.0002, device='cuda:0'), tensor(1905.0002, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 22
+[tensor(3556.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 28
+[tensor(4293., device='cuda:0'), tensor(2413.0002, device='cuda:0'), tensor(4293., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(4795., device='cuda:0'), tensor(3429.0005, device='cuda:0'), tensor(4795., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(6629., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(6629., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(6223.0005, device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(5424., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(3757., device='cuda:0'), tensor(1778., device='cuda:0'), tensor(3757., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 2
+[tensor(6192., device='cuda:0'), tensor(2413.0002, device='cuda:0'), tensor(6192., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(3937.0005, device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(3429.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 11
+[tensor(6217., device='cuda:0'), tensor(2794.0002, device='cuda:0'), tensor(6217., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(6000., device='cuda:0'), tensor(3048.0005, device='cuda:0'), tensor(6000., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(4748., device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(4748., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(5842.0010, device='cuda:0'), tensor(2413.0002, device='cuda:0'), tensor(5207.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 24
+[tensor(6856., device='cuda:0'), tensor(2413.0002, device='cuda:0'), tensor(6856., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(5080.0010, device='cuda:0'), tensor(3175.0005, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5207.0010, device='cuda:0'), tensor(2794.0005, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(6765., device='cuda:0'), tensor(3175.0002, device='cuda:0'), tensor(6765., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(4572.0005, device='cuda:0'), tensor(2540.0002, device='cuda:0'), tensor(4318.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(6223.0010, device='cuda:0'), tensor(2667., device='cuda:0'), tensor(5588.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(4953.0005, device='cuda:0'), tensor(1812., device='cuda:0'), tensor(4826.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 18
+[tensor(4445.0010, device='cuda:0'), tensor(2794.0002, device='cuda:0'), tensor(3732., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 30
+[tensor(4015., device='cuda:0'), tensor(2667.0005, device='cuda:0'), tensor(4015., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 17
+[tensor(5842.0010, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(5334.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(5661., device='cuda:0'), tensor(1905.0002, device='cuda:0'), tensor(5661., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 31
+[tensor(6498., device='cuda:0'), tensor(3175., device='cuda:0'), tensor(6498., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(4953.0005, device='cuda:0'), tensor(2921.0005, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(4445.0010, device='cuda:0'), tensor(2794.0005, device='cuda:0'), tensor(3937.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 20
+[tensor(4064.0005, device='cuda:0'), tensor(3556.0005, device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 26
+[tensor(5969.0005, device='cuda:0'), tensor(2794.0002, device='cuda:0'), tensor(5842.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(4802., device='cuda:0'), tensor(2667.0005, device='cuda:0'), tensor(4802., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(5207.0010, device='cuda:0'), tensor(2794.0002, device='cuda:0'), tensor(4790., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(5080.0010, device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(4572.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 27
+[tensor(4476., device='cuda:0'), tensor(2413.0005, device='cuda:0'), tensor(4476., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(6004., device='cuda:0'), tensor(2103., device='cuda:0'), tensor(6004., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(6350.0010, device='cuda:0'), tensor(2159., device='cuda:0'), tensor(5715.0005, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(4064.0005, device='cuda:0'), tensor(2921.0005, device='cuda:0'), tensor(3810.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 0
+[tensor(4445., device='cuda:0'), tensor(1496.9999, device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 1
+[tensor(3175., device='cuda:0'), tensor(1905., device='cuda:0'), tensor(3175.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 2
+[tensor(5461., device='cuda:0'), tensor(1944., device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(4572., device='cuda:0'), tensor(1772., device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 6
+[tensor(5842., device='cuda:0'), tensor(1980.9998, device='cuda:0'), tensor(5842., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 7
+[tensor(4699., device='cuda:0'), tensor(2159.0002, device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 8
+[tensor(5207., device='cuda:0'), tensor(2385.9998, device='cuda:0'), tensor(5207., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(3429.0002, device='cuda:0'), tensor(2667.0002, device='cuda:0'), tensor(3175., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 17
+[tensor(5334., device='cuda:0'), tensor(2372., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 11
+[tensor(5969., device='cuda:0'), tensor(1911., device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 12
+[tensor(4318., device='cuda:0'), tensor(1524.0002, device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(5461., device='cuda:0'), tensor(2090., device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 4
+[tensor(4318., device='cuda:0'), tensor(2064., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 15
+[tensor(4445., device='cuda:0'), tensor(1991., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(3937., device='cuda:0'), tensor(1778.0002, device='cuda:0'), tensor(3333., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 10
+[tensor(6350., device='cuda:0'), tensor(2279., device='cuda:0'), tensor(6350., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(3937., device='cuda:0'), tensor(3937., device='cuda:0'), tensor(3937., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 30
+[tensor(5080., device='cuda:0'), tensor(1898., device='cuda:0'), tensor(5080., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 23
+[tensor(5334., device='cuda:0'), tensor(2150., device='cuda:0'), tensor(5334., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(4445., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(4445., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 22
+[tensor(3937., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(3937., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 9
+[tensor(5207., device='cuda:0'), tensor(2343.9998, device='cuda:0'), tensor(5207., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 13
+[tensor(3556., device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(3556., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 25
+[tensor(5333.9995, device='cuda:0'), tensor(1778.9998, device='cuda:0'), tensor(5333.9995, device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 29
+[tensor(3683.0005, device='cuda:0'), tensor(1651., device='cuda:0'), tensor(3556.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 27
+[tensor(4064., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(4064., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 31
+[tensor(3556., device='cuda:0'), tensor(2286.0002, device='cuda:0'), tensor(2794., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 18
+[tensor(3683., device='cuda:0'), tensor(1980., device='cuda:0'), tensor(3175., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 20
+[tensor(4191., device='cuda:0'), tensor(2794.0005, device='cuda:0'), tensor(3175.0002, device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 26
+[tensor(4191., device='cuda:0'), tensor(1795.9999, device='cuda:0'), tensor(4191., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(3683., device='cuda:0'), tensor(1651.0002, device='cuda:0'), tensor(3683., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 24
+[tensor(4699., device='cuda:0'), tensor(2032.0002, device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+spawned
+In layer:  QConv2d(
+  960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False
+  (quan_w_fn): LsqQuantizer(bit=8, pos=127, neg=-127, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=True, per_channel=True)
+  (quan_a_fn): LsqQuantizer(bit=4, pos=7, neg=-8, norm=(False, 1e-05, 1.0), all_positive=False, symmetric=False, per_channel=False)
+  (sparse_w_fn): IdentitySparsifier()
+  (sparse_a_fn): IdentitySparsifier()
+)
+batch: 1
+done: 32
+[0, 0, 0, 0, 0, 0]
+done: 33
+[0, 0, 0, 0, 0, 0]
+done: 34
+[0, 0, 0, 0, 0, 0]
+done: 35
+[0, 0, 0, 0, 0, 0]
+done: 2
+[tensor(3249., device='cuda:0'), tensor(2337., device='cuda:0'), tensor(3249., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 6
+[tensor(3626., device='cuda:0'), tensor(1461., device='cuda:0'), tensor(3626., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 7
+[tensor(3937., device='cuda:0'), tensor(2259., device='cuda:0'), tensor(3937., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 8
+[tensor(4095., device='cuda:0'), tensor(1869.0001, device='cuda:0'), tensor(4095., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 0
+[tensor(5969., device='cuda:0'), tensor(2259., device='cuda:0'), tensor(5969., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 3
+[tensor(4699., device='cuda:0'), tensor(2597., device='cuda:0'), tensor(4699., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 5
+[tensor(3453., device='cuda:0'), tensor(1880., device='cuda:0'), tensor(3453., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 17
+[tensor(5715., device='cuda:0'), tensor(1488., device='cuda:0'), tensor(5715., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 28
+[tensor(4318., device='cuda:0'), tensor(1133., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 25
+[tensor(4572., device='cuda:0'), tensor(1674.0002, device='cuda:0'), tensor(4572., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 21
+[tensor(4074., device='cuda:0'), tensor(1977., device='cuda:0'), tensor(4074., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 18
+[tensor(3556., device='cuda:0'), tensor(2420., device='cuda:0'), tensor(3556., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 4
+[tensor(2958., device='cuda:0'), tensor(1444., device='cuda:0'), tensor(2958., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 1
+[tensor(3810., device='cuda:0'), tensor(1825., device='cuda:0'), tensor(3810., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 27
+[tensor(4318., device='cuda:0'), tensor(2079., device='cuda:0'), tensor(4318., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 9
+[tensor(3496.0002, device='cuda:0'), tensor(2201., device='cuda:0'), tensor(3496., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 12
+[tensor(3175.0005, device='cuda:0'), tensor(1589., device='cuda:0'), tensor(3175.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 30
+[tensor(3683., device='cuda:0'), tensor(1677., device='cuda:0'), tensor(3683., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 13
+[tensor(3374., device='cuda:0'), tensor(1503., device='cuda:0'), tensor(3374., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 31
+[tensor(3937., device='cuda:0'), tensor(2230., device='cuda:0'), tensor(3937., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 24
+[tensor(5461., device='cuda:0'), tensor(1473., device='cuda:0'), tensor(5461., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 16
+[tensor(3302.0002, device='cuda:0'), tensor(1964., device='cuda:0'), tensor(3302.0002, device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 29
+[tensor(3488., device='cuda:0'), tensor(1151., device='cuda:0'), tensor(3488., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 15
+[tensor(4380., device='cuda:0'), tensor(2655.0002, device='cuda:0'), tensor(4380., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 19
+[tensor(4096., device='cuda:0'), tensor(2064., device='cuda:0'), tensor(4096., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 22
+[tensor(3683., device='cuda:0'), tensor(1511., device='cuda:0'), tensor(3683., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 20
+[tensor(6129., device='cuda:0'), tensor(2281., device='cuda:0'), tensor(6129., device='cuda:0'), tensor(13., device='cuda:0'), tensor(12., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 10
+[tensor(3455., device='cuda:0'), tensor(2346., device='cuda:0'), tensor(3455., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 23
+[tensor(3810., device='cuda:0'), tensor(1631., device='cuda:0'), tensor(3810., device='cuda:0'), tensor(12., device='cuda:0'), tensor(11., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 26
+[tensor(3969., device='cuda:0'), tensor(2238., device='cuda:0'), tensor(3969., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0'), tensor(12., device='cuda:0')]
+done: 11
+[tensor(6731., device='cuda:0'), tensor(1800.0002, device='cuda:0'), tensor(6731., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+done: 14
+[tensor(4191., device='cuda:0'), tensor(2037., device='cuda:0'), tensor(4191., device='cuda:0'), tensor(13., device='cuda:0'), tensor(11., device='cuda:0'), tensor(13., device='cuda:0')]
+max num:  0
+min num:  0
+mean num:  0
+max_bit:  0
+min_bit:  0
+mean_bit:  0
+total ok

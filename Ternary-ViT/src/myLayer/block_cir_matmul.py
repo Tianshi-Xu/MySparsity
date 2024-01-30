@@ -194,6 +194,8 @@ class NewBlockCirculantConv(nn.Module):
     def __str__(self):
         additional_info = "block_size: " + str(self.block_size)
         return super(BlockCirculantConv, self).__str__() + "\n" + additional_info
+
+
 if __name__ == '__main__':
 # 示例用法
 # 输入特征维度为10，输出特征维度为5，块大小为2
