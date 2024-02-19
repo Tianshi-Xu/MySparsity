@@ -20,7 +20,10 @@ import sys
 import time
 import yaml
 import os
+import math
 import logging
+from logging.handlers import RotatingFileHandler
+
 from collections import OrderedDict
 from contextlib import suppress
 from datetime import datetime
@@ -30,7 +33,6 @@ import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 import torch.distributed as dist
-# sys.path.append("/data/home/menglifrl/pytorch-image-models")
 # sys.path.append("/home/xts/code/neujeans/MySparsity/pytorch-image-models")
 sys.path.append("/home/xts/code/njeans/MySparsity/pytorch-image-models")
 
@@ -46,7 +48,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-
+from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir
 from src import *
 
 try:
@@ -74,7 +76,8 @@ except ImportError:
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
-
+# fh = logging.FileHandler('example.log')
+# _logger.addHandler(fh)
 # The first arg parser parses out only the --config argument, this argument is used to
 # load a yaml file containing key-values that override the defaults for the main parser below
 config_parser = parser = argparse.ArgumentParser(description='Training Config', add_help=False)
@@ -387,8 +390,19 @@ parser.add_argument('--as-mode', default='Identity', type=str,
 parser.add_argument('--as-patterns', default='1:1', type=str,
                     help='act sparsification pattern')
 
+# nas
 parser.add_argument('--lasso-alpha', default=1e-5, type=float,
                     help='alpha for lasso loss')
+parser.add_argument('--pretrain', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
+parser.add_argument('--finetune', action='store_true', default=False,
+                    help='whether to use dual skip for resnet blocks')
+parser.add_argument('--log_name', default='none', type=str,
+                    help='act sparsification pattern')
+parser.add_argument('--tau', default=-0.00125, type=float,
+                    help='tau for softmax')
+parser.add_argument('--blocksize', default=8, type=int,
+                    help='avg block size')
 
 def parse_args():
     # Do we have a config file to parse?
@@ -525,9 +539,27 @@ def update_lr_multi_gpu(args):
 
 
 def main(args):
-    setup_default_logging(log_path='')
 
+    # 设置logger的级别为INFO
+    _logger.setLevel(logging.INFO)
     args, args_text = args
+    # 创建一个handler，用于写入日志文件
+    # maxBytes设置文件的最大长度，backupCount设置最多保留的文件数量
+    if args.pretrain:
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
+    elif args.finetune:
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
+    else:
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
+    console_handler = logging.StreamHandler()
+    # 定义handler的输出格式
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+
+    # 给logger添加handler
+    _logger.addHandler(handler)
+    _logger.addHandler(console_handler)
+    
     _logger.info(args_text)
 
     # import pdb; pdb.set_trace()
@@ -646,7 +678,7 @@ def main(args):
         model = model.to(memory_format=torch.channels_last)
     # cal(model)
     # exit(0)
-    # setup synchronized BatchNorm for distributed training
+    # setup synchronized BatchNorm for distributed_logger.info training
     print("-------------------sync bn:",args.sync_bn)
     # args.sync_bn=True
     if args.distributed and args.sync_bn:
@@ -811,13 +843,15 @@ def main(args):
     _logger.info(f"Validate transform: {loader_eval.dataset.transform}")
 
     # setup loss function
+    train_loss_fn_kd = None
     if args.jsd:
         assert num_aug_splits > 1  # JSD only valid with aug splits set
         train_loss_fn = JsdCrossEntropy(num_splits=num_aug_splits, smoothing=args.smoothing).cuda()
     elif args.use_token_kd:
         train_loss_fn = KLTokenMSELoss(alpha=args.kd_alpha, kd_type=args.kd_type)
     elif args.use_kd:
-        train_loss_fn = KLLossSoft()
+        train_loss_fn_kd = KLLossSoft()
+        train_loss_fn = nn.CrossEntropyLoss().cuda()
     elif mixup_active:
         # smoothing is handled with mixup target transform
         train_loss_fn = SoftTargetCrossEntropy().cuda()
@@ -828,7 +862,7 @@ def main(args):
     _logger.info(f"Train loss {train_loss_fn}")
 
     # if args.use_kd:
-    #     train_loss_fn = KLLossSoft(train_loss_fn, alpha=args.kd_alpha)
+    #     train_loss_fn_kd = KLLossSoft(train_loss_fn_kd, T=args.kd_alpha)
 
     validate_loss_fn = nn.CrossEntropyLoss().cuda()
 
@@ -864,8 +898,16 @@ def main(args):
             f.write(args_text)
         with open(os.path.join(output_dir, 'model.txt'), 'w') as f:
             f.write(str(model))
-
+    # setup_default_logging(log_path=os.path.join(output_dir, 'log.log'))
     try:
+        if args.finetune:
+            for layer in model.modules():
+                if isinstance(layer, LearnableCir):
+                    layer.alphas.requires_grad = False
+                    # print("alphas:",alphas)
+                    # print("tau:",layer.tau)
+        fix_model_by_budget(model, args.blocksize)
+        
         for epoch in range(start_epoch, num_epochs):
             if args.distributed and hasattr(loader_train.sampler, 'set_epoch'):
                 loader_train.sampler.set_epoch(epoch)
@@ -874,7 +916,7 @@ def main(args):
                 epoch, model, loader_train, optimizer, train_loss_fn, args,
                 lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
                 amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema,
-                mixup_fn=mixup_fn, teacher=teacher)
+                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd,pretrain=args.pretrain,finetune=args.finetune,tau=args.tau)
 
             if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
                 if args.local_rank == 0:
@@ -910,11 +952,48 @@ def main(args):
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
+# budget: block size on average
+def fix_model_by_budget(model, budget):
+    with torch.no_grad():
+        total_blocks = 0
+        total_layers = 0
+        layer_info = []
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                total_layers+=1
+                _logger.info(layer.alphas.requires_grad)
+                alphas=layer.get_alphas_after()
+                max_alpha = torch.max(alphas)
+
+                layer_info.append((layer, alphas, max_alpha))
+                _logger.info("alphas:"+str(alphas))
+                # print("alphas:",alphas)
+                # print("tau:",layer.tau)
+        layer_info.sort(key=lambda x: x[2], reverse=True)
+        for info in layer_info:
+            if total_blocks // total_layers < budget:
+                _logger.info("max_alpha:"+str(info[2]))
+                idx = torch.argmax(info[1])
+                total_blocks += 2 **(idx)
+                layer = info[0]
+                layer.hard = True
+            else:
+                break
+        _logger.info("avg block size:"+str(total_blocks//total_layers))     
+        
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                if not layer.hard:
+                    layer.alphas[0] = 1e10
+                    for idx in range(1,layer.alphas.size(0)):
+                        layer.alphas[idx] = 0
+                    layer.hard = True
+                   
 
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
         lr_scheduler=None, saver=None, output_dir=None, amp_autocast=suppress,
-        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None):
+        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False,tau=-0.00125):
     if args.mixup_off_epoch and epoch >= args.mixup_off_epoch:
         if args.prefetcher and loader.mixup_enabled:
             loader.mixup_enabled = False
@@ -925,7 +1004,7 @@ def train_one_epoch(
     batch_time_m = AverageMeter()
     data_time_m = AverageMeter()
     losses_m = AverageMeter()
-
+    print("lasso:",args.lasso_alpha)
     model.train()
 
     end = time.time()
@@ -945,14 +1024,15 @@ def train_one_epoch(
             output = model(input)
 
             if args.use_kd:
-                target = teacher(input)
-                loss = loss_fn(output, target)
+                target_t = teacher(input)
+                loss = loss_fn_kd(output, target_t)+loss_fn(output, target)*0
                 # print("------------------kd------------------")
             else:
                 output = output[0] if isinstance(output, tuple) else output
                 teacher = teacher[0] if isinstance(output, tuple) else output
                 loss = loss_fn(output, target)
-
+            reg_loss = 0
+            
         if not args.distributed:
             losses_m.update(loss.item(), input.size(0))
 
@@ -1019,12 +1099,12 @@ def train_one_epoch(
 
         end = time.time()
         # end for
-
+        
+    
     if hasattr(optimizer, 'sync_lookahead'):
         optimizer.sync_lookahead()
 
     return OrderedDict([('lr', lr), ('loss', losses_m.avg)])
-
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
     batch_time_m = AverageMeter()

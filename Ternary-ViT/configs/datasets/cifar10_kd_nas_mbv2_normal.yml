@@ -25,7 +25,7 @@ cutmix: 1.0
 reprob: 0.25
 remode: pixel
 amp: True
-batch_size: 512
+batch_size: 256
 lr: 55e-5
 min_lr: 1e-5
 sched: cosine
@@ -43,12 +43,12 @@ use_kd: True
 kd_alpha: 4
 seed: 3407
 pretrain: False
-finetune: True
-lasso_alpha: 0
-tau: -0.00125
-blocksize: 4
-log_name: new_finetune_4
+finetune: False
+lasso_alpha: 1e-6
+log_name: normal
+tau: 0.99
+log_name: normal_exptau_lasso_2
 teacher: pretrain_cifar_cir_nas_mobilenetv2
 teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240130-151816-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240130-204808-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar"
-initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240211-192720-cifar_cir_nas_mobilenetv2-32/last.pth.tar
+initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240130-151816-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar

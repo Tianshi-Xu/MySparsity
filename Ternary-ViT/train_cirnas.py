@@ -33,8 +33,8 @@ import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 import torch.distributed as dist
-# sys.path.append("/data/home/menglifrl/pytorch-image-models")
-sys.path.append("/home/xts/code/neujeans/MySparsity/pytorch-image-models")
+# sys.path.append("/home/xts/code/neujeans/MySparsity/pytorch-image-models")
+sys.path.append("/home/xts/code/njeans/MySparsity/pytorch-image-models")
 
 from timm.data import (
     create_dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
@@ -397,6 +397,13 @@ parser.add_argument('--pretrain', action='store_true', default=False,
                     help='whether to use dual skip for resnet blocks')
 parser.add_argument('--finetune', action='store_true', default=False,
                     help='whether to use dual skip for resnet blocks')
+parser.add_argument('--log_name', default='none', type=str,
+                    help='act sparsification pattern')
+parser.add_argument('--tau', default=-0.00125, type=float,
+                    help='alpha for lasso loss')
+parser.add_argument('--blocksize', default=8, type=int,
+                    help='avg block size')
+
 
 def parse_args():
     # Do we have a config file to parse?
@@ -540,11 +547,11 @@ def main(args):
     # 创建一个handler，用于写入日志文件
     # maxBytes设置文件的最大长度，backupCount设置最多保留的文件数量
     if args.pretrain:
-        handler = RotatingFileHandler('pretrain.log', maxBytes=10*1024*1024, backupCount=5)
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
     elif args.finetune:
-        handler = RotatingFileHandler('finetune2.log', maxBytes=10*1024*1024, backupCount=5)
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
     else:
-        handler = RotatingFileHandler('normal train.log', maxBytes=10*1024*1024, backupCount=5)
+        handler = RotatingFileHandler(args.log_name+'.log', maxBytes=10*1024*1024, backupCount=5)
     console_handler = logging.StreamHandler()
     # 定义handler的输出格式
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -894,6 +901,13 @@ def main(args):
             f.write(str(model))
     # setup_default_logging(log_path=os.path.join(output_dir, 'log.log'))
     try:
+        if args.finetune:
+            for layer in model.modules():
+                if isinstance(layer, LearnableCir):
+                    layer.alphas.requires_grad = False
+                    # print("alphas:",alphas)
+                    # print("tau:",layer.tau)
+        
         for epoch in range(start_epoch, num_epochs):
             if args.distributed and hasattr(loader_train.sampler, 'set_epoch'):
                 loader_train.sampler.set_epoch(epoch)
@@ -902,7 +916,7 @@ def main(args):
                 epoch, model, loader_train, optimizer, train_loss_fn, args,
                 lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
                 amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema,
-                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd,pretrain=args.pretrain,finetune=args.finetune)
+                mixup_fn=mixup_fn, teacher=teacher,loss_fn_kd=train_loss_fn_kd,pretrain=args.pretrain,finetune=args.finetune,tau=args.tau,budget=args.blocksize)
 
             if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
                 if args.local_rank == 0:
@@ -938,11 +952,39 @@ def main(args):
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
+# budget: block size on average
+def fix_model_by_budget(model, budget):
+    with torch.no_grad():
+        total_blocks = 0
+        total_layers = 0
+        layer_info = []
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                total_layers+=1
+                _logger.info(layer.alphas.requires_grad)
+                alphas=layer.get_alphas_after()
+                max_alpha = torch.max(alphas)
+
+                layer_info.append((layer, alphas, max_alpha))
+                _logger.info("alphas:"+str(alphas))
+                # print("alphas:",alphas)
+                # print("tau:",layer.tau)
+        layer_info.sort(key=lambda x: x[2], reverse=True)
+        for info in layer_info:
+            if total_blocks // total_layers < budget:
+                _logger.info("max_alpha:"+str(info[2]))
+                idx = torch.argmax(info[1])
+                total_blocks += 2 **(idx)
+                layer = info[0]
+                layer.hard = True
+            else:
+                break
+        _logger.info("avg block size:"+str(total_blocks//total_layers))        
 
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
         lr_scheduler=None, saver=None, output_dir=None, amp_autocast=suppress,
-        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False):
+        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False,tau=-0.00125,budget=4):
     if args.mixup_off_epoch and epoch >= args.mixup_off_epoch:
         if args.prefetcher and loader.mixup_enabled:
             loader.mixup_enabled = False
@@ -983,7 +1025,7 @@ def train_one_epoch(
             reg_loss = 0
             def comm(H,W,C,K,b):
                 # print("H,W,C,K,b:",H,W,C,K,b)
-                N=8192
+                N=4096
                 tmp_a = torch.tensor(math.floor(N/(H*W*b)))
                 tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
                 return torch.tensor((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b)
@@ -1069,6 +1111,7 @@ def train_one_epoch(
         for layer in model.modules():
             if isinstance(layer, LearnableCir):
                 total_layers+=1
+                _logger.info(layer.alphas.requires_grad)
                 alphas=layer.get_alphas_after()
                 idx = torch.argmax(alphas)
                 total_blocks += 2 **(idx)
@@ -1076,11 +1119,15 @@ def train_one_epoch(
                 # print("alphas:",alphas)
                 # print("tau:",layer.tau)
                 
-                if epoch%10==0 and epoch>=20 and layer.tau > 0.01:
-                    layer.set_tau(layer.tau*0.9)
-                # layer.tau = layer.tau*torch.exp(torch.tensor(-0.0025*epoch))
-        if epoch%10==0 and total_blocks//total_layers < 4 and epoch > 20:
+                if epoch > 2 and layer.tau > 1e-5:
+                    layer.set_tau(layer.tau*tau)
+                    _logger.info("tau:"+str(layer.tau))
+                    
+        if total_blocks//total_layers < budget and epoch > 5:
             args.lasso_alpha*=1.1
+        elif total_blocks//total_layers > budget and epoch > 5:
+            args.lasso_alpha/=1.1
+            
     _logger.info("lasso_alpha:"+str(args.lasso_alpha))
         
     
@@ -1088,7 +1135,6 @@ def train_one_epoch(
         optimizer.sync_lookahead()
 
     return OrderedDict([('lr', lr), ('loss', losses_m.avg)])
-
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
     batch_time_m = AverageMeter()

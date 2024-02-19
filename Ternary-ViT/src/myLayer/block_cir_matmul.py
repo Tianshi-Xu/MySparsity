@@ -5,6 +5,11 @@ import numpy as np
 import math
 import torch.nn.init as init
 
+def grad_scale(x, scale):
+    y = x
+    y_grad = x * scale
+    return (y - y_grad).detach() + y_grad
+
 class BlockCirculantLayer(nn.Module):
     def __init__(self, in_features, out_features, block_size):
         super(BlockCirculantLayer, self).__init__()
@@ -207,17 +212,20 @@ class LearnableCir(nn.Module):
         self.feature_size = feature_size
         self.pretrain = pretrain
         self.finetune = finetune
+        # print("finetune:",self.finetune)
         self.padding = kernel_size//2
         self.tau = 1.0
+        self.hard=False
         self.search_space = []
         search=2
         while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
             self.search_space.append(search)
             search *= 2
-        if pretrain:
+        if pretrain or finetune:
             self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=False)
         else:
             self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=True)
+
         self.weight = nn.Parameter(torch.zeros(out_features,in_features, kernel_size,kernel_size))
         self.alphas_after = None
         init.kaiming_uniform_(self.weight)
@@ -225,7 +233,7 @@ class LearnableCir(nn.Module):
     
     def trans_to_cir(self):
         search_space = self.search_space
-        alphas_after = gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
+        alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
         # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
         for idx,block_size in enumerate(search_space):
@@ -267,15 +275,17 @@ class LearnableCir(nn.Module):
         return weight
 
     def get_alphas_after(self):
-        return gumbel_softmax(self.alphas,tau=self.tau,hard=False,finetune=self.finetune)
+        return gumbel_softmax(self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
     
     def set_tau(self,tau):
         self.tau = tau
     
     def forward(self, x):
         if not self.pretrain:
+            
             weight=self.trans_to_cir()
         else:
+            # print("no cir here")
             weight = self.weight
         return F.conv2d(x,weight,None,self.stride,self.padding)
 
@@ -289,12 +299,17 @@ def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim
     #     memory_format=torch.legacy_contiguous_format).exponential_().log()
     #             )  # ~Gumbel(0,1)
     # more stable https://github.com/pytorch/pytorch/issues/41663
+    if hard:
+        # print("it is hard")
+        return F.one_hot(torch.argmax(logits, dim), logits.shape[-1]).float()
     if finetune:
+        # print("finetune is true")
         # idx = torch.argmax(logits)
         # logits = torch.zeros_like(logits)
         # logits[idx] = 1
+        # logits = grad_scale(logits, 10)
         return F.softmax(logits/tau, dim=dim)
-    return F.softmax(logits, dim=dim)
+    return F.softmax(logits/tau, dim=dim)
     gumbel_dist = torch.distributions.gumbel.Gumbel(
         torch.tensor(0., device=logits.device, dtype=logits.dtype),
         torch.tensor(1., device=logits.device, dtype=logits.dtype))
@@ -327,7 +342,12 @@ if __name__ == '__main__':
 # 输入特征维度为10，输出特征维度为5，块大小为2
     # layer = LearnableCir(32,64,1,1,8,False).cuda()
     # layer.trans_to_cir()
-    print(comm(32,32,32,32*6,4))
+    # print(comm(32,32,32,32*6,4))
+    logit=torch.tensor([0.2,0.1,0.1,0.6])
+    tau=1.0
+    for i in range(100):
+        print(gumbel_softmax(logit,tau=tau,hard=False,dim=-1,finetune=True))
+        tau*=0.9
     # block_circulant_layer = NewBlockCirculantConv(64,256,3,1,8)
     # input_data = torch.ones(10,64,16,16)  # 3个样本，每个样本有10个特征
     # output_data1 = block_circulant_layer(input_data)

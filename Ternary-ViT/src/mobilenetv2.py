@@ -16,7 +16,7 @@ from src.myModel.MobilenetV1 import MobileNet,CirMobileNet
 from src.cir_mobilenetv2_cifar import cir_mobilenet_cifar
 from src.cir_mobilenetv2_imagenet import get_cir_mbv2_imagenet
 from src.myModel.cir_resnet import get_cir_resnet18_cifar
-from src.myModel.cir_nas_mbv2_cifar import cir_nas_mobilenet_cifar
+from src.myModel.cir_nas_mbv2 import cir_nas_mobilenet
 from timm.models.layers import create_conv2d
 from timm.models.registry import register_model
 from timm.models.efficientnet import _create_effnet
@@ -193,15 +193,25 @@ def imagenet_mobilenetv2(pretrained=False, **kwargs):
 # nas
 @register_model
 def cifar_cir_nas_mobilenetv2(pretrained=False, **kwargs):
-    model=cir_nas_mobilenet_cifar(10,32,1,pretrain=False,finetune=False)
+    model=cir_nas_mobilenet(10,32,1,pretrain=False,finetune=False)
     return model
 
 @register_model
 def pretrain_cifar_cir_nas_mobilenetv2(pretrained=False, **kwargs):
-    model=cir_nas_mobilenet_cifar(10,32,1,pretrain=True,finetune=False)
+    model=cir_nas_mobilenet(10,32,1,pretrain=True,finetune=False)
     return model
 
 @register_model
 def finetune_cifar_cir_nas_mobilenetv2(pretrained=False, **kwargs):
-    model=cir_nas_mobilenet_cifar(10,32,1,pretrain=False,finetune=True)
+    model=cir_nas_mobilenet(10,32,1,pretrain=False,finetune=True)
+    return model
+
+@register_model
+def pretrain_imagenet_cir_nas_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet(1000,224,1,pretrain=True,finetune=False)
+    return model
+
+@register_model
+def finetune_imagenet_cir_nas_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet(1000,224,1,pretrain=False,finetune=True)
     return model
