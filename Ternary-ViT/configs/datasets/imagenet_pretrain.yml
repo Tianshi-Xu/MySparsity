@@ -36,7 +36,7 @@ drop_block: null
 drop_connect: null
 drop_path: null
 epoch_repeats: 0.0
-epochs: 250
+epochs: 150
 eval_metric: top1
 experiment: ''
 gp: null
@@ -51,7 +51,7 @@ kd_type: last
 local_rank: 0
 log_interval: 50
 log_wandb: false
-lr: 0.05
+lr: 0.3
 lr_cycle_limit: 1
 lr_cycle_mul: 1.0
 lr_noise: null
@@ -120,8 +120,8 @@ std:
 - 0.224
 - 0.225
 sync_bn: false
-teacher: imagenet_mobilenetv2
-teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
+# teacher: imagenet_mobilenetv2
+# teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
 torchscript: false
 train_interpolation: random
 train_split: train
@@ -129,7 +129,7 @@ tta: 0
 use_bn: true
 use_distill_head: false
 use_dual_skip: false
-use_kd: true
+use_kd: false
 use_layer_scale: false
 use_multi_epochs_loader: false
 use_relu: false
@@ -145,5 +145,5 @@ workers: 32
 pretrain: True
 finetune: False
 log_name: pretrain_imagenet
-resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240219-220057-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
+# resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240219-220057-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"
