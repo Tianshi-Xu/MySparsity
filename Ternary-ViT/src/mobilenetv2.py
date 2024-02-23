@@ -120,7 +120,7 @@ def cifar10_mobilenetv2_100(pretrained=False, **kwargs):
 
 @register_model
 def cifar10_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_cifar(10,32,0.6)
+    model=mobilenet_cifar(10,32,1.0)
     return model
 
 @register_model

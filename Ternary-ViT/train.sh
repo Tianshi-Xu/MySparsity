@@ -6,7 +6,7 @@
 # CUDA_VISIBLE_DEVICES=3 python train.py -c ./configs/quantized/resnet32/fp32.yml /home/xts/code/dataset/cifar100 --model resnet32
 
 # normal
-# CUDA_VISIBLE_DEVICES=3 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_normal.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
+# CUDA_VISIBLE_DEVICES=6 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_normal.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
 
 # finetune
 # CUDA_VISIBLE_DEVICES=5 python finetune_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_finetune.yml /home/xts/code/dataset/cifar10 --model finetune_cifar_cir_nas_mobilenetv2
