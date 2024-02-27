@@ -1,6 +1,6 @@
 aa: rand-m9-mstd0.5-inc1
 amp: true
-apex_amp: false
+apex_amp: true
 aq_asym: false
 aq_bitw: null
 aq_enable: false
@@ -11,7 +11,7 @@ as_enable: false
 as_mode: Identity
 as_patterns: '1:1'
 aug_splits: 0
-batch_size: 256
+batch_size: 512
 bn_eps: null
 bn_momentum: null
 bn_tf: false
@@ -36,7 +36,7 @@ drop_block: null
 drop_connect: null
 drop_path: null
 epoch_repeats: 0.0
-epochs: 250
+epochs: 150
 eval_metric: top1
 experiment: ''
 gp: null
@@ -119,9 +119,9 @@ std:
 - 0.229
 - 0.224
 - 0.225
-sync_bn: false
-teacher: imagenet_mobilenetv2
-teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
+sync_bn: true
+# teacher: imagenet_mobilenetv2
+# teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
 torchscript: false
 train_interpolation: random
 train_split: train
@@ -129,7 +129,7 @@ tta: 0
 use_bn: true
 use_distill_head: false
 use_dual_skip: false
-use_kd: true
+use_kd: false
 use_layer_scale: false
 use_multi_epochs_loader: false
 use_relu: false
@@ -139,11 +139,11 @@ val_split: validation
 validation_batch_size_multiplier: 1
 vflip: 0.0
 warmup_epochs: 5
-warmup_lr: 1.0e-06
-weight_decay: 0.0001
-workers: 32
+warmup_lr: 1e-6
+weight_decay: 0.00004
+workers: 8
 pretrain: True
 finetune: False
-log_name: pretrain_imagenet
-resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240219-220057-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
+log_name: pretrain_imagenet_A6000X4
+# resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240219-220057-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"
