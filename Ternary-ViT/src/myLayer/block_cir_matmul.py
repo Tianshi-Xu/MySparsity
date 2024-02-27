@@ -289,6 +289,9 @@ class LearnableCir(nn.Module):
             weight = self.weight
         return F.conv2d(x,weight,None,self.stride,self.padding)
 
+    def get_final_block_size(self):
+        return 2 ** torch.argmax(self.alphas)
+        
     def __str__(self):
         additional_info = "search_space: " + str(self.search_space)
         return super(LearnableCir, self).__str__() + "\n" + additional_info
