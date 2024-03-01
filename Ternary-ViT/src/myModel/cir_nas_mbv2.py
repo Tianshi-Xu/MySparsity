@@ -44,7 +44,7 @@ class CirNasInvertedResidual(nn.Module):
                 LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
                 # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
-                nn.BatchNorm2d(hidden_dim),
+                # nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # dw
                 nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
@@ -54,7 +54,7 @@ class CirNasInvertedResidual(nn.Module):
                 LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
                 # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
-                nn.BatchNorm2d(oup),
+                # nn.BatchNorm2d(oup),
             )
 
     def forward(self, x):
