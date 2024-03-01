@@ -36,14 +36,15 @@ warmup_epochs: 10
 warmup_lr: 0.00001
 opt: adamw
 smoothing: 0.1
-workers: 32
+workers: 4
 checkpoint_hist: 5
 log_wandb: False
-use_kd: False
+use_kd: false
 kd_alpha: 4
 lasso_alpha: 0
 pretrain: True
 finetune: False
-# teacher: pretrain_cifar_cir_nas_mobilenetv2
-# teacher_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240127-211638-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
+log_name: pretrain_cifar_nokd
+teacher: cifar10_mobilenetv2
+teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240105-164748-cifar10_mobilenetv2-32/model_best.pth.tar
 # initial_checkpoint: /home/xts/code/neujeans/MySparsity/Ternary-ViT/output/train/20240128-214318-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar

@@ -141,10 +141,10 @@ vflip: 0.0
 warmup_epochs: 5
 warmup_lr: 1e-6
 weight_decay: 0.00004
-workers: 32
+workers: 4
 pretrain: True
 finetune: False
-log_name: pretrain_imagenet
+log_name: test_pretrain_imagenet
 no-aug: True
 # resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240219-220057-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"

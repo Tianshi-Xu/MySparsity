@@ -960,6 +960,12 @@ def fix_model_by_budget(model, budget):
         layer_info = []
         for layer in model.modules():
             if isinstance(layer, LearnableCir):
+                total_blocks +=1
+                total_layers +=1
+        _logger.info("total_layers:"+str(total_layers))
+        
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
                 total_layers+=1
                 _logger.info(layer.alphas.requires_grad)
                 alphas=layer.get_alphas_after()
@@ -974,7 +980,7 @@ def fix_model_by_budget(model, budget):
             if total_blocks // total_layers < budget:
                 _logger.info("max_alpha:"+str(info[2]))
                 idx = torch.argmax(info[1])
-                total_blocks += 2 **(idx)
+                total_blocks += (2 **(idx))-1
                 layer = info[0]
                 layer.hard = True
             else:
@@ -988,10 +994,11 @@ def fix_model_by_budget(model, budget):
                     for idx in range(1,layer.alphas.size(0)):
                         layer.alphas[idx] = 0
                     layer.hard = True
-        
+        block_sizes=[]
         for layer in model.modules():
             if isinstance(layer, LearnableCir):
-                _logger.info("block_size:"+str(layer.get_final_block_size()))
+                block_sizes.append(layer.get_final_block_size())
+        _logger.info("block_size:"+str(block_sizes))
 
 
 def train_one_epoch(

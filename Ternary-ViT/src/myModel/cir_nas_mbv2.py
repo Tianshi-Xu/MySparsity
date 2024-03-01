@@ -38,13 +38,12 @@ class CirNasInvertedResidual(nn.Module):
                 nn.BatchNorm2d(oup),
             )
         else:
-            
             self.conv = nn.Sequential(
                 # pw
                 LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
                 # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
-                nn.BatchNorm2d(hidden_dim),
+                # nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # dw
                 nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
@@ -54,7 +53,7 @@ class CirNasInvertedResidual(nn.Module):
                 LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
                 # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
-                nn.BatchNorm2d(oup),
+                # nn.BatchNorm2d(oup),
             )
 
     def forward(self, x):
@@ -101,7 +100,7 @@ class CirNasMobileNetV2(nn.Module):
         assert input_size % 32 == 0
         input_channel = int(input_channel * width_mult)
         self.last_channel = int(last_channel * width_mult) if width_mult > 1.0 else last_channel
-        if n_class != 100:
+        if n_class != 10:
             self.features = [conv_bn(3, input_channel, 2)]
         else:
             self.features = [conv_bn(3, input_channel, 1)]
