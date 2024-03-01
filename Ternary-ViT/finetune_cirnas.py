@@ -988,7 +988,11 @@ def fix_model_by_budget(model, budget):
                     for idx in range(1,layer.alphas.size(0)):
                         layer.alphas[idx] = 0
                     layer.hard = True
-                   
+        
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir):
+                _logger.info("block_size:"+str(layer.get_final_block_size()))
+
 
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,

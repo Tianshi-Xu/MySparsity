@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 import math
 def conv_bn(inp, oup, stride):
     return nn.Sequential(
@@ -130,3 +131,10 @@ class MobileNetV2(nn.Module):
 def mobilenet_cifar(n_class, input_size, width_mult) -> MobileNetV2:
     model = MobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult)
     return model
+
+if __name__ == "__main__":
+    model = mobilenet_cifar(10, 32, 1.0)
+    state_dict = torch.load("/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240105-164748-cifar10_mobilenetv2-32/model_best.pth.tar")
+    print(state_dict.keys())
+    # print(state_dict['state_dict'].keys())
+    print(state_dict['state_dict']['features.2.conv.1.weight'].shape)
