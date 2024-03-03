@@ -46,8 +46,8 @@ pretrain: False
 finetune: True
 lasso_alpha: 0
 tau: -0.00125
-blocksize: 4
-log_name: finetune_cifar_b8
+blocksize: 6
+log_name: finetune_cifar_b6
 teacher: cifar10_mobilenetv2
 teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240105-164748-cifar10_mobilenetv2-32/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240130-204808-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar"

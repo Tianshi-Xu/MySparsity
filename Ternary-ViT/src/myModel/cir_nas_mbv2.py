@@ -1,6 +1,6 @@
 import torch.nn as nn
 import math
-from ..myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir
+from ..myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
 
 def conv_bn(inp, oup, stride):
     return nn.Sequential(
@@ -40,7 +40,7 @@ class CirNasInvertedResidual(nn.Module):
         else:
             self.conv = nn.Sequential(
                 # pw
-                LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
+                LearnableCirBN(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
                 # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
                 # nn.BatchNorm2d(hidden_dim),
@@ -50,7 +50,7 @@ class CirNasInvertedResidual(nn.Module):
                 nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # pw-linear
-                LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
+                LearnableCirBN(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
                 # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
                 # nn.BatchNorm2d(oup),
@@ -62,12 +62,57 @@ class CirNasInvertedResidual(nn.Module):
         else:
             return self.conv(x)
 
+class CirNasInvertedResidualImagenet(nn.Module):
+    def __init__(self, inp, oup, stride, expand_ratio,feature_size,pretrain,finetune):
+        super(CirNasInvertedResidualImagenet, self).__init__()
+        self.stride = stride
+        assert stride in [1, 2]
+        self.finetune = finetune
+        hidden_dim = round(inp * expand_ratio)
+        self.use_res_connect = self.stride == 1 and inp == oup
+
+        if expand_ratio == 1:
+            self.conv = nn.Sequential(
+                # dw
+                nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
+                nn.BatchNorm2d(hidden_dim),
+                nn.ReLU6(inplace=True),
+                # pw-linear
+                nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup),
+            )
+        else:
+            self.conv = nn.Sequential(
+                # pw
+                LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
+                # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
+                # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
+                nn.BatchNorm2d(hidden_dim),
+                nn.ReLU6(inplace=True),
+                # dw
+                nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
+                nn.BatchNorm2d(hidden_dim),
+                nn.ReLU6(inplace=True),
+                # pw-linear
+                LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
+                # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
+                nn.BatchNorm2d(oup),
+            )
+
+    def forward(self, x):
+        if self.use_res_connect:
+            return x + self.conv(x)
+        else:
+            return self.conv(x)
 
 class CirNasMobileNetV2(nn.Module):
-    
     def __init__(self, n_class=1000, input_size=224, width_mult=1.0,pretrain=False,finetune=False):
         super(CirNasMobileNetV2, self).__init__()
-        block = CirNasInvertedResidual
+        if n_class == 1000:
+            block = CirNasInvertedResidualImagenet
+        else:
+            block = CirNasInvertedResidual
         input_channel = 32
         last_channel = 1280
         self.feature_size = input_size

@@ -51,7 +51,7 @@ kd_type: last
 local_rank: 0
 log_interval: 50
 log_wandb: false
-lr: 0.4
+lr: 0.05
 lr_cycle_limit: 1
 lr_cycle_mul: 1.0
 lr_noise: null
@@ -147,3 +147,4 @@ finetune: False
 log_name: pretrain_imagenet_A6000X4_2
 # resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240225-211247-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"
+initial_checkpoint: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240225-211247-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar"

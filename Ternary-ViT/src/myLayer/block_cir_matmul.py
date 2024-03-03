@@ -218,6 +218,107 @@ class LearnableCir(nn.Module):
         self.tau = 1.0
         self.hard=False
         self.search_space = []
+        search=2
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
+            self.search_space.append(search)
+            search *= 2
+        if pretrain or finetune:
+            self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=False)
+        else:
+            self.alphas = nn.Parameter(torch.ones(len(self.search_space)+1), requires_grad=True)
+
+        self.weight = nn.Parameter(torch.zeros(out_features,in_features, kernel_size,kernel_size))
+        self.alphas_after = None
+        init.kaiming_uniform_(self.weight)
+        print("in_features,out_features,kernel_size,feature_size,search_space:",in_features,out_features,kernel_size,feature_size,self.search_space)
+    
+    def trans_to_cir(self):
+        search_space = self.search_space
+        alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
+        weight=alphas_after[0]*self.weight
+        for idx,block_size in enumerate(search_space):
+            if torch.abs(alphas_after[idx+1]) <1e-6:
+                continue
+            # print("block_size:",block_size)
+            q=self.out_features//block_size
+            p=self.in_features//block_size
+            # print(self.weight.shape)
+            tmp = self.weight.reshape(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
+            tmp = tmp.permute(0,2,1,3,4,5)
+            # if block_size == 8:
+            #     print("---------")
+            #     print(tmp[0,0,:,:,0,0])
+            #     print("---------")
+            # tmp = torch.mean(tmp, dim=3, keepdim=False)
+            w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).cuda()
+            # print(tmp[0,0,:,0,0])
+            tmp_compress = torch.zeros(q,p,block_size,self.kernel_size,self.kernel_size).cuda()
+            for i in range(block_size):
+                # print("tmp:",tmp.shape)
+                diagonal = torch.diagonal(tmp, offset=i, dim1=2, dim2=3)
+                if i>0:
+                    diagonal2 = torch.diagonal(tmp, offset=-block_size+i, dim1=2, dim2=3)
+                    diagonal = torch.cat((diagonal,diagonal2),dim=4)
+                    # print("diagonal:",diagonal.shape)
+                # print("diagonal:",diagonal.shape)
+                assert diagonal.shape[4] == block_size
+                mean_of_diagonals = torch.mean(diagonal, dim=4, keepdim=True)
+                mean_of_diagonals = mean_of_diagonals.permute(0,1,4,2,3)
+                tmp_compress[:,:,i,:,:] = mean_of_diagonals[:,:,0,:,:]
+            for i in range(block_size):
+                w[:,:,:,i,:,:] = tmp_compress.roll(shifts=i, dims=2)
+            # print(w[0,0,:,:,0,0])
+            w = w.permute(0,2,1,3,4,5)
+            # print(w.shape)
+            w = w.reshape(q*block_size,p*block_size,self.kernel_size,self.kernel_size)
+            weight=weight+alphas_after[idx+1]*w
+        return weight
+
+    def get_alphas_after(self):
+        return gumbel_softmax(self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+    
+    def set_hard(self):
+        self.hard = True
+        self.batchNorm.block_size = self.get_final_block_size()
+        
+    def set_tau(self,tau):
+        self.tau = tau
+    
+    def forward(self, x):
+        if not self.pretrain:
+            weight=self.trans_to_cir()
+        else:
+            # print("no cir here")
+            weight = self.weight
+        x = F.conv2d(x,weight,None,self.stride,self.padding)
+        return x
+
+    def get_final_block_size(self):
+        return 2 ** torch.argmax(self.alphas)
+        
+    def __str__(self):
+        additional_info = "search_space: " + str(self.search_space)
+        return super(LearnableCir, self).__str__() + "\n" + additional_info
+
+
+class LearnableCirBN(nn.Module):
+    # (feature_size*feature_size,in_features) * (in_features,out_features)-->(m,n)*(n,k)
+    # feature_size*feature_size*block_size<=4096
+    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False):
+        super(LearnableCirBN, self).__init__()
+        self.in_features = in_features
+        self.out_features = out_features
+        self.kernel_size = kernel_size
+        self.stride = stride
+        self.feature_size = feature_size
+        self.pretrain = pretrain
+        self.finetune = finetune
+        # print("finetune:",self.finetune)
+        self.padding = kernel_size//2
+        self.tau = 1.0
+        self.hard=False
+        self.search_space = []
         self.batchNorm = BatchNorm2d(out_features,block_size=1)
         search=2
         while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
