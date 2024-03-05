@@ -321,7 +321,7 @@ class LearnableCirBN(nn.Module):
         self.search_space = []
         self.batchNorm = BatchNorm2d(out_features,block_size=1)
         search=2
-        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 8192:
             self.search_space.append(search)
             search *= 2
         if pretrain or finetune:

@@ -1024,12 +1024,21 @@ def train_one_epoch(
                 teacher = teacher[0] if isinstance(output, tuple) else output
                 loss = loss_fn(output, target)
             reg_loss = 0
+            def cal_rot(n,m,d1,d2,b):
+                min_rot = 1e8
+                for ri in range(1,d2+1):
+                    for ro in range(1,d2+1):
+                        if ri*ro<n/m/b or ri*ro>d2/b:
+                            continue
+                        tmp=m*d1*(ri-1)/n+m*d2*(ro-1)/n
+                        if tmp<min_rot:
+                            min_rot=tmp
+                            print("ri:",ri,"ro:",ro,"tmp:",tmp)
+                return min_rot
             def comm(H,W,C,K,b):
                 # print("H,W,C,K,b:",H,W,C,K,b)
-                N=4096
-                tmp_a = torch.tensor(math.floor(N/(H*W*b)))
-                tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
-                return torch.tensor((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b)
+                N=8192
+                return torch.tensor(cal_rot(N,H*W,C,K,b))+0.0238*(H*W*C*K)/(N*b)
             if not pretrain:
                 for layer in model.modules():
                     if isinstance(layer, LearnableCir):
