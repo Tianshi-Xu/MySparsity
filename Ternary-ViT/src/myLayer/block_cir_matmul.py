@@ -204,7 +204,7 @@ class NewBlockCirculantConv(nn.Module):
 class LearnableCir(nn.Module):
     # (feature_size*feature_size,in_features) * (in_features,out_features)-->(m,n)*(n,k)
     # feature_size*feature_size*block_size<=4096
-    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False):
+    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False,fix_block_size=-1):
         super(LearnableCir, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
@@ -213,13 +213,14 @@ class LearnableCir(nn.Module):
         self.feature_size = feature_size
         self.pretrain = pretrain
         self.finetune = finetune
+        self.fix_block_size = fix_block_size
         # print("finetune:",self.finetune)
         self.padding = kernel_size//2
         self.tau = 1.0
-        self.hard=False
+        self.hard = False
         self.search_space = []
         search=2
-        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 4096:
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 8192:
             self.search_space.append(search)
             search *= 2
         if pretrain or finetune:
@@ -235,6 +236,8 @@ class LearnableCir(nn.Module):
     def trans_to_cir(self):
         search_space = self.search_space
         alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        if self.fix_block_size!=-1:
+            alphas_after=F.one_hot(torch.log2(self.fix_block_size).int(), self.alphas.shape[-1]).float()
         # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
         for idx,block_size in enumerate(search_space):
@@ -300,7 +303,6 @@ class LearnableCir(nn.Module):
     def __str__(self):
         additional_info = "search_space: " + str(self.search_space)
         return super(LearnableCir, self).__str__() + "\n" + additional_info
-
 
 class LearnableCirBN(nn.Module):
     # (feature_size*feature_size,in_features) * (in_features,out_features)-->(m,n)*(n,k)
