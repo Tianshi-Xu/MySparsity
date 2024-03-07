@@ -48,7 +48,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir
+from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
 from src import *
 
 try:
@@ -959,22 +959,17 @@ def fix_model_by_budget(model, budget):
         total_layers = 0
         layer_info = []
         for layer in model.modules():
-            if isinstance(layer, LearnableCir):
+            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
                 total_blocks +=1
                 total_layers +=1
-        _logger.info("total_layers:"+str(total_layers))
-        
-        for layer in model.modules():
-            if isinstance(layer, LearnableCir):
-                total_layers+=1
                 _logger.info(layer.alphas.requires_grad)
                 alphas=layer.get_alphas_after()
                 max_alpha = torch.max(alphas)
 
                 layer_info.append((layer, alphas, max_alpha))
                 _logger.info("alphas:"+str(alphas))
-                # print("alphas:",alphas)
-                # print("tau:",layer.tau)
+        _logger.info("total_layers:"+str(total_layers))
+        
         layer_info.sort(key=lambda x: x[2], reverse=True)
         for info in layer_info:
             if total_blocks // total_layers < budget:
@@ -988,7 +983,7 @@ def fix_model_by_budget(model, budget):
         _logger.info("avg block size:"+str(total_blocks//total_layers))     
         
         for layer in model.modules():
-            if isinstance(layer, LearnableCir):
+            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
                 if not layer.hard:
                     layer.alphas[0] = 1e10
                     for idx in range(1,layer.alphas.size(0)):
@@ -996,7 +991,7 @@ def fix_model_by_budget(model, budget):
                     layer.hard = True
         block_sizes=[]
         for layer in model.modules():
-            if isinstance(layer, LearnableCir):
+            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
                 block_sizes.append(layer.get_final_block_size())
         _logger.info("block_size:"+str(block_sizes))
 

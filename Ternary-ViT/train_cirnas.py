@@ -49,7 +49,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir
+from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
 from src import *
 
 try:
@@ -953,34 +953,6 @@ def main(args):
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
-# budget: block size on average
-def fix_model_by_budget(model, budget):
-    with torch.no_grad():
-        total_blocks = 0
-        total_layers = 0
-        layer_info = []
-        for layer in model.modules():
-            if isinstance(layer, LearnableCir):
-                total_layers+=1
-                _logger.info(layer.alphas.requires_grad)
-                alphas=layer.get_alphas_after()
-                max_alpha = torch.max(alphas)
-
-                layer_info.append((layer, alphas, max_alpha))
-                _logger.info("alphas:"+str(alphas))
-                # print("alphas:",alphas)
-                # print("tau:",layer.tau)
-        layer_info.sort(key=lambda x: x[2], reverse=True)
-        for info in layer_info:
-            if total_blocks // total_layers < budget:
-                _logger.info("max_alpha:"+str(info[2]))
-                idx = torch.argmax(info[1])
-                total_blocks += 2 **(idx)
-                layer = info[0]
-                layer.hard = True
-            else:
-                break
-        _logger.info("avg block size:"+str(total_blocks//total_layers))        
 
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
@@ -1024,21 +996,32 @@ def train_one_epoch(
                 teacher = teacher[0] if isinstance(output, tuple) else output
                 loss = loss_fn(output, target)
             reg_loss = 0
+            def cal_rot(n,m,d1,d2,b):
+                min_rot = 1e8
+                for ri in range(1,d2+1):
+                    for ro in range(1,d2+1):
+                        if ri*ro<min(n/m/b,d2/b) or ri*ro>d2/b:
+                            continue
+                        tmp=m*d1*(ri-1)/n+m*d2*(ro-1)/n
+                        if tmp<min_rot:
+                            min_rot=tmp
+                            # print("ri:",ri,"ro:",ro,"tmp:",tmp)
+                # print("n,m,d1,d2,b,min_rot:",n,m,d1,d2,b,min_rot)
+                return min_rot
             def comm(H,W,C,K,b):
                 # print("H,W,C,K,b:",H,W,C,K,b)
-                N=4096
-                tmp_a = torch.tensor(math.floor(N/(H*W*b)))
-                tmp_b = torch.max(torch.sqrt(tmp_a),torch.tensor(1))-1
-                return torch.tensor((C/b/tmp_a)*2*tmp_b)+0.0238*(H*W*C*K)/(N*b)
+                N=8192
+                return torch.tensor(cal_rot(N,H*W,C,K,b)+0.0238*(H*W*C*K)/(N*b))
             if not pretrain:
                 for layer in model.modules():
-                    if isinstance(layer, LearnableCir):
+                    if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
                         alphas = layer.get_alphas_after()
                         for i,alpha in enumerate(alphas):
                             reg_loss += alpha*comm(layer.feature_size,layer.feature_size,layer.in_features,layer.out_features,2**i)
                     # reg_loss += comm(layer.feature_size,layer.feature_size,layer.in_features,layer.b)
                 # print("reg_loss,loss:",args.lasso_alpha*reg_loss,loss)
                 loss += args.lasso_alpha*reg_loss
+                # _logger.info("lasso_loss:"+str(args.lasso_alpha*reg_loss))
             
         if not args.distributed:
             losses_m.update(loss.item(), input.size(0))
@@ -1110,12 +1093,16 @@ def train_one_epoch(
     total_layers = 0
     if not pretrain:
         for layer in model.modules():
-            if isinstance(layer, LearnableCir):
+            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
+                total_blocks +=1
+                total_layers +=1
+        for layer in model.modules():
+            if isinstance(layer, LearnableCir) or isinstance(layer, LearnableCirBN):
                 total_layers+=1
                 _logger.info(layer.alphas.requires_grad)
                 alphas=layer.get_alphas_after()
                 idx = torch.argmax(alphas)
-                total_blocks += 2 **(idx)
+                total_blocks += (2 **idx)-1
                 _logger.info("alphas:"+str(alphas))
                 # print("alphas:",alphas)
                 # print("tau:",layer.tau)

@@ -47,8 +47,9 @@ finetune: False
 lasso_alpha: 1e-5
 log_name: normal
 tau: 0.99
-log_name: normal_cifar
+blocksize: 8
+log_name: normal_cifar_b8
 teacher: cifar10_mobilenetv2
 teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240105-164748-cifar10_mobilenetv2-32/model_best.pth.tar
 # resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240130-204808-cifar_cir_nas_mobilenetv2-32/model_best.pth.tar"
-initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240301-091502-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
+initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240305-174337-pretrain_cifar_cir_nas_mobilenetv2-32/model_best.pth.tar
