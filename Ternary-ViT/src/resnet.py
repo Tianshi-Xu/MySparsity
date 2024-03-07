@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import os
+import torchvision
 
 try:
     import sys
@@ -373,8 +374,10 @@ def cifar10_resnet34(pretrained=False, progress=True, device="cpu", **kwargs):
 #             print(name)
 
 if __name__ == "__main__":
-    model = cifar10_resnet18(num_classes=100)
-    state_dict = torch.load("/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20231230-232058-cifar10_cir_resnet18-32/model_best.pth.tar")
-    print(state_dict['state_dict']['layer1.0.conv1.weight'].dtype)
+    # model = cifar10_resnet18(num_classes=100)
+    # state_dict = torch.load("/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20231230-232058-cifar10_cir_resnet18-32/model_best.pth.tar")
+    # print(state_dict['state_dict']['layer1.0.conv1.weight'].dtype)
     # conv1_weight = state_dict['state_dict']['layer1.0.conv1.weight']
     # torch.save(conv1_weight,"./conv1_weight.pth")
+    model = torchvision.models.resnet50()
+    print(model)
