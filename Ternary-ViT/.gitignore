@@ -3,7 +3,6 @@ __pycache__
 *.swp
 training_logs
 output
-pretrained
 log*
 dataset
 *.log
