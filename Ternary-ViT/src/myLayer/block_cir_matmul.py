@@ -235,10 +235,17 @@ class LearnableCir(nn.Module):
     
     def trans_to_cir(self):
         search_space = self.search_space
-        alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        # print(torch.argmax(self.alphas, dim=-1))
         if self.fix_block_size!=-1:
-            alphas_after=F.one_hot(torch.log2(self.fix_block_size).int(), self.alphas.shape[-1]).float()
-        # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
+            # print(self.fix_block_size)
+            if 2**len(search_space) < self.fix_block_size:
+                alphas_after=torch.tensor([1 if i==len(search_space) else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            else:
+                alphas_after=torch.tensor([1 if 2**i==self.fix_block_size else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            # print(alphas_after)
+        else:
+            alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        # weight=torch.zeros(self.out_features,self.in_feat*ures, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
         for idx,block_size in enumerate(search_space):
             if torch.abs(alphas_after[idx+1]) <1e-6:
@@ -254,9 +261,9 @@ class LearnableCir(nn.Module):
             #     print(tmp[0,0,:,:,0,0])
             #     print("---------")
             # tmp = torch.mean(tmp, dim=3, keepdim=False)
-            w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).cuda()
+            w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).to(self.weight.device)
             # print(tmp[0,0,:,0,0])
-            tmp_compress = torch.zeros(q,p,block_size,self.kernel_size,self.kernel_size).cuda()
+            tmp_compress = torch.zeros(q,p,block_size,self.kernel_size,self.kernel_size).to(self.weight.device)
             for i in range(block_size):
                 # print("tmp:",tmp.shape)
                 diagonal = torch.diagonal(tmp, offset=i, dim1=2, dim2=3)
@@ -276,6 +283,7 @@ class LearnableCir(nn.Module):
             # print(w.shape)
             w = w.reshape(q*block_size,p*block_size,self.kernel_size,self.kernel_size)
             weight=weight+alphas_after[idx+1]*w
+            # print("indeed block size:",block_size)
         return weight
 
     def get_alphas_after(self):

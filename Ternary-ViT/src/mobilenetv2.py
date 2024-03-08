@@ -217,6 +217,11 @@ def finetune_imagenet_cir_nas_mobilenetv2(pretrained=False, **kwargs):
     return model
 
 @register_model
-def finetune_imagenet_cir_nas_mobilenetv2_fix(block_size=1,pretrained=False, **kwargs):
-    model=cir_nas_mobilenet_fix(1000,224,1,pretrain=False,finetune=True,block_size=block_size)
+def finetune_imagenet_cir_nas_mobilenetv2_fix(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet_fix(1000,224,1,pretrain=False,finetune=True)
+    return model
+
+@register_model
+def pretrain_imagenet_cir_nas_mobilenetv2_fix(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet_fix(1000,224,1,pretrain=True,finetune=False)
     return model

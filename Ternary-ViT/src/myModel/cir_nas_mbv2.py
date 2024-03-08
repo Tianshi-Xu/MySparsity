@@ -112,6 +112,8 @@ class CirNasInvertedResidualFixBlockSize(nn.Module):
         self.stride = stride
         assert stride in [1, 2]
         self.finetune = finetune
+        self.pretrain = pretrain
+        self.feature_size = feature_size
         self.block_size = block_size
         hidden_dim = round(inp * expand_ratio)
         self.use_res_connect = self.stride == 1 and inp == oup
@@ -129,9 +131,9 @@ class CirNasInvertedResidualFixBlockSize(nn.Module):
         else:
             self.conv = nn.Sequential(
                 # pw
-                # LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune),
+                LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune,fix_block_size=block_size),
                 # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
-                NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
+                # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
                 nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # dw
@@ -139,9 +141,9 @@ class CirNasInvertedResidualFixBlockSize(nn.Module):
                 nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # pw-linear
-                # LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune),
+                LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune,fix_block_size=block_size),
                 # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
-                NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
+                # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
                 nn.BatchNorm2d(oup),
             )
 
@@ -248,7 +250,7 @@ class CirNasMobileNetV2(nn.Module):
 
 class CirNasMobileNetV2FixBlockSize(nn.Module):
     def __init__(self, n_class=1000, input_size=224, width_mult=1.0,pretrain=False,finetune=False,block_size=1):
-        super(CirNasMobileNetV2, self).__init__()
+        super(CirNasMobileNetV2FixBlockSize, self).__init__()
         if n_class == 1000:
             block = CirNasInvertedResidualFixBlockSize
         else:
@@ -259,7 +261,8 @@ class CirNasMobileNetV2FixBlockSize(nn.Module):
         self.pretrain = pretrain
         self.finetune = finetune
         if input_size == 224:
-                interverted_residual_setting = [
+            self.feature_size = input_size/2
+            interverted_residual_setting = [
                 # t, c, n, s
                 [1, 16, 1, 1],
                 [6, 24, 2, 2],
@@ -301,22 +304,20 @@ class CirNasMobileNetV2FixBlockSize(nn.Module):
                 input_channel = output_channel
             self.feature_size = self.feature_size//s
             idx+=1
-        # building last several layers
-        self.features.append(conv_1x1_bn(input_channel, self.last_channel))
-        # make it nn.Sequential
-        self.features = nn.Sequential(*self.features)
 
+        self.features = nn.Sequential(*self.features)
+        self.conv = conv_1x1_bn(input_channel, self.last_channel)
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         # building classifier
-        self.classifier = nn.Sequential(
-            nn.Dropout(0.2),
-            nn.Linear(self.last_channel, n_class),
-        )
+        self.classifier = nn.Linear(self.last_channel, n_class)
 
         self._initialize_weights()
 
     def forward(self, x):
         x = self.features(x)
-        x = x.mean(3).mean(2)
+        x = self.conv(x)
+        x = self.avgpool(x)
+        x = x.view(x.size(0), -1)
         x = self.classifier(x)
         return x
 
@@ -337,13 +338,13 @@ class CirNasMobileNetV2FixBlockSize(nn.Module):
 
     def __str__(self):
         additional_info = "pretrain: " + str(self.pretrain)+"\n"+"fine-tune: "+str(self.finetune)
-        return super(CirNasMobileNetV2, self).__str__() + "\n" + additional_info
+        return super(CirNasMobileNetV2FixBlockSize, self).__str__() + "\n" + additional_info
 
     
 def cir_nas_mobilenet(n_class, input_size, width_mult,pretrain,finetune) -> CirNasMobileNetV2:
     model = CirNasMobileNetV2(n_class=n_class, input_size=input_size, width_mult=width_mult,pretrain=pretrain,finetune=finetune)
     return model
 
-def cir_nas_mobilenet_fix(n_class, input_size, width_mult,pretrain,finetune,block_size) -> CirNasMobileNetV2FixBlockSize:
+def cir_nas_mobilenet_fix(n_class, input_size, width_mult,pretrain,finetune,block_size=-1) -> CirNasMobileNetV2FixBlockSize:
     model = CirNasMobileNetV2FixBlockSize(n_class=n_class, input_size=input_size, width_mult=width_mult,pretrain=pretrain,finetune=finetune,block_size=block_size)
     return model
