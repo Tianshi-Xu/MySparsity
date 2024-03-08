@@ -1098,7 +1098,6 @@ def train_one_epoch(
                 total_layers +=1
         for layer in model.modules():
             if isinstance(layer, LearnableCir) or isinstance(layer, LearnableCirBN):
-                total_layers+=1
                 _logger.info(layer.alphas.requires_grad)
                 alphas=layer.get_alphas_after()
                 idx = torch.argmax(alphas)
@@ -1111,9 +1110,9 @@ def train_one_epoch(
                     layer.set_tau(layer.tau*tau)
                     _logger.info("tau:"+str(layer.tau))
                     
-        if total_blocks//total_layers < budget and epoch > 5:
+        if total_blocks/total_layers < budget and epoch > 5:
             args.lasso_alpha*=1.1
-        elif total_blocks//total_layers > budget and epoch > 5:
+        elif total_blocks/total_layers > budget and epoch > 5:
             args.lasso_alpha/=1.1
             
     _logger.info("lasso_alpha:"+str(args.lasso_alpha))

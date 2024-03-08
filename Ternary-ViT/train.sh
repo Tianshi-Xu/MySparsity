@@ -9,7 +9,7 @@
 # CUDA_VISIBLE_DEVICES=4 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_pretrain.yml /home/xts/code/dataset/cifar10 --model pretrain_cifar_cir_nas_mobilenetv2
 
 # normal
-CUDA_VISIBLE_DEVICES=5 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_normal.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
+CUDA_VISIBLE_DEVICES=4 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_normal.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
 
 # finetune
 # CUDA_VISIBLE_DEVICES=7 python finetune_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_finetune.yml /home/xts/code/dataset/cifar10 --model finetune_cifar_cir_nas_mobilenetv2
