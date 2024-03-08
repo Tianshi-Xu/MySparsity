@@ -148,7 +148,6 @@ finetune: True
 blocksize: 2
 log_name: finetune_imagenet_b2
 teacher: pretrain_imagenet_cir_nas_mobilenetv2_fix
-teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
+teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/pretrained/mobilenetv2-c5e733a8.pth
 # resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240225-211247-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
-# resume: "/home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240122-144235-imagenet_cir_mobilenetv2-224/checkpoint-11.pth.tar"
-initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240112-111709-imagenet_mobilenetv2-224/mobilenetv2-c5e733a8.pth
+initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/pretrained/mobilenetv2-c5e733a8.pth
