@@ -15,7 +15,7 @@ cd ./Ternary-ViT/
 bash train_imagenet.sh
 ```
 Change the config file  in ./configs/datasets/imagenet_finetune.yml
-- `Block size`, the block size of circulant matrix, we need to evaluate block size=2/4/8/16
+- `Block size`, the block size of circulant matrix, we need to evaluate block size=2/4/8
 - `lr`, 0.05 is fine, when training with multiple gpus, the `lr` will times by the number of gpus automatically.
 - Change `log_name` to your own name, it will generate a log_name.log file.
 - Change the `teacher_checkpoint`/`initial_checkpoint` to your path.
