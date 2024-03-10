@@ -167,7 +167,8 @@ class CirNasMobileNetV2(nn.Module):
         self.pretrain = pretrain
         self.finetune = finetune
         if input_size == 224:
-                interverted_residual_setting = [
+            self.feature_size = input_size/2
+            interverted_residual_setting = [
                 # t, c, n, s
                 [1, 16, 1, 1],
                 [6, 24, 2, 2],
@@ -210,21 +211,18 @@ class CirNasMobileNetV2(nn.Module):
             self.feature_size = self.feature_size//s
             idx+=1
         # building last several layers
-        self.features.append(conv_1x1_bn(input_channel, self.last_channel))
-        # make it nn.Sequential
         self.features = nn.Sequential(*self.features)
-
+        self.conv = conv_1x1_bn(input_channel, self.last_channel)
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         # building classifier
-        self.classifier = nn.Sequential(
-            nn.Dropout(0.2),
-            nn.Linear(self.last_channel, n_class),
-        )
-
+        self.classifier = nn.Linear(self.last_channel, n_class)
         self._initialize_weights()
 
     def forward(self, x):
         x = self.features(x)
-        x = x.mean(3).mean(2)
+        x = self.conv(x)
+        x = self.avgpool(x)
+        x = x.view(x.size(0), -1)
         x = self.classifier(x)
         return x
 
