@@ -249,10 +249,7 @@ class CirNasMobileNetV2(nn.Module):
 class CirNasMobileNetV2FixBlockSize(nn.Module):
     def __init__(self, n_class=1000, input_size=224, width_mult=1.0,pretrain=False,finetune=False,block_size=1):
         super(CirNasMobileNetV2FixBlockSize, self).__init__()
-        if n_class == 1000:
-            block = CirNasInvertedResidualFixBlockSize
-        else:
-            block = CirNasInvertedResidual
+        block = CirNasInvertedResidualFixBlockSize
         input_channel = 32
         last_channel = 1280
         self.feature_size = input_size

@@ -8,7 +8,7 @@ sys.path.append("/home/xts/code/pytorch-image-models")
 
 from functools import partial
 from src.mobilenetv2_tiny import mobilenet_tiny
-from src.mobilenetv2_cifar import mobilenet_cifar
+from src.mobilenetv2_cifar import mobilenetv2
 from src.mobilenetv2_imagenet import get_mbv2_imagenet
 from src.efficientnet_lite import build_efficientnet_lite
 from src.efficientnet_lite_cifar import build_efficientnet_lite_cifar
@@ -120,12 +120,12 @@ def cifar10_mobilenetv2_100(pretrained=False, **kwargs):
 
 @register_model
 def cifar10_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_cifar(10,32,1.0)
+    model=mobilenetv2(num_classes=10, width_mult=1.0)
     return model
 
 @register_model
 def cifar100_mobilenetv2(pretrained=False, **kwargs):
-    model=mobilenet_cifar(100,32,1.0)
+    model=mobilenetv2(num_classes=100, width_mult=1.0)
     return model
 
 @register_model
@@ -219,6 +219,11 @@ def finetune_imagenet_cir_nas_mobilenetv2(pretrained=False, **kwargs):
 @register_model
 def finetune_imagenet_cir_nas_mobilenetv2_fix(pretrained=False, **kwargs):
     model=cir_nas_mobilenet_fix(1000,224,1,pretrain=False,finetune=True)
+    return model
+
+@register_model
+def finetune_cifar_cir_nas_mobilenetv2_fix(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet_fix(10,32,1,pretrain=False,finetune=True)
     return model
 
 @register_model

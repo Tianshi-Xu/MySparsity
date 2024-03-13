@@ -954,6 +954,7 @@ def main(args):
 
 # budget: block size on average
 def fix_model_by_budget(model, budget):
+    _logger.info("budget:"+str(budget))
     with torch.no_grad():
         total_blocks = 0
         total_layers = 0

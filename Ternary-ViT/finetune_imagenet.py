@@ -873,7 +873,7 @@ def main(args):
         validate(teacher, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
 
     if args.initial_checkpoint != "":
-        old_state_dict = torch.load(args.initial_checkpoint)
+        old_state_dict = torch.load(args.initial_checkpoint)['state_dict']
         new_state_dict = {}
         # print(model.state_dict().keys())
         # print(old_state_dict.keys())
@@ -882,6 +882,8 @@ def main(args):
             # 如果旧的键在新的模型中存在，那么直接使用旧的值
             if old_key in model.state_dict():
                 new_state_dict[old_key] = old_value
+            else:
+                _logger.info(f"Old key {old_key} not found in new model")
             # 如果旧的键在新的模型中不存在，那么需要找到新的键
         model.load_state_dict(new_state_dict,strict=False)
         _logger.info("Verifying initial model")
@@ -956,49 +958,6 @@ def main(args):
         pass
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
-
-# budget: block size on average
-def fix_model_by_budget(model, budget):
-    with torch.no_grad():
-        total_blocks = 0
-        total_layers = 0
-        layer_info = []
-        for layer in model.modules():
-            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
-                total_blocks +=1
-                total_layers +=1
-                _logger.info(layer.alphas.requires_grad)
-                alphas=layer.get_alphas_after()
-                max_alpha = torch.max(alphas)
-
-                layer_info.append((layer, alphas, max_alpha))
-                _logger.info("alphas:"+str(alphas))
-        _logger.info("total_layers:"+str(total_layers))
-        
-        layer_info.sort(key=lambda x: x[2], reverse=True)
-        for info in layer_info:
-            if total_blocks // total_layers < budget:
-                _logger.info("max_alpha:"+str(info[2]))
-                idx = torch.argmax(info[1])
-                total_blocks += (2 **(idx))-1
-                layer = info[0]
-                layer.hard = True
-            else:
-                break
-        _logger.info("avg block size:"+str(total_blocks//total_layers))     
-        
-        for layer in model.modules():
-            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
-                if not layer.hard:
-                    layer.alphas[0] = 1e10
-                    for idx in range(1,layer.alphas.size(0)):
-                        layer.alphas[idx] = 0
-                    layer.hard = True
-        block_sizes=[]
-        for layer in model.modules():
-            if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
-                block_sizes.append(layer.get_final_block_size())
-        _logger.info("block_size:"+str(block_sizes))
 
 
 def train_one_epoch(
