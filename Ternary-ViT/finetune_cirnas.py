@@ -978,7 +978,7 @@ def fix_model_by_budget(model, budget):
                 idx = torch.argmax(info[1])
                 total_blocks += (2 **(idx))-1
                 layer = info[0]
-                layer.hard = True
+                layer.set_hard()
             else:
                 break
         _logger.info("avg block size:"+str(total_blocks//total_layers))     
@@ -989,7 +989,7 @@ def fix_model_by_budget(model, budget):
                     layer.alphas[0] = 1e10
                     for idx in range(1,layer.alphas.size(0)):
                         layer.alphas[idx] = 0
-                    layer.hard = True
+                    layer.set_hard()
         block_sizes=[]
         for layer in model.modules():
             if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):

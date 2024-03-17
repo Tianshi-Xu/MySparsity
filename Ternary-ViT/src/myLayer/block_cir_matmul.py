@@ -219,6 +219,7 @@ class LearnableCir(nn.Module):
         self.tau = 1.0
         self.hard = False
         self.search_space = []
+        self.dig = None
         search=2
         while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search <= 8192:
             self.search_space.append(search)
@@ -232,6 +233,31 @@ class LearnableCir(nn.Module):
         self.alphas_after = None
         init.kaiming_uniform_(self.weight)
         print("in_features,out_features,kernel_size,feature_size,search_space:",in_features,out_features,kernel_size,feature_size,self.search_space)
+    
+    def get_diagonal(self):
+        if self.dig is not None:
+            return 
+        self.dig = []
+        for idx,block_size in enumerate(self.search_space):
+            q=self.out_features//block_size
+            p=self.in_features//block_size
+            # print(self.weight.shape)
+            tmp = self.weight.view(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
+            tmp = tmp.permute(0,2,1,3,4,5)
+            diag = torch.zeros(q,p,self.kernel_size,self.kernel_size,block_size,block_size)
+            for i in range(block_size):
+                # print("tmp:",tmp.shape)
+                diagonal = tmp.diagonal(offset=i, dim1=2, dim2=3)
+                if i>0:
+                    diagonal2 = tmp.diagonal(offset=-block_size+i, dim1=2, dim2=3)
+                    diagonal = torch.cat((diagonal,diagonal2),dim=4)
+                    print("diagonal:",diagonal.shape)
+                print("diagonal:",diagonal.shape)
+                assert diagonal.shape[4] == block_size
+                diag[:,:,:,:,:,i]=diagonal
+            self.dig.append(diag)
+        return 
+
     
     def trans_to_cir(self):
         search_space = self.search_space
@@ -254,7 +280,7 @@ class LearnableCir(nn.Module):
             q=self.out_features//block_size
             p=self.in_features//block_size
             # print(self.weight.shape)
-            tmp = self.weight.reshape(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
+            tmp = self.weight.view(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
             tmp = tmp.permute(0,2,1,3,4,5)
             # if block_size == 8:
             #     print("---------")
@@ -262,23 +288,62 @@ class LearnableCir(nn.Module):
             #     print("---------")
             # tmp = torch.mean(tmp, dim=3, keepdim=False)
             w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).to(self.weight.device)
-            # print(tmp[0,0,:,0,0])
-            tmp_compress = torch.zeros(q,p,block_size,self.kernel_size,self.kernel_size).to(self.weight.device)
+            # print(tmp[0,0,:,:,0,0])
+            diags = torch.zeros(q,p,self.kernel_size,self.kernel_size,block_size,block_size).to(self.weight.device)
             for i in range(block_size):
                 # print("tmp:",tmp.shape)
                 diagonal = torch.diagonal(tmp, offset=i, dim1=2, dim2=3)
                 if i>0:
                     diagonal2 = torch.diagonal(tmp, offset=-block_size+i, dim1=2, dim2=3)
                     diagonal = torch.cat((diagonal,diagonal2),dim=4)
-                    # print("diagonal:",diagonal.shape)
-                # print("diagonal:",diagonal.shape)
                 assert diagonal.shape[4] == block_size
-                mean_of_diagonals = torch.mean(diagonal, dim=4, keepdim=True)
-                mean_of_diagonals = mean_of_diagonals.permute(0,1,4,2,3)
-                tmp_compress[:,:,i,:,:] = mean_of_diagonals[:,:,0,:,:]
+                diags[:,:,:,:,:,i]=diagonal
+            mean_of_diagonals = torch.mean(diags, dim=4, keepdim=False)
+            mean_of_diagonals = mean_of_diagonals.permute(0,1,4,2,3)
             for i in range(block_size):
-                w[:,:,:,i,:,:] = tmp_compress.roll(shifts=i, dims=2)
+                w[:,:,:,i,:,:] = mean_of_diagonals.roll(shifts=i, dims=2)
             # print(w[0,0,:,:,0,0])
+            w = w.permute(0,2,1,3,4,5)
+            # print(w.shape)
+            w = w.reshape(q*block_size,p*block_size,self.kernel_size,self.kernel_size)
+            weight=weight+alphas_after[idx+1]*w
+            # print("indeed block size:",block_size)
+        return weight
+
+    def trans_to_cir2(self):
+        search_space = self.search_space
+        # print(torch.argmax(self.alphas, dim=-1))
+        if self.fix_block_size!=-1:
+            # print(self.fix_block_size)
+            if 2**len(search_space) < self.fix_block_size:
+                alphas_after=torch.tensor([1 if i==len(search_space) else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            else:
+                alphas_after=torch.tensor([1 if 2**i==self.fix_block_size else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            # print(alphas_after)
+        else:
+            alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        # weight=torch.zeros(self.out_features,self.in_feat*ures, self.kernel_size,self.kernel_size).cuda()
+        weight=alphas_after[0]*self.weight
+        self.get_diagonal()
+        for idx,block_size in enumerate(search_space):
+            if torch.abs(alphas_after[idx+1]) <1e-6:
+                continue
+            # print("block_size:",block_size)
+
+            q=self.out_features//block_size
+            p=self.in_features//block_size
+            w = torch.zeros(q,p,block_size,block_size,self.kernel_size,self.kernel_size).to(self.weight.device)
+            # print(self.weight.shape)
+            diag = self.dig[idx]
+            diag = torch.stack(diag,dim=5)
+            mean_of_diagonals=torch.mean(diag, dim=4, keepdim=False)
+            mean_of_diagonals=mean_of_diagonals.permute(0,1,4,2,3)
+            tmp = self.weight.reshape(q,block_size, p, block_size, self.kernel_size,self.kernel_size)
+            tmp = tmp.permute(0,2,1,3,4,5)
+            print(tmp[0,0,:,:,0,0])
+            for i in range(block_size):
+                w[:,:,:,i,:,:] = mean_of_diagonals.roll(shifts=i, dims=2)
+            print(w[0,0,:,:,0,0])
             w = w.permute(0,2,1,3,4,5)
             # print(w.shape)
             w = w.reshape(q*block_size,p*block_size,self.kernel_size,self.kernel_size)
@@ -576,8 +641,8 @@ def comm(H,W,C,K,b):
 if __name__ == '__main__':
     # 示例用法
     # 输入特征维度为10，输出特征维度为5，块大小为2
-    # layer = LearnableCir(32,64,1,1,8,False).cuda()
-    # layer.trans_to_cir()
+    layer = LearnableCir(32,64,1,1,16,False,False,8).cuda()
+    layer.trans_to_cir()
     # print(comm(32,32,32,32*6,4))
     # logit=torch.tensor([0.2,0.1,0.1,0.6])
     # tau=1.0
@@ -597,8 +662,8 @@ if __name__ == '__main__':
     #                 [1,2,3,0,-1,-2,0,1,2,-1,-2,-3],[-1,-2,-3,1,2,3,0,-1,-2,0,1,2]])
     # y = torch.matmul(w,x.T)
     # print(y)
-    bn = BatchNorm2d(64,block_size=2)
-    print(bn.weight[0:10])
-    x = torch.randn(10,64,16,16)
-    bn(x)
+    # bn = BatchNorm2d(64,block_size=2)
+    # print(bn.weight[0:10])
+    # x = torch.randn(10,64,16,16)
+    # bn(x)
     
