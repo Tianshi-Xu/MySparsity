@@ -1,6 +1,6 @@
 import torch.nn as nn
 import math
-from ..myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
+from ..myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN,BatchNorm2d
 
 def conv_bn(inp, oup, stride):
     return nn.Sequential(
@@ -132,9 +132,10 @@ class CirNasInvertedResidualFixBlockSize(nn.Module):
             self.conv = nn.Sequential(
                 # pw
                 LearnableCir(inp, hidden_dim, 1, 1,feature_size,pretrain,self.finetune,fix_block_size=block_size),
+                BatchNorm2d(hidden_dim,block_size=block_size),
                 # nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(inp, hidden_dim, 1, 1, self.block_size),
-                nn.BatchNorm2d(hidden_dim),
+                # nn.BatchNorm2d(hidden_dim),
                 nn.ReLU6(inplace=True),
                 # dw
                 nn.Conv2d(hidden_dim, hidden_dim, 3, stride, 1, groups=hidden_dim, bias=False),
@@ -142,9 +143,10 @@ class CirNasInvertedResidualFixBlockSize(nn.Module):
                 nn.ReLU6(inplace=True),
                 # pw-linear
                 LearnableCir(hidden_dim, oup, 1, 1,feature_size//stride,pretrain,self.finetune,fix_block_size=block_size),
+                BatchNorm2d(oup,block_size=block_size),
                 # nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
                 # NewBlockCirculantConv(hidden_dim, oup, 1, 1, self.block_size),
-                nn.BatchNorm2d(oup),
+                # nn.BatchNorm2d(oup),
             )
 
     def forward(self, x):

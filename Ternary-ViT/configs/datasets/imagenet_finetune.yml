@@ -82,7 +82,7 @@ opt_betas: null
 opt_eps: null
 output: ''
 patience_epochs: 10
-pin_mem: false
+pin_mem: true
 post_res_bn: false
 pretrained: false
 qmodules: []
@@ -138,16 +138,16 @@ val_split: validation
 validation_batch_size_multiplier: 1
 vflip: 0.0
 warmup_epochs: 5
-warmup_lr: 1e-6
+warmup_lr: 1e-5
 weight_decay: 0.00004
-distributed: true
+distributed: false
 sync_bn: true
-workers: 4
+workers: 8
 pretrain: False
 finetune: True
-blocksize: 2
-log_name: finetune_imagenet_b2
-teacher: pretrain_imagenet_cir_nas_mobilenetv2_fix
+blocksize: 8
+log_name: finetune_imagenet_b8_test
+teacher: imagenet_mobilenetv2
 teacher_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/pretrained/mobilenetv2-c5e733a8.pth
 # resume: /home/xts/code/njeans/MySparsity/Ternary-ViT/output/train/20240225-211247-pretrain_imagenet_cir_nas_mobilenetv2-224/model_best.pth.tar
 initial_checkpoint: /home/xts/code/njeans/MySparsity/Ternary-ViT/pretrained/mobilenetv2-c5e733a8.pth

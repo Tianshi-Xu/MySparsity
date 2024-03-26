@@ -380,7 +380,7 @@ class LearnableCir(nn.Module):
 class LearnableCirBN(nn.Module):
     # (feature_size*feature_size,in_features) * (in_features,out_features)-->(m,n)*(n,k)
     # feature_size*feature_size*block_size<=4096
-    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False):
+    def __init__(self, in_features, out_features, kernel_size, stride,feature_size,pretrain,finetune=False,fix_block_size=-1):
         super(LearnableCirBN, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
@@ -389,6 +389,7 @@ class LearnableCirBN(nn.Module):
         self.feature_size = feature_size
         self.pretrain = pretrain
         self.finetune = finetune
+        self.fix_block_size = fix_block_size
         # print("finetune:",self.finetune)
         self.padding = kernel_size//2
         self.tau = 1.0
@@ -411,7 +412,15 @@ class LearnableCirBN(nn.Module):
     
     def trans_to_cir(self):
         search_space = self.search_space
-        alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
+        if self.fix_block_size!=-1:
+            # print(self.fix_block_size)
+            if 2**len(search_space) < self.fix_block_size:
+                alphas_after=torch.tensor([1 if i==len(search_space) else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            else:
+                alphas_after=torch.tensor([1 if 2**i==self.fix_block_size else 0 for i in range(self.alphas.shape[-1])]).to(self.weight.device)
+            # print(alphas_after)
+        else:
+            alphas_after = gumbel_softmax(logits=self.alphas,tau=self.tau,hard=self.hard,dim=-1,finetune=self.finetune)
         # weight=torch.zeros(self.out_features,self.in_features, self.kernel_size,self.kernel_size).cuda()
         weight=alphas_after[0]*self.weight
         for idx,block_size in enumerate(search_space):
@@ -543,8 +552,9 @@ class BatchNorm2d(nn.BatchNorm2d):
     
     def forward(self, input):
         self._check_input_dim(input)
-        
-        tmp = self.weight.reshape(-1,self.block_size)
+        # print("numfeatures:",self.num_features)
+        # print("block_size:",self.block_size)
+        tmp = self.weight.reshape(self.num_features//self.block_size,self.block_size)
         tmp = tmp.mean(dim=1,keepdim=True)
         tmp = tmp.repeat(1,self.block_size)
         tmp = tmp.reshape(-1)

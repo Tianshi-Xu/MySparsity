@@ -48,7 +48,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
+from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN,BatchNorm2d
 from src import *
 
 try:
@@ -868,15 +868,22 @@ def main(args):
             if isinstance(layer, LearnableCir):
                 layer.alphas.requires_grad = False
                 layer.fix_block_size = args.blocksize
+            elif isinstance(layer,BatchNorm2d):
+                layer.block_size=args.blocksize
+                _logger.info(f"Block size {layer.block_size}")
+                
     if args.use_kd:
         _logger.info("Verifying teacher model")
         validate(teacher, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
 
     if args.initial_checkpoint != "":
-        old_state_dict = torch.load(args.initial_checkpoint)['state_dict']
+        
+        old_state_dict = torch.load(args.initial_checkpoint)
+        if 'state_dict' in old_state_dict:
+            old_state_dict = old_state_dict['state_dict']
         new_state_dict = {}
-        # print(model.state_dict().keys())
-        # print(old_state_dict.keys())
+        # _logger.info(model.state_dict().keys())
+        # _logger.info(old_state_dict.keys())
         # print(old_state_dict["conv.0.weight"].shape)
         for old_key, old_value in old_state_dict.items():
             # 如果旧的键在新的模型中存在，那么直接使用旧的值
