@@ -23,6 +23,6 @@
 # finetune_fix
 # CUDA_VISIBLE_DEVICES=4 python finetune_imagenet.py -c ./configs/datasets/cifar_fix_finetune.yml /home/xts/code/dataset/cifar10 --model finetune_cifar_cir_nas_mobilenetv2_fix
 
-CUDA_VISIBLE_DEVICES=2 python train.py -c ./configs/datasets/cifar100.yml /home/xts/code/dataset/cifar100/ --model cifar100_mobilenetv2
+# CUDA_VISIBLE_DEVICES=2 python train.py -c ./configs/datasets/cifar100.yml /home/xts/code/dataset/cifar100/ --model cifar100_mobilenetv2
 
-# CUDA_VISIBLE_DEVICES=2 python train_cirnas.py -c ./configs/datasets/cifar10_kd_nas_mbv2_normal.yml /home/xts/code/dataset/cifar10 --model cifar_cir_nas_mobilenetv2
+CUDA_VISIBLE_DEVICES=3 python train_cirnas.py -c ./configs/datasets/tiny_kd_nas_mbv2_normal.yml /home/xts/code/dataset/tiny-imagenet-200/ --model tiny_cir_nas_mobilenetv2

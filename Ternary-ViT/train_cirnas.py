@@ -641,6 +641,7 @@ def main(args):
     if args.replace_relu:
         model = replace_relu_by_prelu(model)
     model = get_qat_model(model, args)
+    # _logger.info(f"Model {model}")
     if args.initial_checkpoint != "":
         incompatible_keys = load_checkpoint(model, args.initial_checkpoint, strict=False)
     
@@ -998,9 +999,10 @@ def train_one_epoch(
             reg_loss = 0
             def cal_rot(n,m,d1,d2,b):
                 min_rot = 1e8
-                for ri in range(1,d2+1):
-                    for ro in range(1,d2+1):
-                        if ri*ro<min(n/m/b,d2/b) or ri*ro>d2/b:
+                low = min(n/m/b,d1/b,d2/b)
+                for ri in range(1,max(d1+1,d2+1)):
+                    for ro in range(1,max(d1+1,d2+1)):
+                        if ri*ro<low or ri*ro>d2/b or ri*ro>d1/b or ri*ro>n/m/b:
                             continue
                         tmp=m*d1*(ri-1)/n+m*d2*(ro-1)/n
                         if tmp<min_rot:
