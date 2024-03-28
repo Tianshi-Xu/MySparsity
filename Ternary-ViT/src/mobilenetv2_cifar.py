@@ -116,7 +116,7 @@ class MobileNetV2(nn.Module):
             ]
         # building first layer
         input_channel = _make_divisible(32 * width_mult, 4 if width_mult == 0.1 else 8)
-        if num_classes != 10:
+        if num_classes != 10 and num_classes != 100:
             layers = [conv_3x3_bn(3, input_channel, 2)]
         else:
             layers = [conv_3x3_bn(3, input_channel, 1)]

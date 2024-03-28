@@ -958,7 +958,7 @@ def main(args):
 def train_one_epoch(
         epoch, model, loader, optimizer, loss_fn, args,
         lr_scheduler=None, saver=None, output_dir=None, amp_autocast=suppress,
-        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False,tau=-0.00125,budget=4):
+        loss_scaler=None, model_ema=None, mixup_fn=None, teacher=None,loss_fn_kd=None,pretrain=False,finetune=False,tau=1.0,budget=4):
     if args.mixup_off_epoch and epoch >= args.mixup_off_epoch:
         if args.prefetcher and loader.mixup_enabled:
             loader.mixup_enabled = False
@@ -999,21 +999,21 @@ def train_one_epoch(
             reg_loss = 0
             def cal_rot(n,m,d1,d2,b):
                 min_rot = 1e8
-                low = min(n/m/b,d1/b,d2/b)
-                for ri in range(1,max(d1+1,d2+1)):
-                    for ro in range(1,max(d1+1,d2+1)):
-                        if ri*ro<low or ri*ro>d2/b or ri*ro>d1/b or ri*ro>n/m/b:
+                d_min = min(d2/b,d1/b)
+                for ri in range(1,d_min):
+                    for ro in range(1,d_min):
+                        d=ri*ro
+                        m_p=n/b/d
+                        if d>d_min or d*d>(n/b/b) or m_p>m:
                             continue
-                        tmp=m*d1*(ri-1)/n+m*d2*(ro-1)/n
+                        tmp=m*d1/(m_p*b*d)*(ri-1)+m*d2/(m_p*b*d)*(ro-1)
                         if tmp<min_rot:
                             min_rot=tmp
-                            # print("ri:",ri,"ro:",ro,"tmp:",tmp)
-                # print("n,m,d1,d2,b,min_rot:",n,m,d1,d2,b,min_rot)
                 return min_rot
             def comm(H,W,C,K,b):
                 # print("H,W,C,K,b:",H,W,C,K,b)
                 N=8192
-                return torch.tensor(cal_rot(N,H*W,C,K,b)+0.0238*(H*W*C*K)/(N*b))
+                return torch.tensor(cal_rot(N,H*W,C,K,b)+0.0935*(H*W*C*K)/(N*b))
             if not pretrain:
                 for layer in model.modules():
                     if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):

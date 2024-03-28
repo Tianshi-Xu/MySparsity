@@ -197,6 +197,11 @@ def cifar_cir_nas_mobilenetv2(pretrained=False, **kwargs):
     return model
 
 @register_model
+def cifar_cir100_nas_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet(100,32,1,pretrain=False,finetune=False)
+    return model
+
+@register_model
 def tiny_cir_nas_mobilenetv2(pretrained=False, **kwargs):
     model=cir_nas_mobilenet(200,64,1,pretrain=False,finetune=False)
     return model
