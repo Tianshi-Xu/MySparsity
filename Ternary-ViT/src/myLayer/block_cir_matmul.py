@@ -221,7 +221,7 @@ class LearnableCir(nn.Module):
         self.search_space = []
         self.dig = None
         search=2
-        while search<=16 and in_features %search ==0 and out_features %search ==0:
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search<=8192:
             self.search_space.append(search)
             search *= 2
         if pretrain or finetune:
@@ -356,7 +356,7 @@ class LearnableCir(nn.Module):
     
     def set_hard(self):
         self.hard = True
-        self.batchNorm.block_size = self.get_final_block_size()
+        # self.batchNorm.block_size = self.get_final_block_size()
         
     def set_tau(self,tau):
         self.tau = tau
@@ -397,7 +397,7 @@ class LearnableCirBN(nn.Module):
         self.search_space = []
         self.batchNorm = BatchNorm2d(out_features,block_size=1)
         search=2
-        while search<=16 and in_features %search ==0 and out_features %search ==0:
+        while search<=16 and in_features %search ==0 and out_features %search ==0 and feature_size*feature_size*search<=8192:
             self.search_space.append(search)
             search *= 2
         if pretrain or finetune:
@@ -546,6 +546,9 @@ class BatchNorm2d(nn.BatchNorm2d):
             self.eps,
         )
 
+    def __str__(self):
+        additional_info = "block_size: " + str(self.block_size)
+        return super(BatchNorm2d, self).__str__() + "\n" + additional_info
     
 def gumbel_softmax(logits: torch.Tensor, tau: float = 1, hard: bool = False, dim: int = -1,finetune=False) -> torch.Tensor:
     # _gumbels = (-torch.empty_like(
@@ -594,7 +597,7 @@ def comm(H,W,C,K,b):
 if __name__ == '__main__':
     # 示例用法
     # 输入特征维度为10，输出特征维度为5，块大小为2
-    layer = LearnableCir(32,64,1,1,16,False,False,8).cuda()
+    layer = LearnableCir(32,64,1,1,16,False,False,4).cuda()
     layer.trans_to_cir()
     # print(comm(32,32,32,32*6,4))
     # logit=torch.tensor([0.2,0.1,0.1,0.6])

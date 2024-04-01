@@ -221,3 +221,8 @@ def finetune_imagenet_cir_nas_mobilenetv2(pretrained=False, **kwargs):
     model=cir_nas_mobilenet(1000,224,1,pretrain=False,finetune=True)
     return model
 
+
+@register_model
+def finetune_cir100_nas_mobilenetv2(pretrained=False, **kwargs):
+    model=cir_nas_mobilenet(100,32,1,pretrain=False,finetune=True)
+    return model

@@ -998,17 +998,24 @@ def train_one_epoch(
                 loss = loss_fn(output, target)
             reg_loss = 0
             def cal_rot(n,m,d1,d2,b):
+                # print("m,n,d1,d2,b:",m,n,d1,d2,b)
                 min_rot = 1e8
-                d_min = min(d2/b,d1/b)
-                for ri in range(1,d_min):
-                    for ro in range(1,d_min):
-                        d=ri*ro
-                        m_p=n/b/d
-                        if d>d_min or d*d>(n/b/b) or m_p>m:
+                d_min = int(min(d2/b,d1/b))
+                for ri in range(1,(d_min)+1):
+                    for ro in range(1,(d_min)+1):
+                        d=int(ri*ro)
+                        m_p=int(n/b/d)
+                        if m*d_min<n:
+                            if d!=d_min:
+                                continue
+                            m_p=m
+                        if d>d_min or m_p>m:
                             continue
-                        tmp=m*d1/(m_p*b*d)*(ri-1)+m*d2/(m_p*b*d)*(ro-1)
+                        tmp=m*d1*(ri-1)/(m_p*b*d)+m*d2*(ro-1)/(m_p*b*d)
                         if tmp<min_rot:
                             min_rot=tmp
+                            # print("ri,ro,d,m_p",ri,ro,d,m_p)
+                # print(min_rot)
                 return min_rot
             def comm(H,W,C,K,b):
                 # print("H,W,C,K,b:",H,W,C,K,b)
@@ -1112,10 +1119,8 @@ def train_one_epoch(
                     layer.set_tau(layer.tau*tau)
                     _logger.info("tau:"+str(layer.tau))
                     
-        if total_blocks/total_layers < budget and epoch > 5:
+        if total_blocks/total_layers < budget and epoch > 5 and epoch%2==0:
             args.lasso_alpha*=1.1
-        elif total_blocks/total_layers > budget and epoch > 5:
-            args.lasso_alpha/=1.1
             
     _logger.info("lasso_alpha:"+str(args.lasso_alpha))
         

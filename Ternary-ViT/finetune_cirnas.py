@@ -48,7 +48,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
-from src.myLayer.block_cir_matmul import NewBlockCirculantConv,LearnableCir,LearnableCirBN
+from src.myLayer.block_cir_matmul import LearnableCir,LearnableCirBN,BatchNorm2d
 from src import *
 
 try:
@@ -994,6 +994,9 @@ def fix_model_by_budget(model, budget):
         for layer in model.modules():
             if isinstance(layer, LearnableCir) or isinstance(layer,LearnableCirBN):
                 block_sizes.append(layer.get_final_block_size())
+            elif isinstance(layer,BatchNorm2d):
+                layer.block_size = block_sizes[-1]
+                _logger.info(str(layer))
         _logger.info("block_size:"+str(block_sizes))
 
 
